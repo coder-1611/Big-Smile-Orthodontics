@@ -2556,6 +2556,57 @@ main li a:hover {
   color: var(--color-white);
 }
 
+/* ---- Grid utility classes (replacing inline styles) ---- */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.grid-2col-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.grid-2col-contact {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.grid-2col-team {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.grid-2col-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.grid-2col-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.grid-3col-badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 /* ---- Max 1024px (Tablet and below) ---- */
 @media (max-width: 1024px) {
   .nav__links {
@@ -2599,6 +2650,37 @@ main li a:hover {
 
   .hero__video-overlay {
     background: rgba(0, 30, 60, 0.7);
+  }
+
+  /* Collapse inline 2-col grids on tablet */
+  .grid-2col {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+
+  .grid-2col img {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .grid-2col-contact {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .grid-2col-team {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+
+  .grid-2col-cards {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .grid-3col-badges {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .difference__grid {
@@ -2763,6 +2845,49 @@ main li a:hover {
     max-width: 300px;
   }
 
+  /* Hero video mobile - center and darken overlay */
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero__video-overlay {
+    background: rgba(0, 30, 60, 0.8);
+  }
+
+  .hero__title {
+    font-size: var(--text-3xl);
+  }
+
+  .hero__subtitle {
+    font-size: var(--text-sm);
+  }
+
+  .hero__seal {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+
+  .hero__seal img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hero__seal-text {
+    font-size: var(--text-sm);
+  }
+
+  /* Gallery grid - single column on mobile */
+  .grid-2col-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  /* Form fields stack */
+  .grid-2col-form {
+    grid-template-columns: 1fr;
+  }
+
   .trust-bar__grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
@@ -2776,6 +2901,36 @@ main li a:hover {
 
   .trust-bar__icon {
     margin-bottom: 0;
+  }
+
+  .trust-bar__stars {
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  .grid-3col-badges {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* Page hero mobile */
+  .page-hero {
+    padding: calc(var(--nav-height) + var(--space-xl)) 0 var(--space-xl);
+  }
+
+  .page-hero h1 {
+    font-size: var(--text-2xl);
+  }
+
+  .page-hero p {
+    font-size: var(--text-sm);
+  }
+
+  /* Service page images */
+  .grid-2col img {
+    border-radius: var(--radius-lg) !important;
+    max-width: 100%;
   }
 
   .difference__grid {
@@ -3565,7 +3720,7 @@ main li a:hover {
     <!-- Traditional Braces -->
     <section class="section" id="braces">
       <div class="container">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3xl); align-items:center;">
+        <div class="grid-2col">
           <div data-animate="slide-left">
             <h2>Traditional Braces</h2>
             <span class="section-label">Most Popular</span>
@@ -3583,7 +3738,7 @@ main li a:hover {
     <!-- Clear/Ceramic Braces -->
     <section class="section section--light" id="ceramic">
       <div class="container">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3xl); align-items:center;">
+        <div class="grid-2col">
           <div data-animate="slide-left">
             <img src="assets/images/for-patients-5.webp" alt="Clear ceramic braces" style="width:100%; border-radius:var(--radius-xl); box-shadow:var(--shadow-lg);" width="500" height="380">
           </div>
@@ -3601,7 +3756,7 @@ main li a:hover {
     <!-- Invisalign -->
     <section class="section" id="invisalign">
       <div class="container">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3xl); align-items:center;">
+        <div class="grid-2col">
           <div data-animate="slide-left">
             <h2>Invisalign Clear Aligners</h2>
             <span class="section-label">Clear Aligners</span>
@@ -3733,7 +3888,7 @@ main li a:hover {
           <span class="section-label">Education & Credentials</span>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-xl); max-width: 900px; margin: 0 auto;" data-animate="stagger">
+        <div class="grid-2col-cards" data-animate="stagger">
           <div class="card">
             <div class="card__icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 4 3 6 3s6-2 6-3v-5"/></svg>
@@ -3773,7 +3928,7 @@ main li a:hover {
           <h2>Professional Memberships</h2>
           <span class="section-label">Affiliations</span>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); max-width: 800px; margin: 0 auto;" data-animate="stagger">
+        <div class="grid-3col-badges" data-animate="stagger">
           <div style="background: var(--color-light); padding: var(--space-lg); border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); font-weight: 500; color: var(--color-dark);">American Association of Orthodontists</div>
           <div style="background: var(--color-light); padding: var(--space-lg); border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); font-weight: 500; color: var(--color-dark);">Southwestern Society of Orthodontists</div>
           <div style="background: var(--color-light); padding: var(--space-lg); border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); font-weight: 500; color: var(--color-dark);">Texas Dental Association</div>
@@ -3860,7 +4015,7 @@ main li a:hover {
     <!-- Team Members -->
     <section class="section section--light">
       <div class="container">
-        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-xl); max-width:1000px; margin:0 auto;" data-animate="stagger">
+        <div class="grid-2col-team" data-animate="stagger">
 
           <!-- Kimberly -->
           <div class="card" style="text-align:center;">
@@ -3943,7 +4098,7 @@ main li a:hover {
     <!-- Gallery Grid -->
     <section class="section section--light" style="padding-top:0;">
       <div class="container">
-        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--space-xl);" data-animate="stagger">
+        <div class="grid-2col-gallery" data-animate="stagger">
 
           <div class="cases__item">
             <img src="assets/images/index-case-1.png" alt="Before and after orthodontic treatment - crowded teeth correction" width="555" height="397" loading="lazy">
@@ -4330,7 +4485,7 @@ main li a:hover {
     <!-- Contact Section -->
     <section class="section">
       <div class="container">
-        <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:var(--space-3xl); align-items:start;">
+        <div class="grid-2col-contact">
 
           <!-- Contact Form -->
           <div data-animate="slide-left">
@@ -4338,7 +4493,7 @@ main li a:hover {
             <p style="margin-bottom:var(--space-xl);">Schedule a consultation and start your orthodontic journey. Call or email to speak with our team about your initial consultation with Dr. Asrar.</p>
 
             <form id="contactForm" style="display:flex; flex-direction:column; gap:var(--space-md);">
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-md);">
+              <div class="grid-2col-form">
                 <div>
                   <label for="fname" style="display:block; font-size:var(--text-sm); font-weight:500; margin-bottom:var(--space-xs); color:var(--color-dark);">First Name *</label>
                   <input type="text" id="fname" name="fname" required style="width:100%; padding:0.75rem 1rem; border:1px solid rgba(0,119,182,0.2); border-radius:var(--radius-md); font-size:var(--text-base); transition:border-color var(--transition-fast);">
