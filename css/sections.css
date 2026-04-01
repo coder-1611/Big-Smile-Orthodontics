@@ -493,9 +493,8 @@
 .cases__item img {
   width: 100%;
   display: block;
-  aspect-ratio: 555 / 397;
-  object-fit: contain;
-  background: var(--color-light);
+  aspect-ratio: 555 / 210;
+  object-fit: cover;
 }
 
 /* ---- Technology ---- */
