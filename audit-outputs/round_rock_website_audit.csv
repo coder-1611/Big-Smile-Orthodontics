@@ -1,0 +1,21 @@
+business_name,category,address,phone,website_url,total_score,mobile_score,design_score,performance_score,content_score,ssl_score,seo_score,top_issues,improvement_suggestions
+"Ray CPA, P.C.","Accountant","3000 Joe DiMaggio Blvd.; Suite 91; Round Rock; TX 78665","(512)786-2052","https://www.theroundrockcpa.com/",14,1,1,2,4,4,2,"No viewport meta tag; Cufon fonts deprecated ~2012; jQuery Nivo Slider + Superfish menus","Add viewport meta tag"
+"Round Rock Landscaping","Landscaping","5600
+LAWN SERVICE ROUND ROCK
+We prove the best lawn care in Round Rock and promise to keep your yard","(512) 379-5600","https://www.roundrocklandscaping.net/",16,3,2,1,4,4,2,"Mustache template variables visible ({{#id}}; {{{title_html}}}); Massive inline CSS; Weebly platform","Reduce page weight; Remove template artifacts"
+"Custom Sewing by June","Tailor","","512.388.0003","https://www.customsewingbyjune.com/",16,2,2,4,3,3,2,"Typo: "Alternations" should be "Alterations"; Empty "Latest Blog Posts" section; No physical address listed; No business hours listed; Typo: "Alternations" instead of "Alterations" (3x); No meta description; Missing image alt text","Add meta description; Add image alt text; Fix typos"
+"Round Rock Locksmith","Locksmith","2551 N Mays St; Round Rock; TX 78665","512-537-4304","https://roundrock-locksmith.com/",17,2,2,2,5,3,3,"No viewport meta tag; Phone mismatch: 469 area code in schema vs 512 in footer; Float-based layouts","Add viewport meta tag"
+"Locker Room Haircuts","Barbershop","635 University Blvd; Round Rock; TX 78665","(512) 401-3349","https://lockerroomatx.com/",17,2,2,2,4,5,2,"No viewport meta tag; 4 Google Analytics implementations; jQuery-based responsive design","Add viewport meta tag"
+"Adair & Sons Automotive","Auto Repair","1001 Sam Bass Rd; Round Rock; TX 78681","(512) 255-2022","https://www.adairandsons.com/",18,3,3,1,5,4,2,"100+ @font-face declarations; NitroPack optimization overhead; No meta description visible","Add meta description"
+"Allstate Plumbing Heat & Air","Plumber","16800 Radholme Ct","512.990.8600","https://www.allstate-plumbing.com/",18,4,3,1,4,4,2,"Extreme page bloat (Elementor + WP Rocket); No contact info in raw HTML; ~250KB+ embedded CSS","Reduce page weight"
+"S2 Fitness Studio","Gym","17420 Ranch to Market Rd 620 #180; Round Rock; TX 78681","(737) 291-7096","https://www.s2fitnessstudio.com/",19,3,3,3,4,4,2,"Lovable.dev development badge visible in production; Lovable.dev development badge visible; No meta description; No heading hierarchy visible","Add meta description"
+"The Garage Gym","Gym","3918 Gattis School Road; Ste #102; Round Rock; TX 78664","(512) 710-7188","https://thegaragegym.club/",19,4,3,2,4,4,2,"1x1 GIF placeholder images for trainers; Duplicate trainer entry (Christopher Haskin 2x); No meta description","Add meta description; Remove template artifacts"
+"Next Thread Alterations","Tailor","602 McNeil Road #116; Round Rock; TX 78681","(614) 330-1879","https://nextthreadalterations.com/",20,4,3,2,5,4,2,"Template instruction text visible: "Click to edit..."; Template instruction text visible: "Click to edit and tell visitors..."; Placeholder image alt: "image477"; No meta description","Add meta description; Remove template artifacts"
+"Nelly Be Fading","Barbershop","201 University Oaks Blvd; Suite 13; Round Rock; TX 78665","(512) 402-3640","https://www.barbershoproundrock.com/",20,3,3,3,5,4,2,"No viewport meta tag visible; No title tag visible; No meta description","Add viewport meta tag; Add meta description"
+"Purr-fect Pets Grooming","Pet Groomer","3701 Gattis School Rd","512-910-2526","https://purr-fect-pets-round-rock.com/",20,4,3,1,5,4,3,"~200KB inline CSS (Divi theme); No contact info in raw HTML; Missing image alt text","Add image alt text; Reduce page weight"
+"Round Rock Barber Shop","Barbershop","301 North Mays Street","512-291-3142","https://www.roundrockbarbershop.com/",21,4,2,3,5,5,2,"Placeholder: San Francisco address; Placeholder: (555) 555-5555 phone; Placeholder: hi@mystore.com email","Remove template artifacts"
+"Jean's Cleaning Service","Cleaning","7477
+
+Home
+About
+Contact","512-696-7477","https://www.jeanscleaningservice.com/",22,4,3,3,5,5,2,"Wix template — zero business content in raw HTML; No title tag visible; No meta description","Add meta description; Remove template artifacts"
