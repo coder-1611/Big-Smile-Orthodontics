@@ -1,0 +1,5344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Smile Orthodontics | Round Rock Orthodontist | Braces & Invisalign</title>
+  <meta name="description" content="Top-rated orthodontist in Round Rock, TX. Dr. Saba Asrar offers braces, Invisalign & more. 300+ 5-star reviews. $1,000 off — schedule your free consultation!">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "Big Smile Orthodontics",
+    "image": "https://www.bigsmileorthodontics.com/assets/images/logo.png",
+    "url": "https://www.bigsmileorthodontics.com/",
+    "telephone": "+1-512-828-7900",
+    "email": "info@bigsmileorthodontics.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1025 Sendero Springs Dr Suite 110",
+      "addressLocality": "Round Rock",
+      "addressRegion": "TX",
+      "postalCode": "78681",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.5500079,
+      "longitude": -97.7372897
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "300"
+    },
+    "areaServed": ["Round Rock, TX", "Cedar Park, TX", "Georgetown, TX", "North Austin, TX"],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "08:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "08:30", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "08:30", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "17:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "18:00" }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/BigSmileOrtho/",
+      "https://www.instagram.com/bsosmilebig/"
+    ]
+  }
+  </script>
+
+  <style>
+/* === css/variables.css === */
+/* ============================================
+   Big Smile Orthodontics — Design Tokens
+   ============================================ */
+
+:root {
+  /* Colors */
+  --color-primary: #0077B6;
+  --color-primary-dark: #005A8C;
+  --color-primary-light: #48CAE4;
+  --color-accent: #00B4D8;
+  --color-warm: #F9A825;
+  --color-warm-light: #FFF3CD;
+  --color-dark: #1B2A4A;
+  --color-body: #4A5568;
+  --color-light: #F0F7FA;
+  --color-white: #FFFFFF;
+  --color-success: #38B2AC;
+  --color-error: #E53E3E;
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #1B2A4A 0%, #0077B6 100%);
+  --gradient-cta: linear-gradient(135deg, #0077B6 0%, #00B4D8 100%);
+  --gradient-card: linear-gradient(180deg, rgba(0, 119, 182, 0.03) 0%, rgba(0, 180, 216, 0.06) 100%);
+
+  /* Typography */
+  --font-heading: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Font Sizes (fluid) */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.25vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.5rem + 2vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.25rem);
+  --text-5xl: clamp(2.75rem, 2rem + 3.5vw, 4rem);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 50%;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(27, 42, 74, 0.06), 0 1px 2px rgba(27, 42, 74, 0.04);
+  --shadow-md: 0 4px 16px rgba(27, 42, 74, 0.08);
+  --shadow-lg: 0 10px 40px rgba(27, 42, 74, 0.12);
+  --shadow-xl: 0 20px 60px rgba(27, 42, 74, 0.16);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --max-width: 1200px;
+  --nav-height: 80px;
+}
+
+
+/* === css/base.css === */
+/* ============================================
+   Base Styles — Reset & Global
+   ============================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-body);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  animation: pageEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Fade-out class added by JS before navigating */
+body.is-leaving {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.22s ease-in, transform 0.22s ease-in;
+  pointer-events: none;
+}
+
+/* ---- Page Hero (secondary pages) ---- */
+.page-hero {
+  background: var(--gradient-hero);
+  padding: calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-3xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero--about {
+  background: linear-gradient(135deg, #1B2A4A 0%, #005A8C 50%, #0077B6 100%);
+}
+
+.page-hero--services {
+  background: linear-gradient(135deg, #0077B6 0%, #00B4D8 100%);
+}
+
+.page-hero--patients {
+  background: linear-gradient(135deg, #1B2A4A 0%, #38B2AC 100%);
+}
+
+.page-hero--contact {
+  background: linear-gradient(135deg, #005A8C 0%, #48CAE4 100%);
+}
+
+.page-hero--gallery {
+  background: linear-gradient(135deg, #1B2A4A 0%, #0077B6 60%, #48CAE4 100%);
+}
+
+.page-hero--team {
+  background: linear-gradient(135deg, #0077B6 0%, #1B2A4A 100%);
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -120px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(72, 202, 228, 0.08);
+  pointer-events: none;
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(0, 119, 182, 0.06);
+  pointer-events: none;
+}
+
+/* Breadcrumb */
+.page-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-sm);
+  animation: heroTextIn 0.5s ease-out 0s both;
+}
+
+.page-hero__breadcrumb a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.page-hero__breadcrumb a:hover {
+  color: var(--color-white);
+}
+
+.page-hero__breadcrumb .separator {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.7em;
+}
+
+.page-hero__breadcrumb .current {
+  color: var(--color-primary-light);
+  font-weight: 500;
+}
+
+/* Page-specific icon */
+.page-hero__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  margin: 0 auto var(--space-lg);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: heroIconIn 0.6s ease-out 0.05s both;
+}
+
+.page-hero__icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--color-primary-light);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Staggered text entrance on page heroes */
+.page-hero h1 {
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+  animation: heroTextIn 0.55s ease-out 0.12s both;
+}
+
+.page-hero p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--text-lg);
+  max-width: 600px;
+  margin: 0 auto;
+  animation: heroTextIn 0.55s ease-out 0.22s both;
+}
+
+.page-hero .hero__label {
+  animation: heroTextIn 0.55s ease-out 0.05s both;
+}
+
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes heroIconIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-dark);
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.section {
+  padding: var(--space-4xl) 0;
+}
+
+.section--light {
+  background-color: var(--color-light);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--color-body);
+  opacity: 0.7;
+  margin-bottom: var(--space-lg);
+}
+
+.section-title {
+  margin-bottom: var(--space-xs);
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--color-body);
+  max-width: 600px;
+  margin-bottom: var(--space-2xl);
+}
+
+.section-subtitle.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-white);
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Animation base states */
+[data-animate] {
+  opacity: 0;
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+[data-animate="fade-up"] {
+  transform: translateY(30px);
+}
+
+[data-animate="fade-in"] {
+  transform: none;
+}
+
+[data-animate="slide-left"] {
+  transform: translateX(-40px);
+}
+
+[data-animate="slide-right"] {
+  transform: translateX(40px);
+}
+
+[data-animate="scale-in"] {
+  transform: scale(0.92);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger children */
+[data-animate="stagger"] {
+  opacity: 1;
+  transform: none;
+}
+
+[data-animate="stagger"] > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-animate="stagger"].is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+[data-animate="stagger"].is-visible > *:nth-child(1) { transition-delay: 0s; }
+[data-animate="stagger"].is-visible > *:nth-child(2) { transition-delay: 0.08s; }
+[data-animate="stagger"].is-visible > *:nth-child(3) { transition-delay: 0.16s; }
+[data-animate="stagger"].is-visible > *:nth-child(4) { transition-delay: 0.24s; }
+[data-animate="stagger"].is-visible > *:nth-child(5) { transition-delay: 0.32s; }
+[data-animate="stagger"].is-visible > *:nth-child(6) { transition-delay: 0.4s; }
+[data-animate="stagger"].is-visible > *:nth-child(7) { transition-delay: 0.48s; }
+
+/* ============================================
+   Micro-Interactions — Premium Feel
+   ============================================ */
+
+/* ---- Scroll Progress Bar ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary-light));
+  z-index: 10000;
+  transition: width 0.1s linear;
+  pointer-events: none;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 8px rgba(0, 180, 216, 0.4);
+}
+
+/* ---- Back to Top Button ---- */
+.back-to-top {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  color: var(--color-primary);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 997;
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 119, 182, 0.35);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---- Button Ripple ---- */
+.btn--primary,
+.btn--accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%) scale(0);
+  animation: rippleOut 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes rippleOut {
+  to {
+    transform: translate(-50%, -50%) scale(60);
+    opacity: 0;
+  }
+}
+
+/* ---- Image Reveal Wipe ---- */
+.img-reveal-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+.img-reveal-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary);
+  transform: scaleX(1);
+  transform-origin: right;
+  transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1) 0.1s;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.img-reveal-wrap.img-revealed::after {
+  transform: scaleX(0);
+}
+
+.img-reveal-wrap img {
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+  transform: scale(1.15);
+}
+
+.img-reveal-wrap.img-revealed img {
+  transform: scale(1);
+}
+
+/* ---- Section Label Shimmer ---- */
+.hero__label {
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes labelShimmer {
+  0% {
+    background-image: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary) 100%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-text-fill-color: transparent;
+  }
+  40% {
+    background-image: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 50%, var(--color-primary) 100%);
+    background-position: -100% 0;
+    -webkit-text-fill-color: transparent;
+  }
+  100% {
+    -webkit-text-fill-color: currentColor;
+    background-image: none;
+  }
+}
+
+/* ---- Parallax Custom Property ---- */
+.page-hero::before,
+.page-hero::after {
+  transform: translateY(var(--parallax-y, 0));
+  transition: transform 0.1s linear;
+}
+
+.cta-band__bg-shape {
+  transform: translateY(var(--parallax-y, 0));
+}
+
+/* ---- Active Section Highlight in Nav ---- */
+.nav__link--viewing {
+  color: var(--color-primary) !important;
+}
+
+/* ---- Testimonial Card Hover Glow ---- */
+.testimonial-card {
+  transition: all var(--transition-base);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 119, 182, 0.12);
+}
+
+/* ---- Footer Social Hover Spin ---- */
+.footer__social a:hover svg {
+  animation: socialPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes socialPop {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(-8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ---- Dropdown Menu Enhanced ---- */
+.nav__dropdown-menu {
+  transform-origin: top center;
+}
+
+.nav__dropdown-link {
+  position: relative;
+}
+
+.nav__dropdown-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-primary);
+  border-radius: 0 2px 2px 0;
+  transform: scaleY(0);
+  transition: transform 0.2s ease;
+}
+
+.nav__dropdown-link:hover::before {
+  transform: scaleY(1);
+}
+
+
+/* ---- CTA Band Floating Shapes Animation ---- */
+.cta-band__bg-shape--1 {
+  animation: floatShape 8s ease-in-out infinite;
+}
+
+.cta-band__bg-shape--2 {
+  animation: floatShape 6s ease-in-out infinite reverse;
+}
+
+@keyframes floatShape {
+  0%, 100% { transform: translateY(var(--parallax-y, 0)) translate(0, 0); }
+  33% { transform: translateY(var(--parallax-y, 0)) translate(10px, -15px); }
+  66% { transform: translateY(var(--parallax-y, 0)) translate(-8px, 8px); }
+}
+
+/* ---- Smooth Link Hover for In-Page Text Links ---- */
+main p a,
+main li a {
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-primary-light), var(--color-primary-light));
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease, color 0.2s ease;
+}
+
+main p a:hover,
+main li a:hover {
+  background-size: 100% 100%;
+  color: var(--color-white);
+  border-radius: 2px;
+}
+
+/* ---- Trust Bar Item Hover ---- */
+.trust-bar__item {
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.trust-bar__item:hover {
+  transform: scale(1.04);
+}
+
+.trust-bar__item:hover .trust-bar__icon {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: rotate(-8deg) scale(1.1);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+/* === css/components.css === */
+/* ============================================
+   Components — Buttons, Cards, Nav, Footer
+   ============================================ */
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 0.875rem 2rem;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 48px;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 4px 14px rgba(0, 119, 182, 0.3);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 119, 182, 0.4);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-white);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.btn--outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  border-color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.btn--outline-dark {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn--outline-dark:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.btn--accent {
+  background: var(--gradient-cta);
+  color: var(--color-white);
+  box-shadow: 0 4px 14px rgba(0, 180, 216, 0.3);
+}
+
+.btn--accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+  color: var(--color-white);
+}
+
+.btn--warm {
+  background: var(--color-warm);
+  color: var(--color-dark);
+  box-shadow: 0 4px 14px rgba(249, 168, 37, 0.3);
+}
+
+.btn--warm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(249, 168, 37, 0.4);
+  color: var(--color-dark);
+}
+
+.btn--sm {
+  padding: 0.625rem 1.25rem;
+  font-size: var(--text-xs);
+  min-height: 40px;
+}
+
+.btn--lg {
+  padding: 1rem 2.5rem;
+  font-size: var(--text-base);
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Phone CTA with pulse */
+.btn--phone {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 4px 14px rgba(0, 119, 182, 0.3); }
+  50% { box-shadow: 0 4px 24px rgba(0, 119, 182, 0.5); }
+}
+
+/* ---- Cards ---- */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  border: 1px solid rgba(0, 119, 182, 0.06);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--color-light);
+  margin-bottom: var(--space-lg);
+  transition: background var(--transition-base);
+}
+
+.card:hover .card__icon {
+  background: rgba(0, 119, 182, 0.1);
+}
+
+.card__icon svg,
+.card__icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--color-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.card__text {
+  font-size: var(--text-sm);
+  color: var(--color-body);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ---- Navigation ---- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-base);
+}
+
+.nav--transparent {
+  background: transparent;
+}
+
+.nav--scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md);
+}
+
+.nav--scrolled .nav__logo-text,
+.nav--scrolled .nav__link {
+  color: var(--color-dark);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  z-index: 1001;
+}
+
+.nav__logo img {
+  height: 44px;
+  width: auto;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.nav__link {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary-light);
+  transition: width var(--transition-base);
+}
+
+.nav__link:hover::after,
+.nav__link--active::after {
+  width: 100%;
+}
+
+.nav--scrolled .nav__link::after {
+  background: var(--color-primary);
+}
+
+/* Dropdown */
+.nav__dropdown {
+  position: relative;
+}
+
+.nav__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-sm) 0;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+  border: 1px solid rgba(0, 119, 182, 0.08);
+}
+
+.nav__dropdown:hover .nav__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav__dropdown-link {
+  display: block;
+  padding: 0.625rem var(--space-lg);
+  font-size: var(--text-sm);
+  color: var(--color-body);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.nav__dropdown-link:hover {
+  background: var(--color-light);
+  color: var(--color-primary);
+}
+
+/* Nav CTA */
+.nav__cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.nav__phone {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.nav--scrolled .nav__phone {
+  color: var(--color-primary);
+}
+
+/* Hamburger */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-white);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+}
+
+.nav--scrolled .nav__hamburger span {
+  background: var(--color-dark);
+}
+
+.nav__hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav__hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile menu overlay */
+.nav__mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(27, 42, 74, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  padding: calc(var(--nav-height) + var(--space-2xl)) var(--space-lg) var(--space-lg);
+  overflow-y: auto;
+}
+
+.nav__mobile-overlay.active {
+  display: block;
+}
+
+.nav__mobile-link {
+  display: block;
+  padding: var(--space-md) 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--color-white);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: color var(--transition-fast);
+}
+
+.nav__mobile-link:hover {
+  color: var(--color-primary-light);
+}
+
+.nav__mobile-link.active {
+  color: var(--color-primary-light);
+}
+
+.nav__mobile-link.active::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(225deg);
+  margin-left: 8px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.nav__mobile-sub {
+  padding-left: var(--space-lg);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.nav__mobile-sub.active {
+  max-height: 500px;
+}
+
+.nav__mobile-sub a {
+  display: block;
+  padding: var(--space-sm) 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.nav__mobile-sub a:hover {
+  color: var(--color-primary-light);
+}
+
+/* ---- Footer ---- */
+.footer {
+  background: var(--color-dark);
+  color: rgba(255, 255, 255, 0.7);
+  padding: var(--space-4xl) 0 var(--space-xl);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-3xl);
+}
+
+.footer__brand img {
+  height: 48px;
+  margin-bottom: var(--space-lg);
+  filter: brightness(1.4);
+}
+
+.footer__brand p {
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: var(--space-lg);
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.footer__social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  transition: all var(--transition-fast);
+}
+
+.footer__social a:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.footer__heading {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer__links a {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer__links a:hover {
+  color: var(--color-primary-light);
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  font-size: var(--text-sm);
+}
+
+.footer__contact-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  opacity: 0.6;
+}
+
+.footer__contact-item a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer__contact-item a:hover {
+  color: var(--color-primary-light);
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+}
+
+.footer__bottom a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
+
+.footer__bottom a:hover {
+  color: var(--color-primary-light);
+}
+
+/* ---- Testimonial Card ---- */
+.testimonial-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 119, 182, 0.06);
+  position: relative;
+}
+
+.testimonial-card__stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: var(--space-md);
+}
+
+.testimonial-card__stars svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-warm);
+}
+
+.testimonial-card__text {
+  font-size: var(--text-base);
+  line-height: 1.8;
+  color: var(--color-body);
+  margin-bottom: var(--space-lg);
+  font-style: italic;
+}
+
+.testimonial-card__author {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-dark);
+}
+
+/* ---- Offer Badge ---- */
+.offer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-warm-light);
+  color: #8B6914;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+/* ---- Google Seal ---- */
+.google-seal {
+  display: inline-block;
+}
+
+.google-seal img {
+  height: 80px;
+  width: auto;
+}
+
+
+/* === css/sections.css === */
+/* ============================================
+   Sections — Homepage Layout & Styling
+   ============================================ */
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--gradient-hero);
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+.hero__video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero__video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 30, 60, 0.82) 0%,
+    rgba(0, 30, 60, 0.6) 50%,
+    rgba(0, 30, 60, 0.3) 100%
+  );
+  z-index: 1;
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero__content {
+  padding: var(--space-3xl) 0;
+  max-width: 640px;
+}
+
+.hero__label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-primary-light);
+  margin-bottom: var(--space-lg);
+  padding: 0.375rem 1rem;
+  background: rgba(72, 202, 228, 0.1);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(72, 202, 228, 0.2);
+}
+
+.hero__title {
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+  line-height: 1.1;
+}
+
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: var(--space-2xl);
+  max-width: 540px;
+}
+
+.hero__buttons {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2xl);
+}
+
+.hero__seal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.hero__seal img {
+  height: 64px;
+  width: auto;
+}
+
+.hero__seal-text {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+.hero__seal-text strong {
+  color: var(--color-white);
+  display: block;
+}
+
+.hero__visual {
+  display: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -20px); }
+}
+
+/* ---- Trust Bar ---- */
+.trust-bar {
+  background: var(--color-white);
+  border-bottom: 1px solid rgba(0, 119, 182, 0.06);
+  padding: var(--space-2xl) 0;
+}
+
+.trust-bar__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  text-align: center;
+}
+
+.trust-bar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.trust-bar__icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: rgba(0, 119, 182, 0.08);
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.trust-bar__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.trust-bar__stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 48px;
+  margin-bottom: var(--space-xs);
+}
+
+.trust-bar__number {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  color: var(--color-dark);
+  line-height: 1;
+}
+
+.trust-bar__label {
+  font-size: var(--text-sm);
+  color: var(--color-body);
+  font-weight: 500;
+}
+
+/* ---- Difference / Callouts Section ---- */
+.difference {
+  padding: var(--space-4xl) 0;
+}
+
+.difference__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+/* ---- Special Offer ---- */
+.offer {
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFF3CD 100%);
+  padding: var(--space-3xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.offer__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.offer__content {
+  position: relative;
+  z-index: 2;
+}
+
+.offer__amount {
+  font-family: var(--font-heading);
+  font-size: var(--text-5xl);
+  color: #8B6914;
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+}
+
+.offer__title {
+  font-size: var(--text-2xl);
+  color: var(--color-dark);
+  margin-bottom: var(--space-md);
+}
+
+.offer__subtitle {
+  font-size: var(--text-base);
+  color: var(--color-body);
+  margin-bottom: var(--space-xl);
+}
+
+.offer__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.offer__detail-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--color-body);
+}
+
+.offer__detail-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-success);
+  flex-shrink: 0;
+}
+
+.offer__image {
+  position: relative;
+  z-index: 2;
+}
+
+.offer__image img {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---- Services Grid ---- */
+.services {
+  padding: var(--space-4xl) 0;
+  background: var(--color-light);
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.service-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  border: 1px solid rgba(0, 119, 182, 0.06);
+  text-decoration: none;
+  display: block;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0, 119, 182, 0.15);
+}
+
+.service-card__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: rgba(0, 119, 182, 0.06);
+  transition: all var(--transition-base);
+}
+
+.service-card:hover .service-card__icon {
+  background: var(--color-primary);
+}
+
+.service-card__icon svg {
+  width: 30px;
+  height: 30px;
+  color: var(--color-primary);
+  transition: color var(--transition-base);
+}
+
+.service-card:hover .service-card__icon svg {
+  color: var(--color-white);
+}
+
+.service-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--color-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.service-card__text {
+  font-size: var(--text-sm);
+  color: var(--color-body);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ---- About Preview ---- */
+.about-preview {
+  padding: var(--space-4xl) 0;
+}
+
+.about-preview__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.about-preview__image-wrap {
+  position: relative;
+}
+
+.about-preview__image {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.about-preview__accent {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  background: rgba(0, 119, 182, 0.08);
+  border-radius: var(--radius-xl);
+  z-index: -1;
+}
+
+.about-preview__content h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.about-preview__content p {
+  font-size: var(--text-base);
+  line-height: 1.8;
+  margin-bottom: var(--space-lg);
+}
+
+.about-preview__credentials {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.about-preview__credential {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--color-body);
+}
+
+.about-preview__credential svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* ---- Orthodontics for Everyone ---- */
+.everyone {
+  padding: var(--space-4xl) 0;
+  background: var(--color-light);
+}
+
+.everyone__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.everyone__card {
+  text-align: center;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.everyone__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.everyone__card-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.everyone__card-content {
+  padding: var(--space-xl);
+}
+
+.everyone__card-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--color-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.everyone__card-text {
+  font-size: var(--text-sm);
+  color: var(--color-body);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ---- Reviews / Testimonials ---- */
+.reviews {
+  padding: var(--space-4xl) 0;
+}
+
+.reviews__carousel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.reviews__google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+}
+
+.reviews__google img {
+  height: 48px;
+}
+
+/* ---- Smile Gallery / Cases ---- */
+.cases {
+  padding: var(--space-4xl) 0;
+  background: var(--color-light);
+}
+
+.cases__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.cases__item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.cases__item:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.cases__item img {
+  width: 100%;
+  display: block;
+}
+
+/* Gallery page: force consistent height across mixed-size images */
+.grid-2col-gallery .cases__item img {
+  aspect-ratio: 555 / 210;
+  object-fit: cover;
+}
+
+/* ---- Technology ---- */
+.technology {
+  padding: var(--space-4xl) 0;
+}
+
+.technology__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.technology__image {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---- Office / Location ---- */
+.location {
+  padding: var(--space-4xl) 0;
+  background: var(--color-light);
+}
+
+.location__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.location__map {
+  width: 100%;
+  height: 400px;
+  border-radius: var(--radius-xl);
+  border: 0;
+  box-shadow: var(--shadow-md);
+}
+
+.location__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.location__landmarks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.location__landmark {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--color-body);
+}
+
+.location__landmark svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.location__hours {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.location__hours h4 {
+  margin-bottom: var(--space-md);
+}
+
+.location__hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-xs) 0;
+  font-size: var(--text-sm);
+  border-bottom: 1px solid rgba(0, 119, 182, 0.06);
+}
+
+.location__hours-row:last-child {
+  border-bottom: none;
+}
+
+.location__hours-day {
+  font-weight: 500;
+  color: var(--color-dark);
+}
+
+.location__hours-time {
+  color: var(--color-body);
+}
+
+/* ---- Office Tour Gallery ---- */
+.office-tour {
+  padding: var(--space-2xl) 0 0;
+}
+
+.office-tour__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.office-tour__image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.office-tour__image:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---- CTA Band ---- */
+.cta-band {
+  background: var(--gradient-cta);
+  padding: var(--space-4xl) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-band__title {
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.cta-band__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--space-2xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-band__buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.cta-band__bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  background: white;
+}
+
+.cta-band__bg-shape--1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -50px;
+}
+
+.cta-band__bg-shape--2 {
+  width: 200px;
+  height: 200px;
+  bottom: -60px;
+  left: -30px;
+}
+
+/* ---- Instagram / Follow Section ---- */
+.instagram {
+  padding: var(--space-3xl) 0;
+}
+
+.instagram__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.instagram__item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.instagram__item:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.instagram__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Payment Options ---- */
+.payment {
+  padding: var(--space-4xl) 0;
+}
+
+.payment__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.payment__card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 119, 182, 0.06);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.payment__card-image {
+  width: 200px;
+  flex-shrink: 0;
+  border-radius: var(--radius-lg);
+}
+
+.payment__card-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--color-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.payment__card-text {
+  font-size: var(--text-sm);
+  color: var(--color-body);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ---- Zoom Whitening Banner ---- */
+.zoom-banner {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl) var(--space-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 119, 182, 0.06);
+  margin-top: var(--space-xl);
+}
+
+.zoom-banner__content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.zoom-banner__image {
+  height: 60px;
+  width: auto;
+}
+
+.zoom-banner__text {
+  font-size: var(--text-base);
+  color: var(--color-dark);
+}
+
+.zoom-banner__text strong {
+  color: var(--color-primary);
+}
+
+/* ---- For Patients Page ---- */
+
+/* Steps Bar */
+.patient-steps {
+  padding: var(--space-2xl) 0;
+  background: var(--color-white);
+  border-bottom: 1px solid rgba(0, 119, 182, 0.06);
+  position: relative;
+  margin-top: -1px;
+}
+
+.patient-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.patient-steps__item {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: all var(--transition-base);
+  background: var(--color-light);
+  border: 1px solid transparent;
+}
+
+.patient-steps__item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(0, 119, 182, 0.15);
+  background: var(--color-white);
+}
+
+.patient-steps__number {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 119, 182, 0.3);
+}
+
+.patient-steps__icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: rgba(0, 119, 182, 0.08);
+  color: var(--color-primary);
+  transition: all var(--transition-base);
+}
+
+.patient-steps__item:hover .patient-steps__icon {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.patient-steps__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.patient-steps__item h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  color: var(--color-dark);
+  margin-bottom: 4px;
+}
+
+.patient-steps__item p {
+  font-size: var(--text-xs);
+  color: var(--color-body);
+  margin: 0;
+}
+
+/* Patient Split Layout */
+.patient-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.patient-split__visual img {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Patient Checklist */
+.patient-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
+}
+
+.patient-checklist__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--color-body);
+  padding: var(--space-xs) 0;
+}
+
+.patient-checklist__item svg {
+  width: 20px;
+  height: 20px;
+  color: #38B2AC;
+  flex-shrink: 0;
+}
+
+/* Patient Form Cards */
+.patient-forms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+.patient-form-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 119, 182, 0.06);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.patient-form-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0, 119, 182, 0.15);
+}
+
+.patient-form-card__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-xl);
+  background: rgba(0, 119, 182, 0.08);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+  transition: all var(--transition-base);
+}
+
+.patient-form-card:hover .patient-form-card__icon {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: scale(1.08);
+}
+
+.patient-form-card__icon--accent {
+  background: rgba(0, 180, 216, 0.08);
+  color: var(--color-accent);
+}
+
+.patient-form-card:hover .patient-form-card__icon--accent {
+  background: var(--color-accent);
+}
+
+.patient-form-card__icon--warm {
+  background: rgba(249, 168, 37, 0.08);
+  color: var(--color-warm);
+}
+
+.patient-form-card:hover .patient-form-card__icon--warm {
+  background: var(--color-warm);
+}
+
+.patient-form-card__icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.patient-form-card h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--color-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.patient-form-card p {
+  font-size: var(--text-sm);
+  color: var(--color-body);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+  flex: 1;
+}
+
+.patient-form-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: gap var(--transition-base);
+}
+
+.patient-form-card:hover .patient-form-card__action {
+  gap: var(--space-sm);
+}
+
+/* Insurance Tags */
+.insurance-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.insurance-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-light);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-dark);
+  border: 1px solid transparent;
+  transition: all var(--transition-base);
+}
+
+.insurance-tag:hover {
+  border-color: rgba(0, 119, 182, 0.2);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.insurance-tag svg {
+  color: #38B2AC;
+  flex-shrink: 0;
+}
+
+/* FAQ Accordion */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.faq-item {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 119, 182, 0.08);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.faq-item:hover {
+  border-color: rgba(0, 119, 182, 0.15);
+}
+
+.faq-item.is-open {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(0, 119, 182, 0.2);
+}
+
+.faq-item__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--space-xl);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  color: var(--color-dark);
+  text-align: left;
+  transition: color var(--transition-base);
+}
+
+.faq-item__question:hover {
+  color: var(--color-primary);
+}
+
+.faq-item__chevron {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  color: var(--color-primary);
+}
+
+.faq-item.is-open .faq-item__chevron {
+  transform: rotate(180deg);
+}
+
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 var(--space-xl);
+}
+
+.faq-item.is-open .faq-item__answer {
+  max-height: 300px;
+  padding: 0 var(--space-xl) var(--space-lg);
+}
+
+.faq-item__answer p {
+  font-size: var(--text-sm);
+  color: var(--color-body);
+  line-height: 1.8;
+  margin: 0;
+}
+
+
+/* === css/responsive.css === */
+/* ============================================
+   Responsive — Mobile-First Media Queries
+   ============================================ */
+
+/* ---- Mobile Sticky CTA ---- */
+.mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  background: var(--color-white);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  padding: var(--space-sm) var(--space-md);
+  gap: var(--space-sm);
+  transform: translateY(100%);
+  transition: transform var(--transition-base);
+}
+
+.mobile-cta.visible {
+  transform: translateY(0);
+}
+
+.mobile-cta__btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  min-height: 48px;
+}
+
+.mobile-cta__btn--call {
+  background: var(--color-white);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.mobile-cta__btn--book {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ---- Grid utility classes (replacing inline styles) ---- */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.grid-2col-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.grid-2col-contact {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.grid-2col-team {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.grid-2col-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.grid-2col-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.grid-3col-badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ---- Max 1024px (Tablet and below) ---- */
+@media (max-width: 1024px) {
+  .nav__links {
+    display: none;
+  }
+
+  .nav__cta {
+    display: none;
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+
+  .mobile-cta {
+    display: flex;
+  }
+
+  .hero__inner {
+    text-align: center;
+  }
+
+  .hero__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__buttons {
+    justify-content: center;
+  }
+
+  .hero__seal {
+    justify-content: center;
+  }
+
+  .hero {
+    min-height: 80vh;
+    padding-top: calc(var(--nav-height) + var(--space-2xl));
+    padding-bottom: var(--space-3xl);
+  }
+
+  .hero__video-overlay {
+    background: rgba(0, 30, 60, 0.7);
+  }
+
+  /* Collapse inline 2-col grids on tablet */
+  .grid-2col {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+
+  .grid-2col img {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .grid-2col-contact {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .grid-2col-team {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+
+  .grid-2col-cards {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .grid-3col-badges {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .difference__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .offer__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .offer__image {
+    order: -1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .payment__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment__card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .payment__card-image {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .about-preview__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-preview__image-wrap {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .about-preview__credentials {
+    align-items: center;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .everyone__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reviews__carousel {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cases__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .technology__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .location__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .location__map {
+    height: 300px;
+  }
+
+  .office-tour__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .instagram__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .zoom-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .zoom-banner__content {
+    flex-direction: column;
+  }
+
+  /* Patient page */
+  .patient-steps__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .patient-split {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .patient-split__visual {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .patient-forms-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .patient-checklist {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ---- Max 768px (Mobile) ---- */
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 64px;
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  .nav__logo img {
+    height: 36px;
+  }
+
+  .hero__content {
+    padding: var(--space-xl) 0;
+  }
+
+  .hero__buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__buttons .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Hero video mobile - center and darken overlay */
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero__video-overlay {
+    background: rgba(0, 30, 60, 0.8);
+  }
+
+  .hero__title {
+    font-size: var(--text-3xl);
+  }
+
+  .hero__subtitle {
+    font-size: var(--text-sm);
+  }
+
+  .hero__seal {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+
+  .hero__seal img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hero__seal-text {
+    font-size: var(--text-sm);
+  }
+
+  /* Gallery grid - single column on mobile */
+  .grid-2col-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  /* Form fields stack */
+  .grid-2col-form {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-bar__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .trust-bar__item {
+    flex-direction: row;
+    text-align: left;
+    gap: var(--space-md);
+  }
+
+  .trust-bar__icon {
+    margin-bottom: 0;
+  }
+
+  .trust-bar__stars {
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  .grid-3col-badges {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* Page hero mobile */
+  .page-hero {
+    padding: calc(var(--nav-height) + var(--space-xl)) 0 var(--space-xl);
+  }
+
+  .page-hero h1 {
+    font-size: var(--text-2xl);
+  }
+
+  .page-hero p {
+    font-size: var(--text-sm);
+  }
+
+  /* Service page images */
+  .grid-2col img {
+    border-radius: var(--radius-lg) !important;
+    max-width: 100%;
+  }
+
+  .difference__grid {
+    gap: var(--space-md);
+  }
+
+  .card {
+    padding: var(--space-xl);
+  }
+
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cases__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-band__buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-band__buttons .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .instagram__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .instagram__grid .instagram__item:last-child {
+    display: none;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: center;
+  }
+
+  /* Patient page mobile */
+  .patient-steps__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .patient-steps__item {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .patient-forms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insurance-tags {
+    justify-content: center;
+  }
+
+  .faq-item__question {
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--text-sm);
+  }
+
+  .faq-item__answer {
+    padding: 0 var(--space-lg);
+  }
+
+  .faq-item.is-open .faq-item__answer {
+    padding: 0 var(--space-lg) var(--space-md);
+  }
+
+  /* Add padding at bottom for mobile CTA */
+  body {
+    padding-bottom: 70px;
+  }
+}
+
+/* ---- Max 480px (Small Mobile) ---- */
+@media (max-width: 480px) {
+  .everyone__card-image {
+    height: 200px;
+  }
+
+  .offer__amount {
+    font-size: var(--text-4xl);
+  }
+
+  .office-tour__image {
+    height: 180px;
+  }
+
+  .patient-steps__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+
+  .patient-steps__item h3 {
+    font-size: var(--text-sm);
+  }
+}
+
+/* ---- Min 1440px (Wide screens) ---- */
+@media (min-width: 1440px) {
+  :root {
+    --max-width: 1320px;
+  }
+}
+
+
+/* === Single-page additions === */
+.page-section {
+  display: none;
+}
+.page-section.active {
+  display: block;
+  animation: pageEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+  </style>
+</head>
+<body>
+
+<nav class="nav nav--transparent" id="nav">
+    <div class="nav__inner">
+      <a href="#page-home" class="nav__logo">
+        <img src="assets/images/logo.png" alt="Big Smile Orthodontics" width="160" height="44">
+      </a>
+
+      <div class="nav__links" id="navLinks">
+        <a href="#page-home" class="nav__link nav__link--active">Home</a>
+
+        <div class="nav__dropdown">
+          <a href="#page-dr-asrar" class="nav__link">About Us
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left:4px;vertical-align:middle"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="nav__dropdown-menu">
+            <a href="#page-dr-asrar" class="nav__dropdown-link">Meet Dr. Asrar</a>
+            <a href="#page-team" class="nav__dropdown-link">Meet the Team</a>
+            <a href="#page-gallery" class="nav__dropdown-link">Smile Gallery</a>
+            <a href="#reviews" class="nav__dropdown-link">Reviews</a>
+          </div>
+        </div>
+
+        <div class="nav__dropdown">
+          <a href="#page-services" class="nav__link">Our Services
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left:4px;vertical-align:middle"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="nav__dropdown-menu">
+            <a href="#braces" class="nav__dropdown-link">Traditional Braces</a>
+            <a href="#ceramic" class="nav__dropdown-link">Clear/Ceramic Braces</a>
+            <a href="#invisalign" class="nav__dropdown-link">Invisalign Clear Aligners</a>
+            <a href="#phase1" class="nav__dropdown-link">Phase 1 Orthodontics</a>
+            <a href="#retainers" class="nav__dropdown-link">Retainers & Appliances</a>
+            <a href="#emergencies" class="nav__dropdown-link">Orthodontic Emergencies</a>
+            <a href="#life-with-braces" class="nav__dropdown-link">Life With Braces</a>
+          </div>
+        </div>
+
+        <div class="nav__dropdown">
+          <a href="#page-patients" class="nav__link">For Patients
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left:4px;vertical-align:middle"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="nav__dropdown-menu">
+            <a href="#first-visit" class="nav__dropdown-link">Your First Visit</a>
+            <a href="#forms" class="nav__dropdown-link">Patient Forms</a>
+            <a href="#insurance" class="nav__dropdown-link">Insurance & Financing</a>
+            <a href="#page-patients" class="nav__dropdown-link">Special Offers</a>
+          </div>
+        </div>
+
+        <div class="nav__dropdown">
+          <a href="#page-contact" class="nav__link">Contact
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left:4px;vertical-align:middle"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="nav__dropdown-menu">
+            <a href="#page-contact" class="nav__dropdown-link">Office Info</a>
+            <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="nav__dropdown-link">Schedule Consultation</a>
+            <a href="#virtual" class="nav__dropdown-link">Virtual Consultations</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav__cta">
+        <a href="tel:5128287900" class="nav__phone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (512) 828-7900
+        </a>
+        <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary btn--sm">Book Free Consult</a>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="nav__hamburger" id="navHamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="nav__mobile-overlay" id="mobileMenu">
+      <a href="#page-home" class="nav__mobile-link">Home</a>
+      <a href="#page-dr-asrar" class="nav__mobile-link">About Us</a>
+      <div class="nav__mobile-sub">
+        <a href="#page-dr-asrar">Meet Dr. Asrar</a>
+        <a href="#page-team">Meet the Team</a>
+        <a href="#page-gallery">Smile Gallery</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+      <a href="#page-services" class="nav__mobile-link">Our Services</a>
+      <div class="nav__mobile-sub">
+        <a href="#braces">Traditional Braces</a>
+        <a href="#ceramic">Clear/Ceramic Braces</a>
+        <a href="#invisalign">Invisalign Clear Aligners</a>
+        <a href="#phase1">Phase 1 Orthodontics</a>
+        <a href="#retainers">Retainers & Appliances</a>
+        <a href="#emergencies">Orthodontic Emergencies</a>
+      </div>
+      <a href="#page-patients" class="nav__mobile-link">For Patients</a>
+      <div class="nav__mobile-sub">
+        <a href="#first-visit">Your First Visit</a>
+        <a href="#forms">Patient Forms</a>
+        <a href="#insurance">Insurance & Financing</a>
+      </div>
+      <a href="#page-contact" class="nav__mobile-link">Contact</a>
+      <div style="margin-top: var(--space-xl);">
+        <a href="tel:5128287900" class="btn btn--primary" style="width:100%;margin-bottom:var(--space-md);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call (512) 828-7900
+        </a>
+        <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--accent" style="width:100%;">Book Free Consult</a>
+      </div>
+    </div>
+  </nav>
+
+
+<!-- ======== Home ======== -->
+<div id="page-home" class="page-section">
+
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <!-- Full-screen background video -->
+      <video class="hero__video-bg" autoplay muted loop playsinline>
+        <source src="assets/actualorthovideo.mp4" type="video/mp4">
+      </video>
+      <div class="hero__video-overlay"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="hero__label">Orthodontist Round Rock, TX</span>
+          <h1 class="hero__title">Giving You More Reasons to Smile</h1>
+          <p class="hero__subtitle">At Big Smile Orthodontics, Dr. Asrar and our team combine their passion and expertise to offer a wide range of smile-straightening, oral health-improving treatments for kids, teens, and adults alike. Start your journey today by reaching out to a top-rated orthodontist in Round Rock!</p>
+
+          <div class="hero__buttons">
+            <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary btn--lg btn--phone">Book Free Consult</a>
+            <a href="#cases" class="btn btn--outline btn--lg">See Our Results</a>
+            <button id="testBtn" class="btn btn--accent btn--lg">Test Button</button>
+          </div>
+
+          <div class="hero__seal">
+            <img src="assets/images/index-google-seal.png" alt="Google 5-star reviews badge" width="64" height="64">
+            <div class="hero__seal-text">
+              <strong>300+ Five-Star Reviews</strong>
+              Round Rock's top-rated orthodontist
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ TRUST BAR ============ -->
+    <section class="trust-bar" data-animate="fade-up">
+      <div class="container">
+        <div class="trust-bar__grid">
+          <div class="trust-bar__item">
+            <div class="trust-bar__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="trust-bar__number" data-count="2007">0</span>
+            <span class="trust-bar__label">Practicing Since</span>
+          </div>
+          <div class="trust-bar__item">
+            <div class="trust-bar__stars">
+              <svg width="20" height="20" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+            </div>
+            <span class="trust-bar__number" data-count="300">0</span>
+            <span class="trust-bar__label">5-Star Google Reviews</span>
+          </div>
+          <div class="trust-bar__item">
+            <div class="trust-bar__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            </div>
+            <span class="trust-bar__number">24/7</span>
+            <span class="trust-bar__label">Emergency Line Available</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ THE BIG SMILE DIFFERENCE ============ -->
+    <section class="difference section" id="difference">
+      <div class="container text-center">
+        <h2 class="section-title">Why Choose Us</h2>
+        <span class="section-label">The Big Smile Orthodontics Difference</span>
+      </div>
+      <div class="container">
+        <div class="difference__grid" data-animate="stagger">
+
+          <div class="card">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 00-6 0v4"/><rect x="2" y="9" width="20" height="13" rx="2"/><circle cx="12" cy="16" r="1"/></svg>
+            </div>
+            <h3 class="card__title">Outstanding Results</h3>
+            <p class="card__text">We display our results up-front and center because we want you to see for yourself the phenomenal transformations we're capable of! We welcome you to browse our smile gallery to view before and after photos of our patients.</p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="card__title">Top-Rated Service</h3>
+            <p class="card__text">We're best known for our outstanding patient-centered service. With over 300 5-star Google reviews, our team is happy to be at your service. We even have a 24/7 emergency line for whenever the unexpected happens!</p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <h3 class="card__title">High Affordability</h3>
+            <p class="card__text">Our team is committed to making your orthodontic treatment as affordable as possible, which is why we're happy to maximize your dental insurance benefits as well as offer flexible financing and special offers.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ SPECIAL OFFER ============ -->
+    <section class="offer" id="offer" data-animate="fade-up">
+      <div class="container offer__inner">
+        <div class="offer__content">
+          <div class="offer__amount">$1,000 Off</div>
+          <span class="section-label" style="color:#8B6914">Limited Time Offer</span>
+          <h2 class="offer__title">Metal/Clear Braces or Invisalign/Clear Aligners</h2>
+
+          <p class="offer__subtitle">Includes free teeth whitening during your treatments with Invisalign or Clear Aligners!</p>
+
+          <div class="offer__details">
+            <div class="offer__detail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Free initial consultation</span>
+            </div>
+            <div class="offer__detail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Flexible financing available</span>
+            </div>
+            <div class="offer__detail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Most dental insurance accepted</span>
+            </div>
+          </div>
+
+          <div style="margin-top: var(--space-xl);">
+            <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--warm btn--lg">Claim Your Offer</a>
+          </div>
+        </div>
+
+        <div class="offer__image" data-animate="slide-right">
+          <img src="assets/images/index-options-1.webp" alt="Braces and Invisalign treatment options at Big Smile Orthodontics" width="500" height="400">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ PAYMENT OPTIONS ============ -->
+    <section class="payment section">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title">We Make Payment Effortless</h2>
+          <span class="section-label">Affordable Care</span>
+        </div>
+
+        <div class="payment__grid" data-animate="stagger">
+          <div class="payment__card">
+            <img src="assets/images/index-options-1.webp" alt="$1,000 off braces and Invisalign" class="payment__card-image" width="200" height="160">
+            <div>
+              <h3 class="payment__card-title">$1,000 Off Braces & Invisalign</h3>
+              <p class="payment__card-text">Includes free teeth whitening during your treatments with Invisalign or Clear Aligners!</p>
+            </div>
+          </div>
+          <div class="payment__card">
+            <img src="assets/images/index-options-2.webp" alt="We accept dental insurance" class="payment__card-image" width="200" height="160">
+            <div>
+              <h3 class="payment__card-title">We Accept Dental Insurance</h3>
+              <p class="payment__card-text">We're proud to accept most major dental insurance plans and file claims on your behalf to maximize your savings and reduce out-of-pocket expenses.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="zoom-banner" data-animate="fade-up">
+          <div class="zoom-banner__content">
+            <img src="assets/images/index-zoom.png" alt="Philips Zoom Whitening" class="zoom-banner__image" width="80" height="60">
+            <p class="zoom-banner__text">We proudly offer professional <strong>Zoom Teeth Whitening</strong> for just <strong>$450 ($50 off)</strong></p>
+          </div>
+          <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary btn--sm">Book Now</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ ABOUT DR. ASRAR ============ -->
+    <section class="about-preview section--light" id="about">
+      <div class="container about-preview__inner">
+        <div class="about-preview__image-wrap" data-animate="slide-left">
+          <img src="assets/images/index-meet.webp" alt="Dr. Saba Asrar, DDS - Round Rock Orthodontist" class="about-preview__image" width="520" height="600">
+          <div class="about-preview__accent"></div>
+        </div>
+
+        <div class="about-preview__content" data-animate="slide-right">
+          <h2>Meet Dr. Saba Asrar, DDS</h2>
+          <span class="section-label">Round Rock's Trusted Orthodontist</span>
+
+          <p>Dr. Asrar is a top provider for orthodontic services in Round Rock and has been practicing since 2007. She has created thousands of beautiful smiles over the course of her career! Today, she is one of only a few orthodontists in the country chosen to be a part of the Advisory Board of the Council of Innovative Orthodontics for 3M (Solventum).</p>
+          <p>Dr. Asrar has a deep passion for orthodontics, an artistic eye for details, and a genuine care for her patients. Moreover, her unwavering commitment to providing the best experience and results further distinguishes her as a top-choice orthodontist.</p>
+
+          <div class="about-preview__credentials">
+            <div class="about-preview__credential">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Practicing since 2007</span>
+            </div>
+            <div class="about-preview__credential">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>3M (Solventum) Advisory Board Member</span>
+            </div>
+            <div class="about-preview__credential">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Thousands of beautiful smiles created</span>
+            </div>
+          </div>
+
+          <a href="#page-dr-asrar" class="btn btn--outline-dark">Get to Know Dr. Asrar</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ SERVICES GRID ============ -->
+    <section class="services section" id="services">
+      <div class="container text-center">
+        <h2 class="section-title">Our Orthodontic Services</h2>
+        <span class="section-label">What We Offer</span>
+        <p class="section-subtitle centered">From traditional braces to clear aligners, we offer a full range of orthodontic treatments for patients of all ages.</p>
+      </div>
+      <div class="container">
+        <div class="services__grid" data-animate="stagger">
+
+          <a href="#braces" class="service-card">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            </div>
+            <h3 class="service-card__title">Traditional Braces</h3>
+            <p class="service-card__text">Time-tested metal braces that deliver reliable, precise results for all types of orthodontic cases.</p>
+          </a>
+
+          <a href="#ceramic" class="service-card">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <h3 class="service-card__title">Clear/Ceramic Braces</h3>
+            <p class="service-card__text">Discreet tooth-colored brackets that blend with your smile while delivering excellent results.</p>
+          </a>
+
+          <a href="#invisalign" class="service-card">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="service-card__title">Invisalign Clear Aligners</h3>
+            <p class="service-card__text">Nearly invisible removable aligners that straighten your teeth without anyone knowing.</p>
+          </a>
+
+          <a href="#phase1" class="service-card">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <h3 class="service-card__title">Phase 1 Orthodontics</h3>
+            <p class="service-card__text">Early intervention treatment for children to guide jaw growth and address orthodontic issues before they worsen.</p>
+          </a>
+
+          <a href="#retainers" class="service-card">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            </div>
+            <h3 class="service-card__title">Retainers & Appliances</h3>
+            <p class="service-card__text">Custom retainers and orthodontic appliances to maintain your perfect smile after treatment.</p>
+          </a>
+
+          <a href="#emergencies" class="service-card">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3 class="service-card__title">Orthodontic Emergencies</h3>
+            <p class="service-card__text">24/7 emergency support for unexpected orthodontic issues — we're always here when you need us.</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ ORTHODONTICS FOR EVERYONE ============ -->
+    <section class="everyone section" id="everyone">
+      <div class="container text-center">
+        <h2 class="section-title">Orthodontics for Everyone</h2>
+        <span class="section-label">For All Ages</span>
+      </div>
+      <div class="container">
+        <div class="everyone__grid" data-animate="stagger">
+
+          <div class="everyone__card">
+            <img src="assets/images/index-ortho-1.webp" alt="Orthodontics for kids at Big Smile Orthodontics" class="everyone__card-image" width="400" height="280">
+            <div class="everyone__card-content">
+              <h3 class="everyone__card-title">Kids</h3>
+              <p class="everyone__card-text">We can tackle the early impact of orthodontic issues with Phase 1 treatment for children.</p>
+            </div>
+          </div>
+
+          <div class="everyone__card">
+            <img src="assets/images/index-ortho-2.webp" alt="Orthodontics for teens at Big Smile Orthodontics" class="everyone__card-image" width="400" height="280">
+            <div class="everyone__card-content">
+              <h3 class="everyone__card-title">Teens</h3>
+              <p class="everyone__card-text">Teens are able to choose from a variety of treatment options, allowing them to customize their braces.</p>
+            </div>
+          </div>
+
+          <div class="everyone__card">
+            <img src="assets/images/index-ortho-3.webp" alt="Orthodontics for adults at Big Smile Orthodontics" class="everyone__card-image" width="400" height="280">
+            <div class="everyone__card-content">
+              <h3 class="everyone__card-title">Adults</h3>
+              <p class="everyone__card-text">Our clear aligners are ideal for adults looking to maintain their professional appearance.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ REVIEWS ============ -->
+    <section class="reviews section" id="reviews">
+      <div class="container text-center">
+        <h2 class="section-title">We Have Over 300+ Reviews</h2>
+        <span class="section-label">Patient Testimonials</span>
+      </div>
+      <div class="container">
+        <div class="reviews__carousel" data-animate="stagger">
+
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+            </div>
+            <p class="testimonial-card__text">"The best dental clinic for orthodontics ever. Cleanliness, perfection, and commitment to appointments. The entire team at the clinic are wonderful, especially the doctor. I am very happy with the result. Thank you to the entire staff."</p>
+            <span class="testimonial-card__author">— Dana A.</span>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+            </div>
+            <p class="testimonial-card__text">"My son and I have both have braces at Big Smile Orthodontics achieving great results. Dr. Asrar and her team are friendly, professional and efficient. If you are thinking about getting orthodontic treatment, I highly recommend Big Smile Orthodontics!"</p>
+            <span class="testimonial-card__author">— Eduardo B.</span>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#F9A825"/></svg>
+            </div>
+            <p class="testimonial-card__text">"The atmosphere is wonderful I have my daughter in braces and she had a severe case of crowding in her teeth so far its been 6 months in treatment and what a difference I'm more than a happy mom with Dr Asrar and her staff with thier amazing job!"</p>
+            <span class="testimonial-card__author">— Anna H.</span>
+          </div>
+
+        </div>
+
+        <div class="reviews__google" data-animate="fade-up">
+          <img src="assets/images/index-google-seal.png" alt="Google Reviews" width="48" height="48">
+          <a href="https://maps.app.goo.gl/5ci6fRDKEuRLN9LV6" target="_blank" class="btn btn--outline-dark btn--sm">Read All Reviews</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ SMILE GALLERY / CASES ============ -->
+    <section class="cases section" id="cases">
+      <div class="container text-center">
+        <h2 class="section-title">Life-Changing Transformations</h2>
+        <span class="section-label">Before & After</span>
+        <p class="section-subtitle centered">At Big Smile Orthodontics in Round Rock, we tackle every type of misalignment case, from minor to moderate crowding to rotated teeth and severe bite problems.</p>
+      </div>
+      <div class="container">
+        <div class="cases__grid" data-animate="stagger">
+          <div class="cases__item"><img src="assets/images/index-case-1.png" alt="Before and after orthodontic treatment - Case 1" width="555" height="397" loading="lazy"></div>
+          <div class="cases__item"><img src="assets/images/index-case-2.png" alt="Before and after orthodontic treatment - Case 2" width="555" height="210" loading="lazy"></div>
+          <div class="cases__item"><img src="assets/images/index-case-3.png" alt="Before and after orthodontic treatment - Case 3" width="555" height="210" loading="lazy"></div>
+          <div class="cases__item"><img src="assets/images/index-case-4.png" alt="Before and after orthodontic treatment - Case 4" width="555" height="397" loading="lazy"></div>
+          <div class="cases__item"><img src="assets/images/index-case-5.png" alt="Before and after orthodontic treatment - Case 5" width="555" height="210" loading="lazy"></div>
+          <div class="cases__item"><img src="assets/images/index-case-6.png" alt="Before and after orthodontic treatment - Case 6" width="555" height="210" loading="lazy"></div>
+        </div>
+
+        <div class="text-center" style="margin-top: var(--space-2xl);" data-animate="fade-up">
+          <a href="#page-gallery" class="btn btn--outline-dark">View Full Smile Gallery</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ TECHNOLOGY ============ -->
+    <section class="technology section" id="technology">
+      <div class="container technology__inner">
+        <div class="technology__content" data-animate="slide-left">
+          <h2>State-of-the-Art Technology & Techniques</h2>
+          <span class="section-label">Innovation</span>
+
+          <p style="font-size: var(--text-xl); color: var(--color-dark); font-family: var(--font-heading); margin-bottom: var(--space-md);">Revolutionizing Orthodontic Treatment</p>
+          <p>We employ the latest technology in our orthodontic office to achieve higher quality, lasting results as well as create a more comfortable experience. With technology like our VPro+ aligner seater, we're able to safely accelerate your tooth movement for faster, more efficient results.</p>
+          <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary" style="margin-top: var(--space-lg);">Schedule Consultation</a>
+        </div>
+        <div data-animate="slide-right">
+          <img src="assets/images/index-tech.webp" alt="State-of-the-art orthodontic technology at Big Smile Orthodontics" class="technology__image" width="520" height="400" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ OFFICE TOUR ============ -->
+    <section class="location section--light" id="office-tour">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: var(--space-2xl);">
+          <h2 class="section-title">Find Our Office</h2>
+          <span class="section-label">Visit Us</span>
+        </div>
+
+        <div class="office-tour" data-animate="stagger">
+          <div class="office-tour__grid">
+            <img src="assets/images/index-office-1.jpg" alt="Big Smile Orthodontics exterior" class="office-tour__image" width="400" height="240" loading="lazy">
+            <img src="assets/images/index-office-2.webp" alt="Big Smile Orthodontics treatment area" class="office-tour__image" width="400" height="240" loading="lazy">
+            <img src="assets/images/index-office-3.webp" alt="Big Smile Orthodontics reception area" class="office-tour__image" width="400" height="240" loading="lazy">
+          </div>
+        </div>
+
+        <div class="location__inner" style="margin-top: var(--space-2xl);">
+          <iframe class="location__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3438.5!2d-97.7372897!3d30.5500079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDMzJzAwLjAiTiA5N8KwNDQnMTQuMiJX!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Big Smile Orthodontics location map"></iframe>
+
+          <div class="location__details" data-animate="slide-right">
+            <div>
+              <h3 style="margin-bottom: var(--space-md);">1025 Sendero Springs Dr, Suite #110</h3>
+              <p>Round Rock, TX 78681</p>
+              <a href="tel:5128287900" style="font-size: var(--text-xl); font-weight: 600; color: var(--color-primary);">(512) 828-7900</a>
+            </div>
+
+            <div class="location__landmarks">
+              <div class="location__landmark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Next door to Cedar Rock Vision Center</span>
+              </div>
+              <div class="location__landmark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Near Alamo Coffee Company</span>
+              </div>
+              <div class="location__landmark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Off of Ranch to Market Road 1431</span>
+              </div>
+              <div class="location__landmark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>A short drive from St. David's &ndash; Round Rock</span>
+              </div>
+            </div>
+
+            <div class="location__hours">
+              <h4>Office Hours</h4>
+              <div class="location__hours-row">
+                <span class="location__hours-day">Monday</span>
+                <span class="location__hours-time">8:00 am &ndash; 6:00 pm</span>
+              </div>
+              <div class="location__hours-row">
+                <span class="location__hours-day">Tuesday</span>
+                <span class="location__hours-time">8:30 am &ndash; 6:00 pm</span>
+              </div>
+              <div class="location__hours-row">
+                <span class="location__hours-day">Wednesday</span>
+                <span class="location__hours-time">8:30 am &ndash; 6:00 pm</span>
+              </div>
+              <div class="location__hours-row">
+                <span class="location__hours-day">Thursday</span>
+                <span class="location__hours-time">9:00 am &ndash; 5:00 pm</span>
+              </div>
+              <div class="location__hours-row">
+                <span class="location__hours-day">Friday</span>
+                <span class="location__hours-time">8:00 am &ndash; 6:00 pm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ CTA BAND ============ -->
+    <section class="cta-band" id="cta">
+      <div class="cta-band__bg-shape cta-band__bg-shape--1"></div>
+      <div class="cta-band__bg-shape cta-band__bg-shape--2"></div>
+      <div class="container" data-animate="fade-up">
+        <h2 class="cta-band__title">Ready to Get Started?</h2>
+
+        <p class="cta-band__subtitle">Schedule your free consultation today and take the first step toward the smile you've always wanted.</p>
+        <div class="cta-band__buttons">
+          <a href="tel:5128287900" class="btn btn--outline btn--lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call (512) 828-7900
+          </a>
+          <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary btn--lg" style="background: white; color: var(--color-primary);">Book Online</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ INSTAGRAM ============ -->
+    <section class="instagram section" id="instagram">
+      <div class="container text-center">
+        <h2 class="section-title">@bsosmilebig</h2>
+        <span class="section-label">Follow Us</span>
+      </div>
+      <div class="container">
+        <div class="instagram__grid" data-animate="stagger">
+          <a href="https://www.instagram.com/bsosmilebig/" target="_blank" class="instagram__item"><img src="assets/images/follow-1.webp" alt="Big Smile Orthodontics Instagram" width="240" height="240" loading="lazy"></a>
+          <a href="https://www.instagram.com/bsosmilebig/" target="_blank" class="instagram__item"><img src="assets/images/follow-2.webp" alt="Big Smile Orthodontics Instagram" width="240" height="240" loading="lazy"></a>
+          <a href="https://www.instagram.com/bsosmilebig/" target="_blank" class="instagram__item"><img src="assets/images/follow-3.webp" alt="Big Smile Orthodontics Instagram" width="240" height="240" loading="lazy"></a>
+          <a href="https://www.instagram.com/bsosmilebig/" target="_blank" class="instagram__item"><img src="assets/images/follow-4.webp" alt="Big Smile Orthodontics Instagram" width="240" height="240" loading="lazy"></a>
+          <a href="https://www.instagram.com/bsosmilebig/" target="_blank" class="instagram__item"><img src="assets/images/follow-5.webp" alt="Big Smile Orthodontics Instagram" width="240" height="240" loading="lazy"></a>
+        </div>
+      </div>
+    </section>
+
+  
+</div>
+
+<!-- ======== Services ======== -->
+<div id="page-services" class="page-section">
+
+    <!-- Hero -->
+    <section class="page-hero page-hero--services">
+      <div class="container text-center">
+        <nav class="page-hero__breadcrumb">
+          <a href="#page-home">Home</a>
+          <span class="separator">&#9656;</span>
+          <span class="current">Our Services</span>
+        </nav>
+        <span class="hero__label">Our Services</span>
+        <h1>Orthodontic Services in Round Rock</h1>
+        <p>Comprehensive orthodontic care for patients of all ages, from traditional braces to the latest in clear aligner technology.</p>
+      </div>
+    </section>
+
+    <!-- Traditional Braces -->
+    <section class="section" id="braces">
+      <div class="container">
+        <div class="grid-2col">
+          <div data-animate="slide-left">
+            <h2>Traditional Braces</h2>
+            <span class="section-label">Most Popular</span>
+            <p>Traditional metal braces are the most common type of orthodontic treatment. They are made of high-grade stainless steel and use metal brackets attached to each tooth, connected by a thin archwire that puts gentle, constant pressure on the teeth to gradually move them into proper position.</p>
+            <p>Today's braces are smaller, more comfortable, and more efficient than ever before. They deliver reliable, precise results for all types of orthodontic cases.</p>
+            <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary" style="margin-top:var(--space-lg);">Schedule Consultation</a>
+          </div>
+          <div data-animate="slide-right">
+            <img src="assets/images/for-patients-4.webp" alt="Traditional braces at Big Smile Orthodontics" style="width:100%; border-radius:var(--radius-xl); box-shadow:var(--shadow-lg);" width="500" height="380">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clear/Ceramic Braces -->
+    <section class="section section--light" id="ceramic">
+      <div class="container">
+        <div class="grid-2col">
+          <div data-animate="slide-left">
+            <img src="assets/images/for-patients-5.webp" alt="Clear ceramic braces" style="width:100%; border-radius:var(--radius-xl); box-shadow:var(--shadow-lg);" width="500" height="380">
+          </div>
+          <div data-animate="slide-right">
+            <h2>Clear/Ceramic Braces</h2>
+            <span class="section-label">Discreet Option</span>
+            <p>Clear or ceramic braces work the same way as traditional metal braces, but use tooth-colored or clear brackets that blend with your natural tooth color. They are a popular choice for patients who want a more discreet orthodontic treatment option.</p>
+            <p>Ceramic braces offer excellent results while being less noticeable than metal braces, making them ideal for image-conscious teens and adults.</p>
+            <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary" style="margin-top:var(--space-lg);">Schedule Consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Invisalign -->
+    <section class="section" id="invisalign">
+      <div class="container">
+        <div class="grid-2col">
+          <div data-animate="slide-left">
+            <h2>Invisalign Clear Aligners</h2>
+            <span class="section-label">Clear Aligners</span>
+            <p>Invisalign uses a series of clear aligners worn to move teeth and is the most aesthetic option for those seeking orthodontic treatment without metal braces. It's easy to keep your teeth clean, much more comfortable, and there are no diet restrictions.</p>
+            <p>Patients wear aligners between 20 and 22 hours each day with progress check appointments approximately every eight weeks. The average treatment timeline with Invisalign is only 12-18 months, compared to traditional braces requiring 2-3 years.</p>
+
+            <h4 style="margin-top:var(--space-xl); margin-bottom:var(--space-md);">We Also Offer:</h4>
+            <div style="display:flex; flex-direction:column; gap:var(--space-sm);">
+              <div style="display:flex; align-items:center; gap:var(--space-sm);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><strong>Invisalign Teen</strong> — Clear aligners designed for adolescents</div>
+              <div style="display:flex; align-items:center; gap:var(--space-sm);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><strong>OrthoFX NiTime Aligners</strong> — Night-wear clear aligners</div>
+            </div>
+            <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary" style="margin-top:var(--space-xl);">Schedule Consultation</a>
+          </div>
+          <div data-animate="slide-right">
+            <img src="assets/images/for-patients-3.webp" alt="Invisalign clear aligners at Big Smile Orthodontics" style="width:100%; border-radius:var(--radius-xl); box-shadow:var(--shadow-lg);" width="500" height="380">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 1 -->
+    <section class="section section--light" id="phase1">
+      <div class="container">
+        <div style="max-width:800px; margin:0 auto; text-align:center;" data-animate="fade-up">
+          <h2 style="margin-bottom:var(--space-lg);">Phase 1 Orthodontics</h2>
+          <span class="section-label">Early Intervention</span>
+          <p style="font-size:var(--text-lg); line-height:1.8;">Phase 1 treatment, also known as early orthodontic treatment, is designed for children between the ages of 6 and 10. This early intervention helps guide jaw growth, correct harmful oral habits, and make room for permanent teeth to come in properly. By addressing orthodontic issues early, we can often reduce the need for more extensive treatment later.</p>
+          <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary" style="margin-top:var(--space-xl);">Schedule Your Child's Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Retainers -->
+    <section class="section" id="retainers">
+      <div class="container">
+        <div style="max-width:800px; margin:0 auto; text-align:center;" data-animate="fade-up">
+          <h2 style="margin-bottom:var(--space-lg);">Retainers & Orthodontic Appliances</h2>
+          <span class="section-label">Post-Treatment</span>
+          <p style="font-size:var(--text-lg); line-height:1.8;">Retainers are essential for maintaining your beautiful new smile after orthodontic treatment. We provide custom-made retainers and various orthodontic appliances designed to keep your teeth in their corrected positions and ensure long-lasting results.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergencies -->
+    <section class="section section--light" id="emergencies">
+      <div class="container">
+        <div style="max-width:800px; margin:0 auto; text-align:center;" data-animate="fade-up">
+          <h2 style="margin-bottom:var(--space-lg);">Orthodontic Emergencies</h2>
+          <span class="section-label">We're Here For You</span>
+          <p style="font-size:var(--text-lg); line-height:1.8;">We understand that orthodontic emergencies can happen at any time. That's why we offer a 24/7 emergency line for our patients. Whether it's a broken bracket, a loose wire, or any other unexpected issue, our team is ready to help you get the care you need.</p>
+          <div style="margin-top:var(--space-xl);">
+            <a href="tel:5128287900" class="btn btn--primary btn--lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Call (512) 828-7900
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Life With Braces -->
+    <section class="section" id="life-with-braces">
+      <div class="container">
+        <div style="max-width:800px; margin:0 auto; text-align:center;" data-animate="fade-up">
+          <h2 style="margin-bottom:var(--space-lg);">Life With Braces</h2>
+          <span class="section-label">Patient Guide</span>
+          <p style="font-size:var(--text-lg); line-height:1.8;">Adjusting to life with braces is easier than you might think. Our team will provide you with all the guidance you need on caring for your braces, what foods to avoid, and how to maintain excellent oral hygiene throughout your treatment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="cta-band__bg-shape cta-band__bg-shape--1"></div>
+      <div class="cta-band__bg-shape cta-band__bg-shape--2"></div>
+      <div class="container" data-animate="fade-up">
+        <h2 class="cta-band__title">Ready to Get Started?</h2>
+        <p class="cta-band__subtitle">Schedule your free consultation today and take the first step toward the smile you've always wanted.</p>
+        <div class="cta-band__buttons">
+          <a href="tel:5128287900" class="btn btn--outline btn--lg">Call (512) 828-7900</a>
+          <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary btn--lg" style="background:white;color:var(--color-primary);">Book Online</a>
+        </div>
+      </div>
+    </section>
+  
+</div>
+
+<!-- ======== Dr. Asrar ======== -->
+<div id="page-dr-asrar" class="page-section">
+
+    <!-- Page Hero -->
+    <section class="page-hero page-hero--about">
+      <div class="container text-center">
+        <nav class="page-hero__breadcrumb">
+          <a href="#page-home">Home</a>
+          <span class="separator">&#9656;</span>
+          <a href="#about">About Us</a>
+          <span class="separator">&#9656;</span>
+          <span class="current">Dr. Asrar</span>
+        </nav>
+        <span class="hero__label">About Our Doctor</span>
+        <h1>Meet Dr. Saba Asrar, DDS</h1>
+        <p>Top-rated orthodontist in Round Rock, TX — transforming smiles since 2007.</p>
+      </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="section">
+      <div class="container about-preview__inner">
+        <div class="about-preview__image-wrap" data-animate="slide-left">
+          <img src="assets/images/index-meet.webp" alt="Dr. Saba Asrar, DDS" class="about-preview__image" width="520" height="600">
+          <div class="about-preview__accent"></div>
+        </div>
+
+        <div class="about-preview__content" data-animate="slide-right">
+          <h2>A Passion for Perfect Smiles</h2>
+          <span class="section-label">Round Rock's Trusted Orthodontist</span>
+          <p>Dr. Asrar is a top provider for orthodontic services in Round Rock and has been practicing since 2007. She has created thousands of beautiful smiles over the course of her career! Today, she is one of only a few orthodontists in the country chosen to be a part of the Advisory Board of the Council of Innovative Orthodontics for 3M (Solventum).</p>
+          <p>Dr. Asrar has a deep passion for orthodontics, an artistic eye for details, and a genuine care for her patients. Moreover, her unwavering commitment to providing the best experience and results further distinguishes her as a top-choice orthodontist.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Credentials -->
+    <section class="section section--light">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: var(--space-2xl);">
+          <h2>Training & Professional Background</h2>
+          <span class="section-label">Education & Credentials</span>
+        </div>
+
+        <div class="grid-2col-cards" data-animate="stagger">
+          <div class="card">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 4 3 6 3s6-2 6-3v-5"/></svg>
+            </div>
+            <h3 class="card__title">Advanced Education</h3>
+            <p class="card__text">Advanced Education in General Dentistry residency from University of Rochester School of Medicine & Dentistry, New York.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="card__title">Orthodontic Specialization</h3>
+            <p class="card__text">Specialization in Orthodontics and Dentofacial Orthopedics from the University of Nevada Las Vegas.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2"><path d="M12 15a7 7 0 100-14 7 7 0 000 14z"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>
+            </div>
+            <h3 class="card__title">Academic Excellence</h3>
+            <p class="card__text">Graduated at top of dental school class. Omicron Kappa Upsilon award recipient (national dental honor society). Great character award from Howard University, Washington DC.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="card__title">Continued Learning</h3>
+            <p class="card__text">Invisalign Orthodontic Masters Program completion. Advisory Board of the Council of Innovative Orthodontics for 3M (Solventum).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Affiliations -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: var(--space-2xl);">
+          <h2>Professional Memberships</h2>
+          <span class="section-label">Affiliations</span>
+        </div>
+        <div class="grid-3col-badges" data-animate="stagger">
+          <div style="background: var(--color-light); padding: var(--space-lg); border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); font-weight: 500; color: var(--color-dark);">American Association of Orthodontists</div>
+          <div style="background: var(--color-light); padding: var(--space-lg); border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); font-weight: 500; color: var(--color-dark);">Southwestern Society of Orthodontists</div>
+          <div style="background: var(--color-light); padding: var(--space-lg); border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); font-weight: 500; color: var(--color-dark);">Texas Dental Association</div>
+          <div style="background: var(--color-light); padding: var(--space-lg); border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); font-weight: 500; color: var(--color-dark);">Orthotown</div>
+          <div style="background: var(--color-light); padding: var(--space-lg); border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); font-weight: 500; color: var(--color-dark);">Women in Orthodontics Study Club</div>
+          <div style="background: var(--color-light); padding: var(--space-lg); border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); font-weight: 500; color: var(--color-dark);">The Digital Orthodontist</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Treatment Offerings -->
+    <section class="section section--light">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: var(--space-xl);">
+          <h2>Treatment Offerings</h2>
+          <span class="section-label">Expertise</span>
+          <p class="section-subtitle centered">Dr. Asrar offers a comprehensive range of orthodontic treatments for patients of all ages.</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center;" data-animate="fade-up">
+          <span style="background: var(--color-white); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 500; color: var(--color-primary); border: 1px solid rgba(0,119,182,0.15);">Clear Aligners (Invisalign)</span>
+          <span style="background: var(--color-white); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 500; color: var(--color-primary); border: 1px solid rgba(0,119,182,0.15);">Traditional Braces</span>
+          <span style="background: var(--color-white); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 500; color: var(--color-primary); border: 1px solid rgba(0,119,182,0.15);">Ceramic Braces</span>
+          <span style="background: var(--color-white); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 500; color: var(--color-primary); border: 1px solid rgba(0,119,182,0.15);">Nightguards</span>
+          <span style="background: var(--color-white); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 500; color: var(--color-primary); border: 1px solid rgba(0,119,182,0.15);">Sleep Apnea Devices</span>
+          <span style="background: var(--color-white); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 500; color: var(--color-primary); border: 1px solid rgba(0,119,182,0.15);">Retainers</span>
+          <span style="background: var(--color-white); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 500; color: var(--color-primary); border: 1px solid rgba(0,119,182,0.15);">Teeth Whitening</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personal -->
+    <section class="section">
+      <div class="container" style="max-width: 700px;">
+        <div class="text-center" data-animate="fade-up">
+          <h2 style="margin-bottom: var(--space-lg);">A Little About Dr. Asrar</h2>
+          <span class="section-label">Outside the Office</span>
+          <p style="font-size: var(--text-lg); line-height: 1.8;">When she's not creating beautiful smiles, Dr. Asrar spends her leisure time with her husband and two sons enjoying barbecuing, dining, and movies. She values her husband as her best friend and enjoys comedy shows, cooking, gym activities, and exploring restaurants together.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="cta-band__bg-shape cta-band__bg-shape--1"></div>
+      <div class="cta-band__bg-shape cta-band__bg-shape--2"></div>
+      <div class="container" data-animate="fade-up">
+        <h2 class="cta-band__title">Ready to Meet Dr. Asrar?</h2>
+        <p class="cta-band__subtitle">Schedule your free consultation today and take the first step toward the smile you've always wanted.</p>
+        <div class="cta-band__buttons">
+          <a href="tel:5128287900" class="btn btn--outline btn--lg">Call (512) 828-7900</a>
+          <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary btn--lg" style="background:white;color:var(--color-primary);">Book Online</a>
+        </div>
+      </div>
+    </section>
+  
+</div>
+
+<!-- ======== Team ======== -->
+<div id="page-team" class="page-section">
+
+    <!-- Hero -->
+    <section class="page-hero page-hero--team">
+      <div class="container text-center">
+        <nav class="page-hero__breadcrumb">
+          <a href="#page-home">Home</a>
+          <span class="separator">&#9656;</span>
+          <a href="#about">About Us</a>
+          <span class="separator">&#9656;</span>
+          <span class="current">Our Team</span>
+        </nav>
+        <span class="hero__label">Our Team</span>
+        <h1>Meet Our Round Rock Orthodontic Team</h1>
+        <p>Get to Know Our Amazing Team</p>
+      </div>
+    </section>
+
+    <!-- Team Photo -->
+    <section class="section">
+      <div class="container text-center" data-animate="fade-up">
+        <img src="assets/images/meet-the-team-1.webp" alt="Big Smile Orthodontics team" style="width:100%; max-width:900px; border-radius:var(--radius-xl); box-shadow:var(--shadow-lg); margin:0 auto;" width="900" height="500">
+      </div>
+    </section>
+
+    <!-- Team Members -->
+    <section class="section section--light">
+      <div class="container">
+        <div class="grid-2col-team" data-animate="stagger">
+
+          <!-- Kimberly -->
+          <div class="card" style="text-align:center;">
+            <img src="assets/images/meet-the-team-2.webp" alt="Kimberly - Treatment Coordinator" style="width:120px;height:120px;border-radius:var(--radius-full);object-fit:cover;margin:0 auto var(--space-lg);" width="120" height="120">
+            <h3 class="card__title">Kimberly</h3>
+            <p style="color:var(--color-primary); font-weight:600; font-size:var(--text-sm); margin-bottom:var(--space-md);">Treatment Coordinator / Dental Assistant</p>
+            <p class="card__text">Dental Assistant Certification from Sonrisas Training Center. CPR certified through American Red Cross. From Leander.</p>
+          </div>
+
+          <!-- Jessica -->
+          <div class="card" style="text-align:center;">
+            <img src="assets/images/meet-the-team-2.webp" alt="Jessica - Lead Dental Assistant" style="width:120px;height:120px;border-radius:var(--radius-full);object-fit:cover;margin:0 auto var(--space-lg);" width="120" height="120">
+            <h3 class="card__title">Jessica</h3>
+            <p style="color:var(--color-primary); font-weight:600; font-size:var(--text-sm); margin-bottom:var(--space-md);">Lead Dental Assistant</p>
+            <p class="card__text">Over half her career at Big Smile Orthodontics. Dental Assistant Certification from Star of Texas Dental Assisting School. Trained in X-rays and CPR. From Leander; has a daughter, two dogs (Great Pyrenees, Catahoula Cur). A fun fact about Jessica is that she's a twin!</p>
+          </div>
+
+          <!-- Evelyn -->
+          <div class="card" style="text-align:center;">
+            <img src="assets/images/meet-the-team-2.webp" alt="Evelyn - Registered Dental Assistant" style="width:120px;height:120px;border-radius:var(--radius-full);object-fit:cover;margin:0 auto var(--space-lg);" width="120" height="120">
+            <h3 class="card__title">Evelyn</h3>
+            <p style="color:var(--color-primary); font-weight:600; font-size:var(--text-sm); margin-bottom:var(--space-md);">Registered Dental Assistant</p>
+            <p class="card__text">Over three years of experience. Certification from Sonrisas Training Center. Trained in nitrous oxide administration and CPR. From San Miguel, El Salvador; bilingual. Has a Beagle named Captain.</p>
+          </div>
+
+          <!-- Laurel -->
+          <div class="card" style="text-align:center;">
+            <img src="assets/images/meet-the-team-2.webp" alt="Laurel - Registered Dental Assistant" style="width:120px;height:120px;border-radius:var(--radius-full);object-fit:cover;margin:0 auto var(--space-lg);" width="120" height="120">
+            <h3 class="card__title">Laurel</h3>
+            <p style="color:var(--color-primary); font-weight:600; font-size:var(--text-sm); margin-bottom:var(--space-md);">Registered Dental Assistant</p>
+            <p class="card__text">Several years experience. Star of Texas Dental Assisting School training. Certified in CPR, nitrous oxide, X-rays; endodontic procedure assistance. From Leander; has a son and two dogs (Yorkie, Chihuahua mix).</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="cta-band__bg-shape cta-band__bg-shape--1"></div>
+      <div class="cta-band__bg-shape cta-band__bg-shape--2"></div>
+      <div class="container" data-animate="fade-up">
+        <h2 class="cta-band__title">Ready to Get Started?</h2>
+        <p class="cta-band__subtitle">Schedule your free consultation today and meet our incredible team in person.</p>
+        <div class="cta-band__buttons">
+          <a href="tel:5128287900" class="btn btn--outline btn--lg">Call (512) 828-7900</a>
+          <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary btn--lg" style="background:white;color:var(--color-primary);">Book Online</a>
+        </div>
+      </div>
+    </section>
+  
+</div>
+
+<!-- ======== Gallery ======== -->
+<div id="page-gallery" class="page-section">
+
+    <!-- Hero -->
+    <section class="page-hero page-hero--gallery">
+      <div class="container text-center">
+        <nav class="page-hero__breadcrumb">
+          <a href="#page-home">Home</a>
+          <span class="separator">&#9656;</span>
+          <a href="#about">About Us</a>
+          <span class="separator">&#9656;</span>
+          <span class="current">Smile Gallery</span>
+        </nav>
+        <span class="hero__label">Our Results</span>
+        <h1>Orthodontic Smile Gallery</h1>
+        <p>Changing Lives & Beautifying Smiles</p>
+      </div>
+    </section>
+
+    <!-- Gallery Description -->
+    <section class="section">
+      <div class="container text-center" style="max-width:800px; margin:0 auto;">
+        <p style="font-size:var(--text-lg); line-height:1.8;" data-animate="fade-up">At Big Smile Orthodontics in Round Rock, we tackle every type of misalignment case, from minor to moderate crowding to rotated teeth and severe bite problems. Our personalized approach enables us to achieve outstanding results each and every time.</p>
+      </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="section section--light" style="padding-top:0;">
+      <div class="container">
+        <div class="grid-2col-gallery" data-animate="stagger">
+
+          <div class="cases__item">
+            <img src="assets/images/index-case-1.png" alt="Before and after orthodontic treatment - crowded teeth correction" width="555" height="397" loading="lazy">
+          </div>
+          <div class="cases__item">
+            <img src="assets/images/index-case-4.png" alt="Before and after orthodontic treatment - overcrowding" width="555" height="397" loading="lazy">
+          </div>
+          <div class="cases__item">
+            <img src="assets/images/index-case-2.png" alt="Before and after orthodontic treatment - teeth alignment" width="555" height="210" loading="lazy">
+          </div>
+          <div class="cases__item">
+            <img src="assets/images/index-case-3.png" alt="Before and after orthodontic treatment - crowded lower teeth" width="555" height="210" loading="lazy">
+          </div>
+          <div class="cases__item">
+            <img src="assets/images/index-case-5.png" alt="Before and after orthodontic treatment - severe misalignment" width="555" height="210" loading="lazy">
+          </div>
+          <div class="cases__item">
+            <img src="assets/images/index-case-6.png" alt="Before and after orthodontic treatment - gapped teeth" width="555" height="210" loading="lazy">
+          </div>
+
+          <!-- Smile Gallery specific images -->
+          <div class="cases__item">
+            <img src="assets/images/smile-gallery-2.webp" alt="Before and after - crowded and overlapping teeth correction" width="600" height="400" loading="lazy">
+          </div>
+          <div class="cases__item">
+            <img src="assets/images/smile-gallery-3.webp" alt="Before and after - crowded lower teeth alignment" width="600" height="400" loading="lazy">
+          </div>
+          <div class="cases__item">
+            <img src="assets/images/smile-gallery-4.webp" alt="Before and after - overcrowded teeth correction" width="600" height="400" loading="lazy">
+          </div>
+          <div class="cases__item">
+            <img src="assets/images/smile-gallery-5.webp" alt="Before and after - severely misaligned teeth alignment" width="600" height="400" loading="lazy">
+          </div>
+          <div class="cases__item">
+            <img src="assets/images/smile-gallery-6.webp" alt="Before and after - gapped teeth closure" width="600" height="400" loading="lazy">
+          </div>
+          <div class="cases__item">
+            <img src="assets/images/smile-gallery-7.webp" alt="Before and after - severely rotated tooth straightening" width="600" height="400" loading="lazy">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="cta-band__bg-shape cta-band__bg-shape--1"></div>
+      <div class="cta-band__bg-shape cta-band__bg-shape--2"></div>
+      <div class="container" data-animate="fade-up">
+        <h2 class="cta-band__title">Ready for Your Transformation?</h2>
+        <p class="cta-band__subtitle">Schedule your free consultation today and see what Big Smile Orthodontics can do for your smile.</p>
+        <div class="cta-band__buttons">
+          <a href="tel:5128287900" class="btn btn--outline btn--lg">Call (512) 828-7900</a>
+          <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary btn--lg" style="background:white;color:var(--color-primary);">Book Online</a>
+        </div>
+      </div>
+    </section>
+  
+</div>
+
+<!-- ======== For Patients ======== -->
+<div id="page-patients" class="page-section">
+
+    <!-- Hero -->
+    <section class="page-hero page-hero--patients">
+      <div class="container text-center">
+        <nav class="page-hero__breadcrumb">
+          <a href="#page-home">Home</a>
+          <span class="separator">&#9656;</span>
+          <span class="current">For Patients</span>
+        </nav>
+        <span class="hero__label">New Patients</span>
+        <h1>New Orthodontic Patient Information</h1>
+        <p>Start Your Journey Towards a Straighter Smile Today!</p>
+      </div>
+    </section>
+
+    <!-- Quick-Jump Steps -->
+    <section class="patient-steps">
+      <div class="container">
+        <div class="patient-steps__grid" data-animate="stagger">
+          <a href="#first-visit" class="patient-steps__item">
+            <div class="patient-steps__number">1</div>
+            <div class="patient-steps__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <h3>Schedule</h3>
+            <p>Book your free consultation</p>
+          </a>
+          <a href="#forms" class="patient-steps__item">
+            <div class="patient-steps__number">2</div>
+            <div class="patient-steps__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3>Fill Out Forms</h3>
+            <p>Complete paperwork online</p>
+          </a>
+          <a href="#insurance" class="patient-steps__item">
+            <div class="patient-steps__number">3</div>
+            <div class="patient-steps__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Verify Insurance</h3>
+            <p>We accept most major plans</p>
+          </a>
+          <a href="#first-visit" class="patient-steps__item">
+            <div class="patient-steps__number">4</div>
+            <div class="patient-steps__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Get Your Smile</h3>
+            <p>Start your treatment plan</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- First Visit -->
+    <section class="section" id="first-visit">
+      <div class="container">
+        <div class="patient-split">
+          <div class="patient-split__content" data-animate="slide-left">
+            <h2>Your First Visit</h2>
+            <span class="section-label">Getting Started</span>
+            <p>Your initial complimentary consultation with our orthodontist is a very important part of your orthodontic treatment journey. This is usually an hour-long appointment where we'll examine your teeth, discuss your goals, and create a personalized treatment plan just for you.</p>
+            <div class="patient-checklist" data-animate="fade-up">
+              <div class="patient-checklist__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Comprehensive oral examination</span>
+              </div>
+              <div class="patient-checklist__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Digital X-rays & 3D scanning</span>
+              </div>
+              <div class="patient-checklist__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Personalized treatment plan</span>
+              </div>
+              <div class="patient-checklist__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Cost & financing discussion</span>
+              </div>
+            </div>
+            <div style="margin-top:var(--space-xl); display:flex; gap:var(--space-md); flex-wrap:wrap;">
+              <a href="https://app.nexhealth.com/appt/big-smile-orthodontics?lid=333133" target="_blank" class="btn btn--primary">Schedule Your Free Consultation</a>
+              <a href="tel:5128287900" class="btn btn--outline-dark">Call (512) 828-7900</a>
+            </div>
+          </div>
+          <div class="patient-split__visual" data-animate="slide-right">
+            <img src="assets/images/for-patients-1.webp" alt="First visit at Big Smile Orthodontics" width="500" height="380" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patient Forms -->
+    <section class="section section--light" id="forms">
+      <div class="container">
+        <div class="text-center" style="max-width:680px; margin:0 auto var(--space-2xl);">
+          <h2>Patient Forms</h2>
+          <span class="section-label">Before Your Visit</span>
+          <p>Save time at your first appointment by completing your medical history form and accessing our patient portal ahead of time.</p>
+        </div>
+        <div class="patient-forms-grid" data-animate="stagger">
+          <a href="https://bigsmileorthodontics.com/wp-content/uploads/Medical-History-Form.pdf" target="_blank" class="patient-form-card">
+            <div class="patient-form-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3>Medical History Form</h3>
+            <p>Download and complete your medical history form before your first visit.</p>
+            <span class="patient-form-card__action">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </span>
+          </a>
+          <a href="https://bigsmile.cloud9ortho.com/portal/LoginAccount/Login" target="_blank" class="patient-form-card">
+            <div class="patient-form-card__icon patient-form-card__icon--accent">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            </div>
+            <h3>Patient Portal</h3>
+            <p>Access your secure patient portal to view records, appointments, and more.</p>
+            <span class="patient-form-card__action">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Open Portal
+            </span>
+          </a>
+          <a href="https://app.nexhealth.com/appt/big-smile-orthodontics?lid=333133" target="_blank" class="patient-form-card">
+            <div class="patient-form-card__icon patient-form-card__icon--warm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h3>Book Appointment</h3>
+            <p>Schedule your next visit online, 24/7. Quick, easy, and convenient.</p>
+            <span class="patient-form-card__action">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Schedule Now
+            </span>
+          </a>
+        </div>
+        <p style="text-align:center; margin-top:var(--space-lg); font-size:var(--text-sm); color:var(--color-body);">If you have difficulty accessing our online forms, please <a href="tel:5128287900" style="color:var(--color-primary); font-weight:500;">contact our team</a>.</p>
+      </div>
+    </section>
+
+    <!-- Insurance -->
+    <section class="section" id="insurance">
+      <div class="container">
+        <div class="patient-split">
+          <div class="patient-split__visual" data-animate="slide-left">
+            <img src="assets/images/for-patients-2.webp" alt="Insurance accepted at Big Smile Orthodontics" width="500" height="380" loading="lazy">
+          </div>
+          <div class="patient-split__content" data-animate="slide-right">
+            <h2>Dental Insurance</h2>
+            <span class="section-label">Affordable Care</span>
+            <p>We're proud to accept most major dental insurance plans and file claims on your behalf to maximize your savings and reduce out-of-pocket expenses.</p>
+
+            <h4 style="margin-top:var(--space-xl); margin-bottom:var(--space-md);">Insurance Partners</h4>
+            <div class="insurance-tags" data-animate="fade-up">
+              <span class="insurance-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                United Healthcare
+              </span>
+              <span class="insurance-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                MetLife
+              </span>
+              <span class="insurance-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                Delta
+              </span>
+              <span class="insurance-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                BlueCross BlueShield
+              </span>
+              <span class="insurance-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                Aetna
+              </span>
+              <span class="insurance-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                Careington
+              </span>
+              <span class="insurance-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                Ameritas
+              </span>
+              <span class="insurance-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                Dentemax
+              </span>
+            </div>
+            <p style="margin-top:var(--space-lg); font-size:var(--text-sm); color:var(--color-body);">Don't see your plan? <a href="tel:5128287900" style="color:var(--color-primary); font-weight:500;">Give us a call</a> — we can still help!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Financing -->
+    <section class="section section--light" id="financing">
+      <div class="container">
+        <div class="patient-split">
+          <div class="patient-split__content" data-animate="slide-left">
+            <h2>Financing Available</h2>
+            <span class="section-label">Payment Plans</span>
+            <p>We offer zero-interest financing for treatment and partner with CareCredit to help split the overall cost into smaller, easy-to-manage monthly payments.</p>
+
+            <div class="patient-checklist" data-animate="fade-up">
+              <div class="patient-checklist__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Zero-interest financing available</span>
+              </div>
+              <div class="patient-checklist__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>CareCredit accepted</span>
+              </div>
+              <div class="patient-checklist__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Flexible monthly payments</span>
+              </div>
+              <div class="patient-checklist__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>No hidden fees or surprises</span>
+              </div>
+            </div>
+            <div style="margin-top:var(--space-xl);">
+              <a href="#page-contact" class="btn btn--primary">Ask About Payment Plans</a>
+            </div>
+          </div>
+          <div class="patient-split__visual" data-animate="slide-right">
+            <img src="assets/images/for-patients-3.webp" alt="Financing options at Big Smile Orthodontics" width="500" height="380" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="section" id="faq">
+      <div class="container" style="max-width:800px; margin:0 auto;">
+        <div class="text-center" style="margin-bottom:var(--space-2xl);">
+          <h2>Frequently Asked Questions</h2>
+          <span class="section-label">Common Questions</span>
+        </div>
+        <div class="faq-list" data-animate="stagger">
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>How long does orthodontic treatment take?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer">
+              <p>Treatment time varies depending on the complexity of your case. On average, treatment takes 12–24 months. Dr. Asrar will give you a personalized timeline during your free consultation.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>What should I bring to my first appointment?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer">
+              <p>Please bring your completed medical history form (or fill it out online ahead of time), your dental insurance card, and a photo ID. If you have recent dental X-rays, bring those as well.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>Do you offer payment plans?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer">
+              <p>Yes! We offer zero-interest in-house financing and also accept CareCredit. We'll work with you to find a payment plan that fits your budget comfortably.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>Is the initial consultation really free?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer">
+              <p>Absolutely! Your first consultation is completely free with no obligation. We'll examine your teeth, discuss treatment options, and provide a full cost breakdown — all at no charge.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>What age should my child first see an orthodontist?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-item__answer">
+              <p>The American Association of Orthodontists recommends children have their first orthodontic evaluation by age 7. Early detection can prevent more serious problems later and may reduce overall treatment time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="cta-band__bg-shape cta-band__bg-shape--1"></div>
+      <div class="cta-band__bg-shape cta-band__bg-shape--2"></div>
+      <div class="container" data-animate="fade-up">
+        <h2 class="cta-band__title">Ready to Get Started?</h2>
+        <p class="cta-band__subtitle">Schedule your free consultation today and take the first step toward the smile you've always wanted.</p>
+        <div class="cta-band__buttons">
+          <a href="tel:5128287900" class="btn btn--outline btn--lg">Call (512) 828-7900</a>
+          <a href="https://app.nexhealth.com/appt/big-smile-orthodontics?lid=333133" target="_blank" class="btn btn--primary btn--lg" style="background:white;color:var(--color-primary);">Book Online</a>
+        </div>
+      </div>
+    </section>
+  
+</div>
+
+<!-- ======== Contact ======== -->
+<div id="page-contact" class="page-section">
+
+    <!-- Hero -->
+    <section class="page-hero page-hero--contact">
+      <div class="container text-center">
+        <nav class="page-hero__breadcrumb">
+          <a href="#page-home">Home</a>
+          <span class="separator">&#9656;</span>
+          <span class="current">Contact</span>
+        </nav>
+        <span class="hero__label">Get In Touch</span>
+        <h1>Contact Our Round Rock Orthodontic Office</h1>
+        <p>Reach Out to Our Friendly Team Today!</p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+      <div class="container">
+        <div class="grid-2col-contact">
+
+          <!-- Contact Form -->
+          <div data-animate="slide-left">
+            <h2 style="margin-bottom:var(--space-lg);">Send Us a Message</h2>
+            <p style="margin-bottom:var(--space-xl);">Schedule a consultation and start your orthodontic journey. Call or email to speak with our team about your initial consultation with Dr. Asrar.</p>
+
+            <form id="contactForm" style="display:flex; flex-direction:column; gap:var(--space-md);">
+              <div class="grid-2col-form">
+                <div>
+                  <label for="fname" style="display:block; font-size:var(--text-sm); font-weight:500; margin-bottom:var(--space-xs); color:var(--color-dark);">First Name *</label>
+                  <input type="text" id="fname" name="fname" required style="width:100%; padding:0.75rem 1rem; border:1px solid rgba(0,119,182,0.2); border-radius:var(--radius-md); font-size:var(--text-base); transition:border-color var(--transition-fast);">
+                </div>
+                <div>
+                  <label for="lname" style="display:block; font-size:var(--text-sm); font-weight:500; margin-bottom:var(--space-xs); color:var(--color-dark);">Last Name *</label>
+                  <input type="text" id="lname" name="lname" required style="width:100%; padding:0.75rem 1rem; border:1px solid rgba(0,119,182,0.2); border-radius:var(--radius-md); font-size:var(--text-base);">
+                </div>
+              </div>
+              <div>
+                <label for="email" style="display:block; font-size:var(--text-sm); font-weight:500; margin-bottom:var(--space-xs); color:var(--color-dark);">Email *</label>
+                <input type="email" id="email" name="email" required style="width:100%; padding:0.75rem 1rem; border:1px solid rgba(0,119,182,0.2); border-radius:var(--radius-md); font-size:var(--text-base);">
+              </div>
+              <div>
+                <label for="phone" style="display:block; font-size:var(--text-sm); font-weight:500; margin-bottom:var(--space-xs); color:var(--color-dark);">Phone *</label>
+                <input type="tel" id="phone" name="phone" required style="width:100%; padding:0.75rem 1rem; border:1px solid rgba(0,119,182,0.2); border-radius:var(--radius-md); font-size:var(--text-base);">
+              </div>
+              <div>
+                <label for="service" style="display:block; font-size:var(--text-sm); font-weight:500; margin-bottom:var(--space-xs); color:var(--color-dark);">Service Interest</label>
+                <select id="service" name="service" style="width:100%; padding:0.75rem 1rem; border:1px solid rgba(0,119,182,0.2); border-radius:var(--radius-md); font-size:var(--text-base); background:white;">
+                  <option value="">Select a service...</option>
+                  <option value="braces">Traditional Braces</option>
+                  <option value="ceramic">Clear/Ceramic Braces</option>
+                  <option value="invisalign">Invisalign Clear Aligners</option>
+                  <option value="phase1">Phase 1 Orthodontics</option>
+                  <option value="retainers">Retainers & Appliances</option>
+                  <option value="whitening">Zoom Teeth Whitening</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="message" style="display:block; font-size:var(--text-sm); font-weight:500; margin-bottom:var(--space-xs); color:var(--color-dark);">Message</label>
+                <textarea id="message" name="message" rows="5" style="width:100%; padding:0.75rem 1rem; border:1px solid rgba(0,119,182,0.2); border-radius:var(--radius-md); font-size:var(--text-base); resize:vertical;"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg" style="align-self:flex-start;">Send Message</button>
+            </form>
+          </div>
+
+          <!-- Contact Info Sidebar -->
+          <div data-animate="slide-right">
+            <!-- Office Info Card -->
+            <div class="card" style="margin-bottom:var(--space-xl);">
+              <h3 class="card__title" style="margin-bottom:var(--space-lg);">Office Information</h3>
+
+              <div style="display:flex; flex-direction:column; gap:var(--space-lg);">
+                <div style="display:flex; align-items:flex-start; gap:var(--space-md);">
+                  <div style="width:40px;height:40px;border-radius:var(--radius-md);background:rgba(0,119,182,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div>
+                    <strong style="color:var(--color-dark); display:block; margin-bottom:2px;">Address</strong>
+                    <span style="font-size:var(--text-sm); color:var(--color-body);">1025 Sendero Springs Dr, Suite #110<br>Round Rock, TX 78681</span>
+                  </div>
+                </div>
+
+                <div style="display:flex; align-items:flex-start; gap:var(--space-md);">
+                  <div style="width:40px;height:40px;border-radius:var(--radius-md);background:rgba(0,119,182,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                  </div>
+                  <div>
+                    <strong style="color:var(--color-dark); display:block; margin-bottom:2px;">Phone</strong>
+                    <a href="tel:5128287900" style="font-size:var(--text-base); font-weight:600; color:var(--color-primary);">(512) 828-7900</a>
+                  </div>
+                </div>
+
+                <div style="display:flex; align-items:flex-start; gap:var(--space-md);">
+                  <div style="width:40px;height:40px;border-radius:var(--radius-md);background:rgba(0,119,182,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </div>
+                  <div>
+                    <strong style="color:var(--color-dark); display:block; margin-bottom:2px;">Email</strong>
+                    <a href="mailto:info@bigsmileorthodontics.com" style="font-size:var(--text-sm); color:var(--color-primary);">info@bigsmileorthodontics.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hours Card -->
+            <div class="location__hours" style="margin-bottom:var(--space-xl);">
+              <h4 style="margin-bottom:var(--space-md);">Office Hours</h4>
+              <div class="location__hours-row"><span class="location__hours-day">Monday</span><span class="location__hours-time">8:00 am &ndash; 6:00 pm</span></div>
+              <div class="location__hours-row"><span class="location__hours-day">Tuesday</span><span class="location__hours-time">8:30 am &ndash; 6:00 pm</span></div>
+              <div class="location__hours-row"><span class="location__hours-day">Wednesday</span><span class="location__hours-time">8:30 am &ndash; 6:00 pm</span></div>
+              <div class="location__hours-row"><span class="location__hours-day">Thursday</span><span class="location__hours-time">9:00 am &ndash; 5:00 pm</span></div>
+              <div class="location__hours-row"><span class="location__hours-day">Friday</span><span class="location__hours-time">8:00 am &ndash; 6:00 pm</span></div>
+            </div>
+
+            <!-- Virtual Consult -->
+            <div class="card" id="virtual" style="background:var(--color-light); border:none;">
+              <h3 class="card__title">Virtual Consultations</h3>
+              <p class="card__text" style="margin-bottom:var(--space-md);">Can't make it to our office? We offer virtual consultations for your convenience.</p>
+              <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="btn btn--primary btn--sm">Schedule Virtual Visit</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div style="margin-top:var(--space-3xl);" data-animate="fade-up">
+          <iframe class="location__map" style="width:100%; height:400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3438.5!2d-97.7372897!3d30.5500079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDMzJzAwLjAiTiA5N8KwNDQnMTQuMiJX!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Big Smile Orthodontics location map"></iframe>
+        </div>
+      </div>
+    </section>
+  
+</div>
+
+<footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <img src="assets/images/logo.png" alt="Big Smile Orthodontics" width="160" height="44">
+          <p>Giving You More Reasons to Smile. Top-rated orthodontics in Round Rock, TX serving Cedar Park, Georgetown, and North Austin.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/BigSmileOrtho/" target="_blank" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/bsosmilebig/" target="_blank" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://maps.app.goo.gl" target="_blank" aria-label="Google Maps">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <div class="footer__links">
+            <a href="#page-home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Our Services</a>
+            <a href="#page-patients">For Patients</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#page-contact">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Services</h4>
+          <div class="footer__links">
+            <a href="#braces">Traditional Braces</a>
+            <a href="#ceramic">Clear/Ceramic Braces</a>
+            <a href="#invisalign">Invisalign</a>
+            <a href="#phase1">Phase 1 Orthodontics</a>
+            <a href="#retainers">Retainers & Appliances</a>
+            <a href="#emergencies">Emergencies</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Contact Us</h4>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>1025 Sendero Springs Dr<br>Suite 110, Round Rock, TX 78681</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:5128287900">(512) 828-7900</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@bigsmileorthodontics.com">info@bigsmileorthodontics.com</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; Big Smile Orthodontics. All rights reserved.</span>
+        <div>
+          <a href="#">Sitemap</a> &nbsp;|&nbsp; <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<!-- Mobile Sticky CTA -->
+<div class="mobile-cta" id="mobileCta">
+  <a href="tel:5128287900" class="mobile-cta__btn mobile-cta__btn--call">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    Call Now
+  </a>
+  <a href="https://app.nexhealth.com/appt/big-smile-orthodontics" target="_blank" class="mobile-cta__btn mobile-cta__btn--book">Book Free Consult</a>
+</div>
+
+<script>
+/* === js/main.js === */
+/* ============================================
+   Main JS — Nav, Smooth Scroll, Mobile Menu
+   ============================================ */
+
+(function () {
+  'use strict';
+
+  const nav = document.getElementById('nav');
+  const hamburger = document.getElementById('navHamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  // ---- Nav scroll effect ----
+  let lastScroll = 0;
+
+  function handleNavScroll() {
+    // Only toggle transparent nav on the home page
+    var activePage = document.querySelector('.page-section.active');
+    if (!activePage || activePage.id !== 'page-home') return;
+
+    const scrollY = window.scrollY;
+
+    if (scrollY > 80) {
+      nav.classList.add('nav--scrolled');
+      nav.classList.remove('nav--transparent');
+    } else {
+      nav.classList.remove('nav--scrolled');
+      nav.classList.add('nav--transparent');
+    }
+
+    lastScroll = scrollY;
+  }
+
+  window.addEventListener('scroll', handleNavScroll, { passive: true });
+  // Don't run on load — let the routing JS handle initial state
+
+  // ---- Mobile menu toggle ----
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function () {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // ---- Smooth scroll for anchor links ----
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const navHeight = nav ? nav.offsetHeight : 80;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // ---- Dropdown hover fix for touch devices ----
+  document.querySelectorAll('.nav__dropdown').forEach(function (dropdown) {
+    dropdown.addEventListener('click', function (e) {
+      if (window.innerWidth <= 1024) {
+        e.preventDefault();
+        this.classList.toggle('active');
+      }
+    });
+  });
+
+  // ---- Mobile sticky CTA show/hide ----
+  const mobileCta = document.getElementById('mobileCta');
+  if (mobileCta) {
+    function handleMobileCta() {
+      if (window.scrollY > 400) {
+        mobileCta.classList.add('visible');
+      } else {
+        mobileCta.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', handleMobileCta, { passive: true });
+  }
+
+  // ---- FAQ Accordion ----
+  document.querySelectorAll('.faq-item__question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = this.closest('.faq-item');
+      var isOpen = item.classList.contains('is-open');
+
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item.is-open').forEach(function (openItem) {
+        if (openItem !== item) {
+          openItem.classList.remove('is-open');
+          openItem.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current item
+      item.classList.toggle('is-open', !isOpen);
+      this.setAttribute('aria-expanded', !isOpen);
+    });
+  });
+
+  // ---- Mobile Sub-Menu Toggles ----
+  document.querySelectorAll('.nav__mobile-link').forEach(function (link) {
+    var sub = link.nextElementSibling;
+    if (sub && sub.classList.contains('nav__mobile-sub')) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        sub.classList.toggle('active');
+        this.classList.toggle('active');
+      });
+    }
+  });
+
+  // ---- Page transition on internal link clicks ----
+  // Adds a fade-out before navigating to another page
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a');
+      if (!link) return;
+
+      var href = link.getAttribute('href');
+      if (!href) return;
+
+      // Skip anchors, external links, tel/mailto, new-tab links
+      if (href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') ||
+          href.startsWith('http') || link.target === '_blank') return;
+
+      // Skip if it's pointing to the current page (same filename or index)
+      var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      var targetPage = href.split('#')[0];
+      if (!targetPage || targetPage === currentPage) return;
+
+      e.preventDefault();
+      document.body.classList.add('is-leaving');
+
+      setTimeout(function () {
+        window.location.href = href;
+      }, 220);
+    });
+  }
+
+})();
+
+
+/* === js/animations.js === */
+/* ============================================
+   Animations — Scroll Reveals & Counters
+   ============================================ */
+
+(function () {
+  'use strict';
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    // Make everything visible immediately
+    document.querySelectorAll('[data-animate]').forEach(function (el) {
+      el.classList.add('is-visible');
+    });
+    return;
+  }
+
+  // ---- Scroll Reveal Observer ----
+  const revealObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    }
+  );
+
+  document.querySelectorAll('[data-animate]').forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  // ---- Animated Counters ----
+  function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    if (isNaN(target)) return;
+
+    const duration = 1500;
+    const startTime = performance.now();
+    const startValue = 0;
+
+    function update(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(startValue + (target - startValue) * eased);
+
+      el.textContent = current.toLocaleString() + (target >= 100 ? '+' : '');
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  const counterObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.querySelectorAll('[data-count]').forEach(function (el) {
+    counterObserver.observe(el);
+  });
+
+  // ---- Parallax on Hero Background Shapes ----
+  const heroShapes = document.querySelectorAll('.hero__bg-shape');
+  if (heroShapes.length > 0) {
+    let ticking = false;
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          const scrollY = window.scrollY;
+          heroShapes.forEach(function (shape, i) {
+            const speed = (i + 1) * 0.15;
+            shape.style.transform = 'translate(' + (scrollY * speed * 0.3) + 'px, ' + (-scrollY * speed) + 'px)';
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+})();
+
+
+/* === js/interactions.js === */
+/* ============================================
+   Interactions — Delightful Micro-Interactions
+   ============================================ */
+
+(function () {
+  'use strict';
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  // ---- Scroll Progress Indicator ----
+  var progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  document.body.appendChild(progressBar);
+
+  function updateProgress() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // ---- Magnetic Buttons ----
+  // Buttons subtly pull toward the cursor on hover
+  var magneticEls = document.querySelectorAll('.btn--primary, .btn--accent, .btn--warm');
+
+  magneticEls.forEach(function (btn) {
+    btn.addEventListener('mousemove', function (e) {
+      var rect = btn.getBoundingClientRect();
+      var x = e.clientX - rect.left - rect.width / 2;
+      var y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15 - 2) + 'px)';
+    });
+
+    btn.addEventListener('mouseleave', function () {
+      btn.style.transform = '';
+    });
+  });
+
+  // ---- Card Tilt Effect ----
+  // Subtle 3D tilt on card hover
+  var tiltCards = document.querySelectorAll('.card, .service-card, .patient-form-card, .everyone__card');
+
+  tiltCards.forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var rect = card.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width;
+      var y = (e.clientY - rect.top) / rect.height;
+      var tiltX = (y - 0.5) * -6;
+      var tiltY = (x - 0.5) * 6;
+      card.style.transform = 'perspective(800px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) translateY(-4px)';
+    });
+
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.4s ease';
+      setTimeout(function () { card.style.transition = ''; }, 400);
+    });
+  });
+
+  // ---- Image Reveal on Scroll ----
+  // Images slide in with a colored overlay wipe
+  var revealImages = document.querySelectorAll('.patient-split__visual img, .about-preview__image, .technology__image');
+
+  var imageObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.parentElement.classList.add('img-revealed');
+        imageObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  revealImages.forEach(function (img) {
+    var wrapper = img.parentElement;
+    if (!wrapper.classList.contains('img-reveal-wrap')) {
+      wrapper.classList.add('img-reveal-wrap');
+      imageObserver.observe(img);
+    }
+  });
+
+  // ---- Smooth Parallax Sections ----
+  // Subtle parallax movement on section backgrounds
+  var parallaxSections = document.querySelectorAll('.page-hero, .cta-band');
+  var shapes = document.querySelectorAll('.cta-band__bg-shape, .page-hero::before');
+
+  var lastScrollY = 0;
+  var ticking = false;
+
+  function updateParallax() {
+    var scrollY = window.scrollY;
+
+    parallaxSections.forEach(function (section) {
+      var rect = section.getBoundingClientRect();
+      var visible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (!visible) return;
+
+      var progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+      var offset = (progress - 0.5) * 30;
+      section.style.setProperty('--parallax-y', offset + 'px');
+    });
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // ---- Text Shimmer on Section Labels ----
+  // Adds a subtle shimmer to section labels when they come into view
+  var labels = document.querySelectorAll('.section-label, .hero__label');
+  var labelObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('shimmer');
+        labelObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  labels.forEach(function (label) {
+    labelObserver.observe(label);
+  });
+
+  // ---- Smooth Back-to-Top Button ----
+  var topBtn = document.createElement('button');
+  topBtn.className = 'back-to-top';
+  topBtn.setAttribute('aria-label', 'Back to top');
+  topBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>';
+  document.body.appendChild(topBtn);
+
+  topBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  function toggleTopBtn() {
+    if (window.scrollY > 600) {
+      topBtn.classList.add('visible');
+    } else {
+      topBtn.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', toggleTopBtn, { passive: true });
+
+  // ---- Hover Ripple Effect on CTA Buttons ----
+  document.querySelectorAll('.btn--primary, .btn--accent').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      var ripple = document.createElement('span');
+      ripple.className = 'btn-ripple';
+      var rect = btn.getBoundingClientRect();
+      ripple.style.left = (e.clientX - rect.left) + 'px';
+      ripple.style.top = (e.clientY - rect.top) + 'px';
+      btn.appendChild(ripple);
+      setTimeout(function () { ripple.remove(); }, 600);
+    });
+  });
+
+  // ---- Nav Links — Active Section Highlight (homepage only) ----
+  var isHomepage = (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/'));
+  if (isHomepage) {
+    var sections = document.querySelectorAll('main section[id]');
+    var navLinks = document.querySelectorAll('.nav__link, .nav__dropdown-link');
+
+    var sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          navLinks.forEach(function (link) {
+            var href = link.getAttribute('href');
+            if (href === '#' + id || href === 'index.html#' + id) {
+              link.classList.add('nav__link--viewing');
+            } else {
+              link.classList.remove('nav__link--viewing');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-20% 0px -60% 0px' });
+
+    sections.forEach(function (section) {
+      sectionObserver.observe(section);
+    });
+  }
+
+  // ---- Typed/Count-Up for Trust Bar Numbers ----
+  // Already handled in animations.js, but add a bounce finish
+  var counterEls = document.querySelectorAll('[data-count]');
+  counterEls.forEach(function (el) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          setTimeout(function () {
+            el.style.transform = 'scale(1.08)';
+            setTimeout(function () {
+              el.style.transform = '';
+              el.style.transition = 'transform 0.3s ease';
+            }, 200);
+          }, 1600); // After counter finishes
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+
+  // ---- Stagger Children with Enhanced Timing ----
+  // Add slight rotation on stagger children for more life
+  document.querySelectorAll('[data-animate="stagger"]').forEach(function (parent) {
+    var children = parent.children;
+    for (var i = 0; i < children.length; i++) {
+      children[i].style.setProperty('--stagger-delay', (i * 0.08) + 's');
+    }
+  });
+
+})();
+
+
+/* === Single-page routing === */
+(function() {
+  'use strict';
+
+  var allPages = document.querySelectorAll('.page-section');
+  var nav = document.getElementById('nav');
+
+  // Map page filenames to section IDs
+  var pageMap = {
+    'home': 'page-home',
+    'services': 'page-services',
+    'dr-asrar': 'page-dr-asrar',
+    'team': 'page-team',
+    'gallery': 'page-gallery',
+    'patients': 'page-patients',
+    'contact': 'page-contact',
+  };
+
+  function showPage(pageId, scrollToId) {
+    // Hide all pages
+    allPages.forEach(function(p) {
+      p.classList.remove('active');
+    });
+
+    // Show target page
+    var target = document.getElementById(pageId);
+    if (target) {
+      target.classList.add('active');
+    }
+
+    // Update active nav link
+    var navLinks = document.querySelectorAll('.nav__link');
+    navLinks.forEach(function(link) {
+      link.classList.remove('nav__link--active');
+      var href = link.getAttribute('href');
+      if (href === '#' + pageId) {
+        link.classList.add('nav__link--active');
+      }
+    });
+
+    // Update nav styling (scrolled vs transparent)
+    if (pageId === 'page-home') {
+      nav.classList.remove('nav--scrolled');
+      nav.classList.add('nav--transparent');
+    } else {
+      nav.classList.add('nav--scrolled');
+      nav.classList.remove('nav--transparent');
+    }
+
+    // Scroll to top or to a specific section within the page
+    if (scrollToId) {
+      var scrollTarget = document.getElementById(scrollToId);
+      if (scrollTarget) {
+        var navHeight = nav ? nav.offsetHeight : 80;
+        setTimeout(function() {
+          var pos = scrollTarget.getBoundingClientRect().top + window.scrollY - navHeight;
+          window.scrollTo({ top: pos, behavior: 'smooth' });
+        }, 50);
+        return;
+      }
+    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    // Re-trigger animations on the new page
+    target.querySelectorAll('[data-animate]').forEach(function(el) {
+      el.classList.remove('is-visible');
+    });
+    setTimeout(function() {
+      target.querySelectorAll('[data-animate]').forEach(function(el) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        observer.observe(el);
+      });
+    }, 100);
+  }
+
+  // Determine which page to show from a hash link
+  function resolveHash(hash) {
+    if (!hash || hash === '#') return { page: 'page-home', section: null };
+
+    var id = hash.replace('#', '');
+
+    // Direct page link
+    if (id.startsWith('page-')) {
+      return { page: id, section: null };
+    }
+
+    // Section within a page - find which page contains this ID
+    for (var i = 0; i < allPages.length; i++) {
+      var page = allPages[i];
+      if (page.querySelector('#' + CSS.escape(id))) {
+        return { page: page.id, section: id };
+      }
+    }
+
+    // Check section IDs on the pages themselves (e.g. #reviews on home)
+    // Default: assume it's on the home page
+    return { page: 'page-home', section: id };
+  }
+
+  // Intercept all link clicks
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+    if (!link) return;
+
+    var href = link.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+    if (href === '#') return;
+
+    e.preventDefault();
+
+    var resolved = resolveHash(href);
+    showPage(resolved.page, resolved.section);
+
+    // Update URL hash without triggering hashchange scroll
+    history.pushState(null, '', href);
+
+    // Close mobile menu if open
+    var hamburger = document.getElementById('navHamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Handle browser back/forward
+  window.addEventListener('popstate', function() {
+    var resolved = resolveHash(window.location.hash);
+    showPage(resolved.page, resolved.section);
+  });
+
+  // Handle nav scroll effect on home page
+  window.addEventListener('scroll', function() {
+    var activePage = document.querySelector('.page-section.active');
+    if (activePage && activePage.id === 'page-home') {
+      if (window.scrollY > 80) {
+        nav.classList.add('nav--scrolled');
+        nav.classList.remove('nav--transparent');
+      } else {
+        nav.classList.remove('nav--scrolled');
+        nav.classList.add('nav--transparent');
+      }
+    }
+  }, { passive: true });
+
+  // Disable the page-transition fade-out from main.js (no longer navigating away)
+  document.body.classList.remove('is-leaving');
+
+  // Show initial page based on hash or default to home
+  var initial = resolveHash(window.location.hash);
+  showPage(initial.page, initial.section);
+})();
+</script>
+
+</body>
+</html>
