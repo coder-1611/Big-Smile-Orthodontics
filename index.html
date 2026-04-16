@@ -1230,10 +1230,13 @@
       z-index: 1000;
       padding: calc(var(--nav-height) + var(--space-2xl)) var(--space-lg) var(--space-lg);
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
     }
 
     .nav__mobile-overlay.active {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
 
     .nav__mobile-link {
@@ -5539,11 +5542,33 @@
       // Don't run on load — let the routing JS handle initial state
 
       // ---- Mobile menu toggle ----
+      var scrollPos = 0;
+      function lockBody() {
+        scrollPos = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = '-' + scrollPos + 'px';
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.overflow = 'hidden';
+      }
+      function unlockBody() {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollPos);
+      }
+
       if (hamburger && mobileMenu) {
         hamburger.addEventListener('click', function () {
           hamburger.classList.toggle('active');
           mobileMenu.classList.toggle('active');
-          document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+          if (mobileMenu.classList.contains('active')) {
+            lockBody();
+          } else {
+            unlockBody();
+          }
         });
 
         // Close mobile menu when clicking a link
@@ -5551,7 +5576,7 @@
           link.addEventListener('click', function () {
             hamburger.classList.remove('active');
             mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
+            unlockBody();
           });
         });
       }
@@ -6125,6 +6150,10 @@
         if (hamburger && mobileMenu) {
           hamburger.classList.remove('active');
           mobileMenu.classList.remove('active');
+          document.body.style.position = '';
+          document.body.style.top = '';
+          document.body.style.left = '';
+          document.body.style.right = '';
           document.body.style.overflow = '';
         }
       });
