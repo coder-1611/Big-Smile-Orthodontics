@@ -70,21 +70,27 @@ ul{ list-style:none; }
   box-shadow:0 1px 0 rgba(27,42,74,.06);
   padding:12px 32px;
 }
-/* Default: white text over dark hero */
+/* Default: pill background for clear visibility on both light and dark heroes */
 .nav__logo{
-  font-family:var(--serif); font-size:22px; color:#fff; letter-spacing:-.01em;
-  display:flex; align-items:center; gap:10px; flex:none;
-  transition:color .35s ease;
+  font-family:var(--serif); font-size:23px; color:var(--navy); letter-spacing:-.01em;
+  display:flex; align-items:center; gap:12px; flex:none;
+  background:var(--white);
+  padding:6px 18px 6px 6px;
+  border-radius:100px;
+  box-shadow:0 8px 24px rgba(11,23,48,.12);
+  transition:all .35s ease;
 }
-/* When scrolled: switch to navy over cream background */
-.nav.is-scrolled .nav__logo, body.nav-solid .nav .nav__logo{ color:var(--navy); }
+/* When scrolled: keep the pill but drop the shadow for a cleaner look */
+.nav.is-scrolled .nav__logo, body.nav-solid .nav .nav__logo{ 
+  box-shadow:0 2px 8px rgba(11,23,48,.05); 
+}
 .nav__logo .mark{
-  width:30px; height:30px; border-radius:50%;
+  width:36px; height:36px; border-radius:50%;
   background:conic-gradient(from 220deg, var(--primary), var(--primary-light), var(--accent), var(--primary));
   position:relative; display:grid; place-items:center;
 }
 .nav__logo .mark::after{
-  content:""; width:14px; height:14px; border-radius:50%; background:var(--cream);
+  content:""; width:16px; height:16px; border-radius:50%; background:var(--white);
 }
 .nav__logo em{ font-style:italic; color:var(--primary); }
 .nav__links{
