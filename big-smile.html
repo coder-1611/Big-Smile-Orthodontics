@@ -13,37 +13,53 @@
   /* ================================================ HERO ================================================ */
   .hero{
     position:relative; min-height:100vh;
-    padding:0 32px 0;
-    display:grid; grid-template-columns: 1.1fr .9fr; gap:40px;
-    background:
-      radial-gradient(circle at 85% 20%, rgba(72,202,228,.18), transparent 55%),
-      radial-gradient(circle at 15% 90%, rgba(249,168,37,.10), transparent 55%),
-      var(--cream);
+    display:grid; grid-template-columns: 1fr 1fr;
     overflow:hidden;
     align-items:center;
   }
-  .hero__grid{
-    position:absolute; inset:0; pointer-events:none; opacity:.5;
-    background-image:
-      linear-gradient(to right, rgba(27,42,74,.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(27,42,74,.05) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image:radial-gradient(ellipse at 70% 40%, #000 20%, transparent 85%);
+
+  /* Full-bleed background video */
+  .hero__video-bg{
+    position:absolute; inset:0; z-index:0;
   }
+  .hero__video-bg video{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  /* Cream gradient overlay: solid on left (text), fades to transparent on right (video) */
+  .hero__video-overlay{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background: linear-gradient(
+      to right,
+      var(--cream) 0%,
+      var(--cream) 38%,
+      rgba(247,241,230,.88) 52%,
+      rgba(247,241,230,.35) 68%,
+      rgba(247,241,230,.05) 100%
+    );
+  }
+
   .hero__left{
-    position:relative; z-index:2; padding:140px 0 60px 32px;
+    position:relative; z-index:2; padding:140px 48px 80px 64px;
   }
+  .hero__right{
+    position:relative; z-index:2;
+    align-self:stretch;
+    display:flex; align-items:flex-end; justify-content:flex-end;
+    padding:0 48px 60px 0;
+  }
+
   .hero__tag{
     display:inline-flex; align-items:center; gap:10px;
     padding:8px 14px; border-radius:100px;
-    background:rgba(27,42,74,.05); border:1px solid rgba(27,42,74,.08);
+    background:rgba(27,42,74,.07); border:1px solid rgba(27,42,74,.1);
     font-size:12.5px; color:var(--navy); font-weight:500; margin-bottom:32px;
+    backdrop-filter:blur(6px);
   }
   .hero__tag .tag-dot{ width:8px; height:8px; border-radius:50%; background:#16a34a;
-    box-shadow:0 0 0 3px rgba(22,163,74,.15); }
+    box-shadow:0 0 0 3px rgba(22,163,74,.2); }
   .hero h1{
     letter-spacing:-.025em;
-    font-size:clamp(56px, 9vw, 140px);
+    font-size:clamp(52px, 7.5vw, 120px);
   }
   .hero h1 .word{ display:block; }
   .hero h1 .strike{ display:inline-block; position:relative; }
@@ -64,84 +80,66 @@
   .hero__meta .stars{ color:var(--warm); letter-spacing:2px; font-size:16px; }
   .hero__meta strong{ color:var(--navy); }
 
-  /* Hero visual — VIDEO PLAYS FULL + layered */
-  .hero__right{
-    position:relative; z-index:2;
-    align-self:stretch;
-    padding:140px 32px 60px 0;
-  }
-  .hero__stack{
-    position:relative; height:100%; min-height:620px;
-  }
-  .media{
-    position:absolute; border-radius:18px; overflow:hidden;
-    box-shadow:0 24px 80px -24px rgba(11,23,48,.35), 0 6px 24px -8px rgba(11,23,48,.15);
-  }
-  .media img, .media video{
-    width:100%; height:100%; object-fit:cover; display:block;
-  }
-  .media--main{
-    inset:20px 0 80px 60px;
-    background:var(--navy);
-  }
-  .media--float{
-    width:190px; height:240px; top:-20px; left:-10px;
-    transform:rotate(-6deg);
-    border:6px solid var(--cream);
-    z-index:2;
-  }
-  .media--badge{
-    width:160px; height:160px; right:-20px; bottom:20px;
+  /* Floating badge + chip over the video side */
+  .hero__badge{
+    position:absolute; bottom:80px; right:48px;
+    width:150px; height:150px;
     border-radius:50%;
     background:var(--warm);
     display:grid; place-items:center; text-align:center;
-    border:8px solid var(--cream);
-    color:var(--navy); padding:18px; line-height:1.1;
-    font-family:var(--serif); font-size:16px; font-style:italic;
-    transform:rotate(-8deg);
-    z-index:3;
+    border:6px solid rgba(255,255,255,.9);
+    color:var(--navy); padding:16px; line-height:1.1;
+    font-family:var(--serif); font-size:15px; font-style:italic;
     animation:spin-slow 20s linear infinite;
+    box-shadow:0 16px 48px rgba(11,23,48,.25);
+    z-index:3;
   }
-  .media--badge::before{
-    content:"$1,000"; display:block; font-size:28px; font-style:normal;
+  .hero__badge::before{
+    content:"$1,000"; display:block; font-size:26px; font-style:normal;
     font-family:var(--serif); letter-spacing:-.02em;
   }
-  .media--badge .off-label{
-    font-size:10px; font-family:var(--mono); letter-spacing:.18em; font-style:normal;
+  .hero__badge .off-label{
+    font-size:9.5px; font-family:var(--mono); letter-spacing:.18em; font-style:normal;
     margin-top:4px; text-transform:uppercase;
   }
   @keyframes spin-slow{ to{ transform:rotate(352deg); } }
 
-  .media--chip{
-    bottom:0; left:30px;
-    padding:14px 18px; background:var(--cream); border-radius:100px;
-    font-family:var(--mono); font-size:11.5px; letter-spacing:.15em; text-transform:uppercase;
+  .hero__chip{
+    position:absolute; bottom:28px; right:48px;
+    padding:13px 18px; background:rgba(247,241,230,.9); border-radius:100px;
+    backdrop-filter:blur(8px);
+    font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase;
     color:var(--navy);
     display:inline-flex; align-items:center; gap:10px;
-    box-shadow:0 8px 24px rgba(11,23,48,.08);
-    z-index:3;
-    transform:translateY(50%);
+    box-shadow:0 8px 24px rgba(11,23,48,.12);
+    z-index:3; white-space:nowrap;
   }
-  .media--chip .bolt{ color:var(--primary); font-size:14px; }
+  .hero__chip .bolt{ color:var(--primary); font-size:13px; }
 
   .hero__caption{
     position:absolute; bottom:20px; left:64px; right:64px;
     display:flex; justify-content:space-between; align-items:end;
     font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase;
-    color:var(--navy); opacity:.55;
-    pointer-events:none;
+    color:var(--navy); opacity:.5;
+    pointer-events:none; z-index:3;
   }
 
   @media (max-width:900px){
-    .hero{ grid-template-columns:1fr; padding:0 24px; }
-    .hero__left{ padding:120px 0 40px; }
-    .hero__right{ padding:0 0 80px; }
-    .hero__stack{ min-height:440px; }
+    .hero{ grid-template-columns:1fr; }
+    .hero__left{ padding:120px 24px 200px; }
+    .hero__right{ display:none; }
+    .hero__video-overlay{
+      background: linear-gradient(
+        to bottom,
+        var(--cream) 0%,
+        rgba(247,241,230,.82) 55%,
+        rgba(247,241,230,.25) 100%
+      );
+    }
+    .hero__badge{ bottom:100px; right:20px; width:120px; height:120px; font-size:13px; }
+    .hero__badge::before{ font-size:21px; }
+    .hero__chip{ right:16px; bottom:48px; font-size:10px; }
     .hero__caption{ display:none; }
-    .media--main{ inset:20px 0 60px 20px; }
-    .media--float{ width:140px; height:170px; }
-    .media--badge{ width:120px; height:120px; font-size:14px; }
-    .media--badge::before{ font-size:22px; }
   }
 
   /* ================================================ STATS ================================================ */
@@ -563,7 +561,15 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="hero__grid"></div>
+
+  <!-- Full-bleed background video -->
+  <div class="hero__video-bg">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/index-banner.webp">
+      <source src="assets/actualorthovideo.mp4" type="video/mp4"/>
+    </video>
+  </div>
+  <!-- Cream gradient: opaque left (text readable), fades to clear on right (video shows) -->
+  <div class="hero__video-overlay"></div>
 
   <div class="hero__left">
     <span class="hero__tag" data-reveal>
@@ -607,27 +613,18 @@
     </div>
   </div>
 
-  <div class="hero__right">
-    <div class="hero__stack">
-      <div class="media media--float">
-        <img src="assets/index-ortho-2.webp" alt="Happy patient"/>
-      </div>
-      <div class="media media--main">
-        <!-- HERO VIDEO — fills the panel, unmuted-loop-autoplay -->
-        <video autoplay muted loop playsinline preload="auto" poster="assets/index-banner.webp">
-          <source src="assets/actualorthovideo.mp4" type="video/mp4"/>
-        </video>
-      </div>
-      <div class="media media--badge">
-        <div class="off-label">off your treatment</div>
-      </div>
-      <div class="media media--chip">
-        <span class="bolt">◆</span> Free consult · same-week openings
-      </div>
-    </div>
+  <!-- Right col: empty (video shows through) — badge + chip float here -->
+  <div class="hero__right"></div>
+
+  <div class="hero__badge" data-reveal>
+    <div class="off-label">off your treatment</div>
   </div>
 
-  <div class="hero__caption">
+  <div class="hero__chip" data-reveal>
+    <span class="bolt">◆</span> Free consult · same-week openings
+  </div>
+
+  <div class="hero__caption" aria-hidden="true">
     <span>① Round Rock · Texas · Est. 2010</span>
     <span>Scroll to explore ↓</span>
   </div>
