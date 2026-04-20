@@ -62,15 +62,7 @@
     font-size:clamp(52px, 7.5vw, 120px);
   }
   .hero h1 .word{ display:block; }
-  .hero h1 .strike{ display:inline-block; position:relative; }
-  .hero h1 .strike::after{
-    content:""; position:absolute; left:-4%; right:-4%; top:55%;
-    height:10px; background:var(--warm);
-    transform-origin:left; transform:scaleX(0);
-    animation:strike 1.3s cubic-bezier(.22,1,.36,1) .9s forwards;
-    z-index:-1; border-radius:6px;
-  }
-  @keyframes strike{ to{ transform:scaleX(1); } }
+  .hero h1 .strike{ display:inline-block; }
   .hero__lead{ margin-top:24px; max-width:46ch; color:var(--body); font-size:17px; line-height:1.6; }
   .hero__cta-row{ display:flex; gap:14px; margin-top:28px; flex-wrap:wrap; }
   .hero__meta{
