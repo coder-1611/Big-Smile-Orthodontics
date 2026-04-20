@@ -187,28 +187,42 @@
   }
   .t-card{
     position:relative; border-radius:22px; overflow:hidden;
-    background:rgba(255,255,255,.03);
+    background:transparent;
     border:1px solid rgba(255,255,255,.07);
     padding:32px;
     display:flex; flex-direction:column; justify-content:space-between;
     min-height:460px;
-    transition:transform .5s cubic-bezier(.22,1,.36,1), background .5s ease, border-color .5s ease;
+    transition:transform .5s cubic-bezier(.22,1,.36,1), border-color .5s ease;
   }
-  .t-card:hover{ transform:translateY(-6px); background:rgba(255,255,255,.05); border-color:rgba(72,202,228,.35); }
+  .t-card:hover{ transform:translateY(-6px); border-color:rgba(72,202,228,.35); }
   .t-card--wide{ grid-column:span 8; }
   .t-card--tall{ grid-column:span 4; }
   .t-card--half{ grid-column:span 6; }
+
+  /* Image layer — always visible */
+  .t-card__image{
+    position:absolute; inset:0; z-index:0;
+    background-size:cover; background-position:center;
+    transition:transform .6s cubic-bezier(.22,1,.36,1);
+  }
+  /* Dark overlay on top of image so text stays readable */
+  .t-card__image::after{
+    content:''; position:absolute; inset:0;
+    background:rgba(15,25,50,.58);
+    transition:background .4s ease;
+  }
+  .t-card:hover .t-card__image{ transform:scale(1.05); }
+  .t-card:hover .t-card__image::after{ background:rgba(15,25,50,.42); }
+
+  /* All card content sits above image */
+  .t-card__num, .t-card__title, .t-card__body, .t-card__link, .t-card__spec{
+    position:relative; z-index:1;
+  }
 
   .t-card__num{ font-family:var(--mono); font-size:11px; color:var(--primary-light); letter-spacing:.2em; }
   .t-card__title{ font-family:var(--serif); font-size:44px; line-height:1; margin-top:18px; letter-spacing:-.01em; }
   .t-card__title i{ font-style:italic; color:var(--primary-light); }
   .t-card__body{ color:rgba(247,241,230,.75); font-size:15px; line-height:1.6; max-width:44ch; margin-top:18px; }
-  .t-card__image{
-    position:absolute; inset:0; z-index:-1; opacity:.55;
-    background-size:cover; background-position:center;
-    transition:opacity .4s ease, transform .6s cubic-bezier(.22,1,.36,1);
-  }
-  .t-card:hover .t-card__image{ opacity:.72; transform:scale(1.05); }
   .t-card__link{
     display:inline-flex; align-items:center; gap:8px; margin-top:24px;
     font-family:var(--mono); font-size:11.5px; letter-spacing:.18em; text-transform:uppercase;
