@@ -75,12 +75,12 @@
 .service-block__media .m--big{ grid-row:span 2; }
 .service-block__media .m--big img{ aspect-ratio:auto; height:100%; }
 .service-block__media .m--label{
-  background:var(--navy); color:var(--cream); padding:22px; display:flex; flex-direction:column; justify-content:space-between;
+  background:var(--navy); color:var(--cream); padding:28px; display:flex; flex-direction:column; justify-content:flex-end; gap:10px;
   font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
 }
 .service-block__media .m--label strong{
-  display:block; font-family:var(--serif); font-size:clamp(28px, 3vw, 48px); color:var(--cream); letter-spacing:-.02em; line-height:1.1;
-  font-style:italic; color:var(--primary-light); margin-top:auto; white-space:nowrap;
+  display:block; font-family:var(--serif); font-size:clamp(26px, 3.2vw, 46px); color:var(--cream); letter-spacing:-.02em; line-height:1.1;
+  font-style:italic; color:var(--primary-light);
 }
 @media (max-width:900px){
   .service-block__inner{ grid-template-columns:1fr; gap:40px; }
