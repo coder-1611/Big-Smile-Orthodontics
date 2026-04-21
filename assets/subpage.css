@@ -2,6 +2,15 @@
    Sub-page layouts. Loaded after site.css.
    ========================================================= */
 
+/* Nav always solid cream on subpages */
+.nav{
+  background:rgba(247,241,230,.97) !important;
+  backdrop-filter:blur(16px) !important;
+  -webkit-backdrop-filter:blur(16px) !important;
+  box-shadow:0 1px 0 rgba(27,42,74,.08) !important;
+}
+.nav__links a, .nav__logo{ color:var(--navy) !important; }
+
 /* Intro row */
 .intro-row{
   max-width:var(--max); margin:0 auto; padding:120px 32px 60px;
