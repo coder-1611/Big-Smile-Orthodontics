@@ -205,6 +205,28 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
   .service-block__media{ grid-template-columns:1fr 1fr; grid-template-rows:auto; }
 }
 
+/* Full-width long-form details below the intro+media row.
+   Spans both columns on desktop; on mobile keeps the existing
+   "all text, then media" flow via order. */
+.service-block__details{
+  grid-column:1 / -1;
+  margin-top:80px;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:48px 72px;
+  align-items:start;
+}
+.service-block__details .topic{ min-width:0; }
+.service-block__details .topic--full{ grid-column:1 / -1; }
+.service-block__details .subhead{ margin-top:0; }
+@media (max-width:900px){
+  .service-block__details{
+    grid-template-columns:1fr; gap:32px;
+    margin-top:0;
+    order:0;             /* same as intro div */
+  }
+  .service-block__inner > .service-block__media{ order:1; }   /* media last on mobile */
+}
+
 /* Benefit grid */
 .benefits{
   display:grid; grid-template-columns:repeat(2,1fr); gap:16px;
