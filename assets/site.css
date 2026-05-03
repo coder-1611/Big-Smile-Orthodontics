@@ -377,3 +377,75 @@ footer.site-footer{
 .split__content h2{ margin-bottom:20px; }
 .split__content .eyebrow{ margin-bottom:20px; }
 @media (max-width:900px){ .split{ grid-template-columns:1fr; gap:40px; } .split__media{ aspect-ratio:4/3; } }
+
+/* =================================================================
+   MOBILE TUNING (≤600px) — shared elements. Desktop layout untouched.
+   ================================================================= */
+@media (max-width:600px){
+  /* Nav: tighter, smaller logo */
+  .nav{ padding:12px 16px; height:68px; }
+  .nav.is-scrolled, body.nav-solid .nav{ padding:10px 16px; }
+  .nav__logo{ font-size:17px; padding:5px 14px 5px 5px; gap:9px; }
+  .nav__logo .mark{ width:30px; height:30px; }
+  .nav__logo .mark::after{ width:13px; height:13px; }
+  .nav__cta{ padding:8px 14px; font-size:12px; }
+  .nav__mobile{ padding:90px 24px 32px; }
+  .nav__mobile a{ font-size:26px; padding:10px 0; }
+
+  /* Buttons: shorter padding, smaller font */
+  .btn{ padding:13px 20px; font-size:13.5px; }
+
+  /* Type clamps capped for narrow screens */
+  h1{ font-size:clamp(40px, 11vw, 56px) !important; }
+  h2{ font-size:clamp(30px, 8.5vw, 44px) !important; }
+  h3{ font-size:clamp(22px, 6vw, 28px) !important; }
+
+  /* Page hero: tighter */
+  .page-hero{ padding:118px 20px 48px; }
+  .page-hero__inner{ gap:28px; }
+  .page-hero h1{ font-size:clamp(40px, 11vw, 56px) !important; max-width:100%; }
+  .page-hero p.subtitle{ font-size:15.5px; margin-top:18px; max-width:100%; }
+  .page-hero__crumbs{ font-size:10px; margin-bottom:18px; letter-spacing:.16em; }
+  .page-hero__crumbs .sep{ margin:0 6px; }
+  .page-hero::before{ width:280px; height:280px; top:-80px; right:-80px; }
+  .page-hero::after{ width:220px; height:220px; bottom:-60px; left:-60px; }
+  .page-hero__grid{ background-size:50px 50px; }
+
+  /* Section/container side-padding */
+  .section{ padding:64px 20px; }
+
+  /* CTA band */
+  .cta-band{ padding:72px 20px; }
+  .cta-band p{ font-size:15.5px; margin-bottom:24px; }
+  .cta-band__btns{ flex-direction:column; align-items:stretch; gap:10px; }
+  .cta-band__btns .btn{ width:100%; justify-content:center; }
+
+  /* Marquee smaller */
+  .marquee{ padding:14px 0; }
+  .marquee__track{ font-size:18px; gap:36px; }
+
+  /* Footer: tighter padding, smaller h4 */
+  footer.site-footer{ padding:56px 20px 28px; }
+  .site-footer__inner{ gap:32px; padding-bottom:32px; }
+  .site-footer__brand{ font-size:24px; }
+  .site-footer__bottom{ flex-direction:column; gap:8px; font-size:10px; }
+
+  /* Cursor dot off on touch */
+  .cursor-dot{ display:none; }
+
+  /* Prose paragraph readable on phone */
+  .prose p{ font-size:16px; line-height:1.65; }
+
+  /* Check-list slightly tighter */
+  .check-list li{ font-size:14.5px; }
+
+  /* Split: already 1fr at 900; reduce gap on phone */
+  .split{ gap:28px; }
+}
+
+@media (max-width:380px){
+  h1{ font-size:36px !important; }
+  h2{ font-size:26px !important; }
+  .page-hero h1{ font-size:36px !important; }
+  .nav__logo span:not(.mark){ font-size:15px; }
+}

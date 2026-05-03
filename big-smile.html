@@ -528,6 +528,109 @@
     font-family:'Inter', sans-serif; font-weight:700; letter-spacing:-.035em;
   }
   body[data-type="sans"] .italic{ font-style:normal; font-weight:400; color:var(--primary); }
+
+  /* =================================================================
+     MOBILE TUNING (≤600px) — index page. Desktop layout untouched.
+     ================================================================= */
+  @media (max-width:600px){
+    /* Hero */
+    .hero{ min-height:auto; }
+    .hero__left{ padding:108px 20px 200px; }
+    .hero h1{ font-size:44px; letter-spacing:-.02em; }
+    .hero__tag{ font-size:11px; padding:6px 12px; margin-bottom:24px; }
+    .hero__lead{ font-size:15.5px; margin-top:18px; }
+    .hero__cta-row{ gap:10px; margin-top:22px; flex-direction:column; align-items:stretch; }
+    .hero__cta-row .btn{ width:100%; justify-content:center; }
+    .hero__meta{ gap:18px 22px; margin-top:26px; font-size:13px; }
+    .hero__meta .stars{ font-size:14px; }
+    .hero__badge{ width:96px; height:96px; font-size:11px; bottom:130px; right:14px; padding:10px; }
+    .hero__badge::before{ font-size:18px; }
+    .hero__badge .off-label{ font-size:8px; }
+    .hero__chip{ font-size:9.5px; padding:9px 14px; right:14px; bottom:80px; letter-spacing:.1em; }
+
+    /* Marquee */
+    .marquee{ padding:14px 0; }
+    .marquee__track{ font-size:18px; gap:36px; }
+
+    /* Stats */
+    .stats{ padding:48px 20px 64px; }
+    .stats__grid{ grid-template-columns:1fr; }
+    .stat{ padding:26px 18px; border-right:none; border-bottom:1px solid rgba(27,42,74,.12); gap:8px; }
+    .stat:last-child{ border-bottom:none; }
+    .stat__num{ font-size:48px; }
+    .stat__note{ font-size:13px; max-width:100%; }
+
+    /* Treatments */
+    .treatments{ padding:80px 0 60px; }
+    .section__head{ padding:0 20px 40px; gap:18px; }
+    .section__head h2{ margin-top:14px !important; }
+    .t-grid{ padding:0 20px; gap:14px; }
+    .t-card{ min-height:340px; padding:24px; }
+    .t-card__title{ font-size:32px; margin-top:14px; }
+    .t-card__body{ font-size:14px; margin-top:12px; }
+    .t-card__spec{ gap:18px; padding-top:16px; margin-top:18px; flex-wrap:wrap; }
+    .t-card__spec div{ font-size:12px; }
+    .t-card__spec strong{ font-size:14px; }
+    .t-card__link{ font-size:10.5px; margin-top:18px; }
+
+    /* Doctor */
+    .doctor{ padding:72px 0; }
+    .doctor__inner{ padding:0 20px; gap:32px; }
+    .doctor__quote{ font-size:19px; padding-left:18px; margin-top:22px; }
+    .doctor__creds{ grid-template-columns:1fr; gap:0 24px; margin-top:28px; }
+    .doctor__cred{ padding:14px 0; }
+    .doctor__ticker{ padding:12px 16px; font-size:10px; left:14px; right:14px; bottom:14px; }
+
+    /* Smile preview */
+    .smile-preview{ padding:72px 0 64px; }
+    .smile-preview__head{ padding:0 20px 36px; gap:18px; }
+    .smile-preview__cta{ justify-self:start; }
+    .smile-preview__grid{ padding:0 20px; gap:16px; }
+    .smile-case{ padding:18px; }
+    .smile-case__title{ font-size:18px; }
+
+    /* Offer ticket */
+    .offer{ padding:72px 20px; }
+    .ticket{ padding:32px 24px; gap:28px; border-radius:18px; }
+    .ticket__big{ font-size:72px; }
+    .ticket__right h3{ font-size:22px; }
+    .ticket__list li{ font-size:13.5px; }
+    .ticket__stamp{ width:78px; height:78px; font-size:11px; right:20px; top:-14px; }
+    .ticket__footer{ gap:10px; flex-direction:column; align-items:stretch; }
+    .ticket__footer .btn{ width:100%; justify-content:center; }
+
+    /* Office */
+    .office{ padding:72px 0; }
+    .office__inner{ padding:0 20px; gap:32px; }
+    .office__gallery{ gap:12px; }
+    .office__tile:nth-child(1), .office__tile:nth-child(4){ transform:none; }
+    .office__list{ margin-top:24px; }
+    .office__item{ padding:18px 0; grid-template-columns:48px 1fr auto; gap:14px; }
+    .office__item .label{ font-size:18px; }
+    .office__item .plus{ width:30px; height:30px; }
+
+    /* Location */
+    .location{ padding:72px 20px; }
+    .location__inner{ gap:36px; }
+    .location__address{ font-size:22px; margin-top:24px; }
+    .location__meta{ margin-top:24px; gap:18px; font-size:11px; }
+    .location__cta{ margin-top:28px; flex-direction:column; align-items:stretch; }
+    .location__cta .btn{ width:100%; justify-content:center; }
+    .location__hours{ padding:24px; }
+    .location__hours .row{ font-size:13.5px; padding:10px 0; }
+
+    /* Insta */
+    .insta{ padding:64px 0; }
+    .insta h3{ font-size:30px; }
+    .insta__grid{ margin-top:28px; padding:0 16px; gap:3px; }
+  }
+
+  @media (max-width:380px){
+    .hero h1{ font-size:38px; }
+    .hero__badge{ width:84px; height:84px; bottom:120px; }
+    .hero__badge::before{ font-size:16px; }
+    .ticket__big{ font-size:60px; }
+  }
 </style>
 </head>
 <body data-hero="layered" data-accent="warm" data-type="serif">
