@@ -7,9 +7,25 @@
   background:rgba(247,241,230,.97) !important;
   backdrop-filter:blur(16px) !important;
   -webkit-backdrop-filter:blur(16px) !important;
-  box-shadow:0 1px 0 rgba(27,42,74,.08) !important;
+  box-shadow:none !important;
 }
 .nav__links a, .nav__logo{ color:var(--navy) !important; }
+.nav .nav__cta{ background:var(--navy) !important; color:var(--cream) !important; border-color:transparent !important; }
+.nav .nav__cta:hover{ background:var(--primary) !important; }
+
+/* Page hero bleeds under the fixed nav — no gap */
+.page-hero{
+  margin-top:0 !important;
+  padding-top:140px !important;
+  position:relative;
+}
+.dr-hero{
+  margin-top:0 !important;
+  padding-top:160px !important;
+}
+
+/* Kill any default body top offset on subpages */
+body { padding-top: 0 !important; margin-top: 0 !important; }
 
 /* Intro row */
 .intro-row{
@@ -22,7 +38,7 @@
 
 /* Anchor nav */
 .anchor-rail{
-  position:sticky; top:80px; z-index:5;
+  position:sticky; top:81px; z-index:5;
   background:rgba(247,241,230,.88); backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(27,42,74,.08);
 }

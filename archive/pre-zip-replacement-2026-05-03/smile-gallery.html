@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smile Gallery · Big Smile Orthodontics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="stylesheet" href="assets/subpage.css" />
+</head>
+<body>
+<div class="scroll-bar"></div>
+<div class="cursor-dot"></div>
+<div id="nav-mount"></div>
+
+<section class="page-hero">
+  <div class="page-hero__grid"></div>
+  <div class="page-hero__inner">
+    <div>
+      <div class="page-hero__crumbs"><a href="big-smile.html">Home</a><span class="sep">▸</span><span class="current">Smile Gallery</span></div>
+      <h1 data-reveal>Real smiles,<br/><i>real results.</i></h1>
+      <p class="subtitle" data-reveal data-reveal-delay="1">Every one of these is a real Big Smile patient treated by Dr. Asrar. From minor crowding to severe bite correction — see what's possible.</p>
+    </div>
+    <div data-reveal data-reveal-delay="2" style="text-align:right">
+      <a href="contact.html#book" class="btn btn--warm">Start your case
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Filter chips -->
+<div class="filter-bar" data-reveal>
+  <button class="chip is-active" data-filter="all">All cases</button>
+  <button class="chip" data-filter="invisalign">Invisalign</button>
+  <button class="chip" data-filter="metal">Metal braces</button>
+  <button class="chip" data-filter="ceramic">Ceramic</button>
+  <button class="chip" data-filter="crowding">Crowding</button>
+  <button class="chip" data-filter="gaps">Gaps</button>
+  <button class="chip" data-filter="bite">Bite correction</button>
+</div>
+
+<!-- Gallery -->
+<div class="gallery-grid" id="gallery">
+  <div class="gallery-card gallery-card--span3" data-cat="invisalign crowding" data-reveal>
+    <img src="assets/case-1.png" alt="Before &amp; after — crowded teeth correction"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 01</span>
+      <span class="gallery-card__treat">14 mo · Invisalign</span>
+    </div>
+    <div class="gallery-card__title">From crowded to confident</div>
+  </div>
+  <div class="gallery-card gallery-card--span3" data-cat="metal crowding" data-reveal>
+    <img src="assets/case-4.png" alt="Before &amp; after — overcrowding"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 02</span>
+      <span class="gallery-card__treat">18 mo · Metal braces</span>
+    </div>
+    <div class="gallery-card__title">Overcrowding, resolved</div>
+  </div>
+
+  <div class="gallery-card gallery-card--span2" data-cat="metal bite" data-reveal>
+    <img src="assets/case-2.png" alt="Before &amp; after — bite alignment"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 03</span>
+      <span class="gallery-card__treat">20 mo</span>
+    </div>
+    <div class="gallery-card__title">Bite alignment</div>
+  </div>
+  <div class="gallery-card gallery-card--span2" data-cat="invisalign crowding" data-reveal data-reveal-delay="1">
+    <img src="assets/case-3.png" alt="Before &amp; after — lower crowding"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 04</span>
+      <span class="gallery-card__treat">12 mo</span>
+    </div>
+    <div class="gallery-card__title">Lower crowding</div>
+  </div>
+  <div class="gallery-card gallery-card--span2" data-cat="ceramic bite" data-reveal data-reveal-delay="2">
+    <img src="assets/case-5.png" alt="Before &amp; after — severe misalignment"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 05</span>
+      <span class="gallery-card__treat">16 mo · Ceramic</span>
+    </div>
+    <div class="gallery-card__title">A bite that works for life</div>
+  </div>
+
+  <div class="gallery-card gallery-card--span2" data-cat="invisalign gaps" data-reveal>
+    <img src="assets/case-6.png" alt="Before &amp; after — gapped teeth"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 06</span>
+      <span class="gallery-card__treat">11 mo</span>
+    </div>
+    <div class="gallery-card__title">Gaps closed</div>
+  </div>
+  <div class="gallery-card gallery-card--span2" data-cat="invisalign crowding" data-reveal data-reveal-delay="1">
+    <img src="assets/smile-2.webp" alt="Before &amp; after — crowded teeth"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 07</span>
+      <span class="gallery-card__treat">14 mo</span>
+    </div>
+    <div class="gallery-card__title">Overlapping teeth</div>
+  </div>
+  <div class="gallery-card gallery-card--span2" data-cat="metal crowding" data-reveal data-reveal-delay="2">
+    <img src="assets/smile-3.webp" alt="Before &amp; after — lower teeth"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 08</span>
+      <span class="gallery-card__treat">19 mo</span>
+    </div>
+    <div class="gallery-card__title">Lower alignment</div>
+  </div>
+
+  <div class="gallery-card gallery-card--span3" data-cat="metal crowding bite" data-reveal>
+    <img src="assets/smile-4.webp" alt="Before &amp; after — overcrowded"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 09</span>
+      <span class="gallery-card__treat">22 mo · Metal braces</span>
+    </div>
+    <div class="gallery-card__title">Severe overcrowding, transformed</div>
+  </div>
+  <div class="gallery-card gallery-card--span3" data-cat="ceramic bite" data-reveal data-reveal-delay="1">
+    <img src="assets/smile-5.webp" alt="Before &amp; after — misalignment"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 10</span>
+      <span class="gallery-card__treat">18 mo · Ceramic braces</span>
+    </div>
+    <div class="gallery-card__title">Misaligned bite, corrected</div>
+  </div>
+
+  <div class="gallery-card gallery-card--span2" data-cat="invisalign gaps" data-reveal>
+    <img src="assets/smile-6.webp" alt="Before &amp; after — gapped teeth"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 11</span>
+      <span class="gallery-card__treat">10 mo</span>
+    </div>
+    <div class="gallery-card__title">Gap closure</div>
+  </div>
+  <div class="gallery-card gallery-card--span2" data-cat="invisalign" data-reveal data-reveal-delay="1">
+    <img src="assets/smile-7.webp" alt="Before &amp; after — rotated tooth"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 12</span>
+      <span class="gallery-card__treat">13 mo</span>
+    </div>
+    <div class="gallery-card__title">Rotated tooth, straightened</div>
+  </div>
+  <div class="gallery-card gallery-card--span2" data-cat="metal crowding" data-reveal data-reveal-delay="2">
+    <img src="assets/smile-8.webp" alt="Before &amp; after"/>
+    <div class="gallery-card__meta">
+      <span class="gallery-card__num">Case 13</span>
+      <span class="gallery-card__treat">15 mo</span>
+    </div>
+    <div class="gallery-card__title">Complete transformation</div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-band__inner" data-reveal>
+    <span class="eyebrow" style="color:var(--primary-light); justify-content:center;">Your turn</span>
+    <h2 style="margin-top:16px;">Ready to be <span class="italic">case #301?</span></h2>
+    <p>Book a free consultation and leave with a personalized plan, a timeline, and a transparent price.</p>
+    <div class="cta-band__btns">
+      <a href="contact.html#book" class="btn btn--warm" data-hover>Book free consult
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="tel:5128287900" class="btn btn--ghost" data-hover>Call (512) 828-7900</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<script src="assets/chrome.js"></script>
+<script src="assets/site.js"></script>
+<script>
+// Filter
+const chips = document.querySelectorAll('.chip');
+const cards = document.querySelectorAll('.gallery-card');
+chips.forEach(c => c.addEventListener('click', () => {
+  chips.forEach(x => x.classList.remove('is-active'));
+  c.classList.add('is-active');
+  const f = c.dataset.filter;
+  cards.forEach(card => {
+    const cats = card.dataset.cat || '';
+    card.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
+  });
+}));
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <nav class="nav">
   <a href="big-smile.html" class="nav__logo">
     <span class="mark"></span>
-    <span>Big Smile <em>Ortho.</em></span>
+    <span>Big Smile <em>Orthodontics</em></span>
   </a>
   <ul class="nav__links">
     <li><a href="services.html">Services</a></li>
@@ -34,7 +34,7 @@
 <footer class="site-footer">
   <div class="site-footer__inner">
     <div class="site-footer__brand">
-      Big Smile <em>Ortho.</em>
+      Big Smile <em>Orthodontics</em>
       <p>Dr. Saba Asrar &amp; team · Crafting confident, life-changing smiles in Round Rock, TX.</p>
     </div>
     <div>
