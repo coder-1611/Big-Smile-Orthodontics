@@ -24,6 +24,41 @@
   padding-top:160px !important;
 }
 
+/* Hero side column (stats + CTA) on smile-gallery */
+.hero-side{
+  display:flex; flex-direction:column; align-items:flex-end; gap:28px;
+  text-align:right;
+}
+.hero-stats{
+  display:grid; gap:20px;
+  padding:26px 30px;
+  border:1px solid rgba(247,241,230,.14);
+  border-radius:18px;
+  background:rgba(255,255,255,.04);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  min-width:240px;
+  text-align:left;
+}
+.hero-stat{ display:flex; flex-direction:column; gap:6px; }
+.hero-stat__num{
+  font-family:var(--serif); font-size:42px; line-height:1;
+  color:var(--primary-light); letter-spacing:-.01em;
+}
+.hero-stat__unit{
+  font-family:var(--mono); font-size:15px; margin-left:6px;
+  color:rgba(247,241,230,.55); letter-spacing:.04em;
+  font-style:normal;
+}
+.hero-stat__label{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:rgba(247,241,230,.55);
+}
+@media (max-width:800px){
+  .hero-side{ align-items:stretch; text-align:left; }
+  .hero-stats{ width:100%; }
+}
+
 /* Kill any default body top offset on subpages */
 body { padding-top: 0 !important; margin-top: 0 !important; }
 
