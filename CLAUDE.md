@@ -19,5 +19,10 @@ Shared styles live in `assets/site.css` and `assets/subpage.css`. Shared JS live
 - `uploads/` — Image uploads referenced by the site
 - `archive/` — Old versions and prior project snapshots (kept for reference, not actively used)
 
+## Mobile Parity
+Every change must apply to mobile as well as desktop. Content swaps (text, images, links, numbers) carry over automatically because they're not viewport-scoped — no extra work needed. Layout/style additions (new sections, components, accordions, grids) require a matching rule in the `@media (max-width:600px)` block at the bottom of `assets/site.css`, `assets/subpage.css`, or the inline `<style>` in `big-smile.html`, so the new element shrinks/stacks correctly on phones.
+
+**Exception — dimension changes (font sizes, padding, gaps, widths, heights, image aspect ratios, breakpoints):** ASK before applying these to mobile. The user may want a desktop-only tweak. Default behavior: make the change on desktop only, then ask whether to mirror it on mobile.
+
 ## Auto-Push to GitHub
 After EVERY edit — no matter how small — immediately `git add`, `git commit`, and `git push` the changes to GitHub. No exceptions. Do not batch edits or wait for the user to ask. Every single file change gets its own commit and push.
