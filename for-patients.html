@@ -242,27 +242,84 @@
 </section>
 
 <!-- Forms -->
-<section class="service-block service-block--reverse" id="forms" style="background:var(--cream);">
-  <div class="service-block__inner">
-    <div data-reveal style="border-radius:18px; overflow:hidden;">
-      <img src="assets/for-patients-2.webp" alt="Patient forms" style="width:100%; aspect-ratio:4/5; object-fit:cover;"/>
-    </div>
-    <div data-reveal data-reveal-delay="1">
+<section id="forms" style="padding:80px 32px 100px; background:var(--cream);">
+  <div style="max-width:var(--max); margin:0 auto;">
+    <div data-reveal style="margin-bottom:40px;">
       <div class="service-block__num">02 — Paperwork</div>
-      <h2>Patient <i class="italic">forms.</i></h2>
+      <h2 style="margin-top:12px;">Patient <i class="italic">forms.</i></h2>
       <div class="service-block__subtitle">Complete online · Save time at the office</div>
-      <p style="color:var(--body); font-size:17px; line-height:1.7; margin:16px 0 24px;">Complete your medical history and new-patient paperwork securely online through our patient portal before your visit — it saves you time on arrival day.</p>
+    </div>
 
-      <div class="forms-list" style="padding:0;">
-<a class="form-item" href="https://bigsmile.cloud9ortho.com/portal/LoginAccount/Login" target="_blank" rel="noopener" data-hover>
-          <div class="form-item__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h4"/></svg></div>
-          <div><div class="form-item__title">Patient Portal</div><div class="form-item__sub">Complete all patient forms online · Secure login</div></div>
-          <div class="form-item__arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    <div class="forms-embed-grid" data-reveal data-reveal-delay="1">
+      <!-- Booking iframe -->
+      <div class="fp-booking-embed">
+        <iframe
+          src="https://app.nexhealth.com/appt/big-smile-orthodontics?lid=333133"
+          title="Book a free consultation with Big Smile Orthodontics"
+          loading="lazy"
+          allow="payment; camera; microphone"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <!-- Patient portal card -->
+      <div class="fp-portal-card">
+        <div class="fp-portal-card__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6M9 13h4"/></svg>
+        </div>
+        <h3 style="font-size:24px; line-height:1.2; margin:16px 0 10px;">Patient <i class="italic">Portal</i></h3>
+        <p style="font-size:15px; line-height:1.65; margin-bottom:24px;">Already a patient? Log in to complete your new-patient forms, update your health history, and manage your account — all in one secure place.</p>
+        <a href="https://bigsmile.cloud9ortho.com/portal/LoginAccount/Login" target="_blank" rel="noopener" class="btn btn--warm" data-hover style="width:100%; justify-content:center;">
+          Log in to portal
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
+        <div style="margin-top:24px; padding-top:24px; border-top:1px solid rgba(247,241,230,.15);">
+          <div style="font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(247,241,230,.5); margin-bottom:10px;">Or call us directly</div>
+          <a href="tel:5128287900" style="font-family:var(--serif); font-size:22px; color:var(--cream); text-decoration:none; letter-spacing:-.01em;">(512) 828-7900</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .forms-embed-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    align-items: start;
+  }
+  .fp-booking-embed {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(27,42,74,.12);
+    background: var(--warm-soft);
+    min-height: 720px;
+  }
+  .fp-booking-embed iframe {
+    width: 100%; height: 720px; border: 0; display: block;
+    background: transparent;
+  }
+  .fp-portal-card {
+    background: var(--navy);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 32px;
+  }
+  .fp-portal-card__icon {
+    width: 52px; height: 52px;
+    background: rgba(255,255,255,.1);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--primary-light);
+  }
+  .fp-portal-card h3 { color: var(--cream); }
+
+  @media (max-width: 900px) {
+    .forms-embed-grid { grid-template-columns: 1fr; }
+    .fp-booking-embed { min-height: 640px; }
+    .fp-booking-embed iframe { height: 640px; }
+  }
+</style>
 
 <!-- Insurance -->
 <section style="padding:120px 32px; background:#fcf6ea;" id="insurance">
