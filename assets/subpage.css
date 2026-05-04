@@ -227,7 +227,8 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
     margin-top:0;
     order:0;             /* same as intro div */
   }
-  .service-block__inner > .service-block__media{ order:1; }   /* media last on mobile */
+  .service-block__inner > .service-block__media,
+  .service-block__inner > .service-block__visual{ order:1; }  /* visual last on mobile */
 }
 
 /* Benefit grid */
