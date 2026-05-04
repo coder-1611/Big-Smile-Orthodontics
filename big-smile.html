@@ -389,14 +389,38 @@
   }
   .office h2{ max-width:12ch; }
   .office__gallery{
-    display:grid; grid-template-columns:1fr 1fr; gap:20px; align-content:center;
+    display:grid; grid-template-columns:1fr 1fr; gap:24px; align-content:center;
   }
   .office__tile{
-    aspect-ratio:4/5; border-radius:16px; overflow:hidden; position:relative;
+    aspect-ratio:4/5; border-radius:20px; overflow:hidden; position:relative;
+    box-shadow:0 18px 44px -18px rgba(11,23,48,.28);
+    transition:transform .55s cubic-bezier(.22,1,.36,1), box-shadow .55s ease;
+    isolation:isolate;
   }
-  .office__tile:nth-child(1){ transform:translateY(30px); }
-  .office__tile:nth-child(4){ transform:translateY(30px); }
-  .office__tile img{ width:100%; height:100%; object-fit:cover; }
+  /* Subtle stagger via margin so transform stays free for hover */
+  .office__tile:nth-child(1){ margin-top:36px; }
+  .office__tile:nth-child(4){ margin-top:36px; }
+  /* Inset highlight for crispness */
+  .office__tile::before{
+    content:""; position:absolute; inset:0; border-radius:inherit;
+    border:1px solid rgba(255,255,255,.16); pointer-events:none; z-index:3;
+  }
+  /* Soft bottom gradient ties the four tiles together */
+  .office__tile::after{
+    content:""; position:absolute; inset:0; pointer-events:none; z-index:2;
+    background:linear-gradient(to top, rgba(11,23,48,.32), transparent 48%);
+    opacity:.55; transition:opacity .45s ease;
+  }
+  .office__tile img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform .9s cubic-bezier(.22,1,.36,1);
+  }
+  .office__tile:hover{
+    transform:translateY(-8px);
+    box-shadow:0 32px 70px -22px rgba(11,23,48,.4);
+  }
+  .office__tile:hover img{ transform:scale(1.06); }
+  .office__tile:hover::after{ opacity:.25; }
 
   .office__list{
     margin-top:32px; display:flex; flex-direction:column; gap:0;
@@ -603,7 +627,8 @@
     .office{ padding:72px 0; }
     .office__inner{ padding:0 20px; gap:32px; }
     .office__gallery{ gap:12px; }
-    .office__tile:nth-child(1), .office__tile:nth-child(4){ transform:none; }
+    .office__tile{ border-radius:14px; }
+    .office__tile:nth-child(1), .office__tile:nth-child(4){ margin-top:0; }
     .office__list{ margin-top:24px; }
     .office__item{ padding:18px 0; grid-template-columns:48px 1fr auto; gap:14px; }
     .office__item .label{ font-size:18px; }
@@ -1040,10 +1065,10 @@
       </ul>
     </div>
     <div class="office__gallery" data-reveal data-reveal-delay="1">
-      <div class="office__tile"><img src="assets/office-1.jpg" alt="Office"/></div>
-      <div class="office__tile"><img src="assets/office-2.webp" alt="Office"/></div>
-      <div class="office__tile"><img src="assets/office-3.webp" alt="Office" style="object-fit:none"/></div>
-      <div class="office__tile"><img src="assets/index-tech.webp" alt="Tech"/></div>
+      <div class="office__tile"><img src="assets/office-1.jpg" alt="Reception"/></div>
+      <div class="office__tile"><img src="assets/office-2.webp" alt="Operatory"/></div>
+      <div class="office__tile"><img src="assets/office-3.webp" alt="Hygiene station"/></div>
+      <div class="office__tile"><img src="assets/index-tech.webp" alt="Digital scanner"/></div>
     </div>
   </div>
 </section>
