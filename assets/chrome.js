@@ -13,7 +13,7 @@
     <li><a href="for-patients.html">For Patients</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="contact.html#book" class="nav__cta" data-hover>
+  <a href="https://app.nexhealth.com/appt/big-smile-orthodontics?lid=333133" target="_blank" rel="noopener" class="nav__cta" data-hover>
     <span class="dot"></span>
     <span class="label">Book free consult</span>
   </a>
@@ -27,7 +27,7 @@
   <a href="smile-gallery.html">Smile Gallery</a>
   <a href="for-patients.html">For Patients</a>
   <a href="contact.html">Contact</a>
-  <a href="contact.html#book" class="btn btn--primary">Book free consult</a>
+  <a href="https://app.nexhealth.com/appt/big-smile-orthodontics?lid=333133" target="_blank" rel="noopener" class="btn btn--primary">Book free consult</a>
 </div>`;
 
   const footerHTML = `
