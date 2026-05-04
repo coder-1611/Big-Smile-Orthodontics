@@ -397,9 +397,6 @@
     transition:transform .55s cubic-bezier(.22,1,.36,1), box-shadow .55s ease;
     isolation:isolate;
   }
-  /* Subtle stagger via margin so transform stays free for hover */
-  .office__tile:nth-child(1){ margin-top:36px; }
-  .office__tile:nth-child(4){ margin-top:36px; }
   /* Inset highlight for crispness */
   .office__tile::before{
     content:""; position:absolute; inset:0; border-radius:inherit;
@@ -628,7 +625,6 @@
     .office__inner{ padding:0 20px; gap:32px; }
     .office__gallery{ gap:12px; }
     .office__tile{ border-radius:14px; }
-    .office__tile:nth-child(1), .office__tile:nth-child(4){ margin-top:0; }
     .office__list{ margin-top:24px; }
     .office__item{ padding:18px 0; grid-template-columns:48px 1fr auto; gap:14px; }
     .office__item .label{ font-size:18px; }
