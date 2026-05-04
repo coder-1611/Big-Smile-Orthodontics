@@ -272,7 +272,7 @@
           Log in to portal
           <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <div style="margin-top:24px; padding-top:24px; border-top:1px solid rgba(247,241,230,.15);">
+        <div>
           <div style="font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(247,241,230,.5); margin-bottom:10px;">Or call us directly</div>
           <a href="tel:5128287900" style="font-family:var(--serif); font-size:22px; color:var(--cream); text-decoration:none; letter-spacing:-.01em;">(512) 828-7900</a>
         </div>
@@ -286,7 +286,7 @@
     display: grid;
     grid-template-columns: 1fr 320px;
     gap: 24px;
-    align-items: start;
+    align-items: stretch;
   }
   .fp-booking-embed {
     border-radius: 18px;
@@ -296,7 +296,7 @@
     min-height: 720px;
   }
   .fp-booking-embed iframe {
-    width: 100%; height: 720px; border: 0; display: block;
+    width: 100%; height: 100%; min-height: 720px; border: 0; display: block;
     background: transparent;
   }
   .fp-portal-card {
@@ -304,6 +304,13 @@
     color: var(--cream);
     border-radius: 18px;
     padding: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  .fp-portal-card > div:last-child {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(247,241,230,.15);
   }
   .fp-portal-card__icon {
     width: 52px; height: 52px;
