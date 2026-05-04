@@ -221,6 +221,11 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
 .service-block__details .topic{ min-width:0; }
 .service-block__details .topic--full{ grid-column:1 / -1; }
 .service-block__details .subhead{ margin-top:0; }
+/* Full-width topics: let prose + FAQ answers fill the row instead
+   of getting clipped to 60ch. Mobile is unaffected because at
+   phone widths the viewport is already narrower than 60ch. */
+.topic--full .prose p,
+.topic--full .faq details p{ max-width:none; }
 @media (max-width:900px){
   .service-block__details{
     grid-template-columns:1fr; gap:32px;
