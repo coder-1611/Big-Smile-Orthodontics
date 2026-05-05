@@ -25,6 +25,14 @@
       el.addEventListener('mouseenter', () => dot.classList.add('is-hover'));
       el.addEventListener('mouseleave', () => dot.classList.remove('is-hover'));
     });
+    // Hide cursor dot when hovering over iframes (they swallow mousemove)
+    document.querySelectorAll('iframe').forEach(frame => {
+      const wrap = frame.closest('div') || frame.parentElement;
+      if (wrap) {
+        wrap.addEventListener('mouseenter', () => dot.style.opacity = '0');
+        wrap.addEventListener('mouseleave', () => dot.style.opacity = '');
+      }
+    });
   }
 
   // Reveals
