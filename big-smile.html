@@ -39,7 +39,7 @@
   }
 
   .hero__left{
-    position:relative; z-index:2; padding:140px 48px 80px 64px;
+    position:relative; z-index:2; padding:140px 48px 110px 64px;
   }
   @media (max-height: 800px) {
     .hero__left{ padding-top:100px; padding-bottom:40px; }
@@ -118,8 +118,12 @@
   }
   .hero__chip .bolt{ color:var(--primary); font-size:13px; }
 
+  .hero__marquee{
+    position:absolute; bottom:0; left:0; right:0; z-index:4;
+    border-top:1px solid rgba(255,255,255,.1);
+  }
   .hero__caption{
-    position:absolute; bottom:20px; left:64px; right:64px;
+    position:absolute; bottom:70px; left:64px; right:64px;
     display:flex; justify-content:space-between; align-items:end;
     font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase;
     color:var(--navy); opacity:.5;
@@ -767,33 +771,33 @@
   <div class="hero__caption" aria-hidden="true">
     <span>① Round Rock · Texas · Est. 2010</span>
   </div>
-</section>
 
-<!-- ============ MARQUEE ============ -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <span>Invisalign Platinum Provider</span>
-    <i class="sep"></i>
-    <span>300+ <i>five-star</i> reviews</span>
-    <i class="sep"></i>
-    <span>Flexible in-house financing</span>
-    <i class="sep"></i>
-    <span>Free <i>smile</i> consultations</span>
-    <i class="sep"></i>
-    <span>Most insurance accepted</span>
-    <i class="sep"></i>
-    <span>Invisalign Platinum Provider</span>
-    <i class="sep"></i>
-    <span>300+ <i>five-star</i> reviews</span>
-    <i class="sep"></i>
-    <span>Flexible in-house financing</span>
-    <i class="sep"></i>
-    <span>Free <i>smile</i> consultations</span>
-    <i class="sep"></i>
-    <span>Most insurance accepted</span>
-    <i class="sep"></i>
+  <!-- Marquee pinned to bottom of hero so it's always visible on load -->
+  <div class="marquee hero__marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Invisalign Platinum Provider</span>
+      <i class="sep"></i>
+      <span>300+ <i>five-star</i> reviews</span>
+      <i class="sep"></i>
+      <span>Flexible in-house financing</span>
+      <i class="sep"></i>
+      <span>Free <i>smile</i> consultations</span>
+      <i class="sep"></i>
+      <span>Most insurance accepted</span>
+      <i class="sep"></i>
+      <span>Invisalign Platinum Provider</span>
+      <i class="sep"></i>
+      <span>300+ <i>five-star</i> reviews</span>
+      <i class="sep"></i>
+      <span>Flexible in-house financing</span>
+      <i class="sep"></i>
+      <span>Free <i>smile</i> consultations</span>
+      <i class="sep"></i>
+      <span>Most insurance accepted</span>
+      <i class="sep"></i>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- ============ STATS ============ -->
 <section class="stats">
