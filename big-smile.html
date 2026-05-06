@@ -41,15 +41,31 @@
   .hero__left{
     position:relative; z-index:2; padding:140px 48px 80px 64px;
   }
-  @media (max-height: 800px) {
-    .hero__left{ padding-top:100px; padding-bottom:40px; }
-    .hero h1{ font-size:clamp(40px, 6vw, 90px); }
-    .hero__lead{ margin-top:16px; }
-    .hero__cta-row{ margin-top:18px; }
+  /* Always leave room above the fixed marquee (~66px) */
+  .hero{ padding-bottom:66px; box-sizing:border-box; }
+
+  /* Progressively compress content on shorter viewports so buttons stay visible */
+  @media (max-height: 820px) {
+    .hero__left{ padding-top:110px; padding-bottom:30px; }
+    .hero h1{ font-size:clamp(42px, 6vw, 96px); }
+    .hero__lead{ margin-top:14px; }
+    .hero__cta-row{ margin-top:16px; }
+    .hero__meta{ margin-top:20px; }
   }
-  @media (max-height: 680px) {
-    .hero__left{ padding-top:80px; }
-    .hero__tag{ margin-bottom:18px; }
+  @media (max-height: 720px) {
+    .hero__left{ padding-top:88px; padding-bottom:20px; }
+    .hero h1{ font-size:clamp(36px, 5.5vw, 80px); }
+    .hero__tag{ margin-bottom:16px; padding:6px 12px; }
+    .hero__lead{ margin-top:10px; font-size:15px; }
+    .hero__cta-row{ margin-top:12px; }
+    .hero__meta{ margin-top:14px; gap:18px; }
+  }
+  @media (max-height: 620px) {
+    .hero__left{ padding-top:72px; }
+    .hero__meta{ display:none; }
+    .hero h1{ font-size:clamp(30px, 5vw, 68px); }
+    .hero__lead{ font-size:14px; margin-top:8px; }
+    .hero__cta-row{ margin-top:10px; }
   }
   .hero__right{
     position:relative; z-index:2;
