@@ -41,6 +41,16 @@
   .hero__left{
     position:relative; z-index:2; padding:140px 48px 80px 64px;
   }
+  @media (max-height: 800px) {
+    .hero__left{ padding-top:100px; padding-bottom:40px; }
+    .hero h1{ font-size:clamp(40px, 6vw, 90px); }
+    .hero__lead{ margin-top:16px; }
+    .hero__cta-row{ margin-top:18px; }
+  }
+  @media (max-height: 680px) {
+    .hero__left{ padding-top:80px; }
+    .hero__tag{ margin-bottom:18px; }
+  }
   .hero__right{
     position:relative; z-index:2;
     align-self:stretch;
