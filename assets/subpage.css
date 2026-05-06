@@ -510,7 +510,7 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
 /* Team */
 .team-grid{
   max-width:var(--max); margin:0 auto; padding:60px 32px 120px;
-  display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:32px;
 }
 .team-card{ text-align:left; }
 .team-card__img{
@@ -522,7 +522,8 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
 .team-card__name{ font-family:var(--serif); font-size:28px; color:var(--navy); line-height:1.15; }
 .team-card__role{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--primary); margin-top:8px; }
 .team-card__bio{ color:var(--body); font-size:14.5px; line-height:1.55; margin-top:12px; }
-@media (max-width:800px){ .team-grid{ grid-template-columns:1fr; } }
+@media (max-width:1000px){ .team-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px){ .team-grid{ grid-template-columns:1fr; } }
 
 /* =================================================================
    MOBILE TUNING (≤600px) — subpage-specific. Desktop layout untouched.
