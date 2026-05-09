@@ -12,7 +12,7 @@
 <style>
   /* ================================================ HERO ================================================ */
   .hero{
-    position:relative; min-height:100vh;
+    position:relative; min-height:100vh; min-height:100dvh;
     display:grid; grid-template-columns: 1fr 1fr;
     overflow:hidden;
     align-items:center;
@@ -39,7 +39,7 @@
   }
 
   .hero__left{
-    position:relative; z-index:2; padding:140px 48px 80px 64px;
+    position:relative; z-index:2; padding:140px 48px 60px 64px;
   }
   /* Always leave room above the fixed marquee (~66px) */
   .hero{ padding-bottom:66px; box-sizing:border-box; }
@@ -85,7 +85,7 @@
     box-shadow:0 0 0 3px rgba(22,163,74,.2); }
   .hero h1{
     letter-spacing:-.025em;
-    font-size:clamp(52px, 7.5vw, 120px);
+    font-size:clamp(40px, min(7.5vw, 8.5vh), 120px);
   }
   .hero h1 .word{ display:block; }
   .hero h1 .strike{ display:inline-block; }
@@ -100,7 +100,7 @@
 
   /* Floating badge + chip over the video side */
   .hero__badge{
-    position:absolute; bottom:140px; right:48px;
+    position:absolute; bottom:150px; right:48px;
     width:150px; height:150px;
     border-radius:50%;
     background:var(--warm);
@@ -123,7 +123,7 @@
   @keyframes spin-slow{ to{ transform:rotate(352deg); } }
 
   .hero__chip{
-    position:absolute; bottom:28px; right:48px;
+    position:absolute; bottom:78px; right:48px;
     padding:13px 18px; background:rgba(247,241,230,.9); border-radius:100px;
     backdrop-filter:blur(8px);
     font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase;
@@ -158,9 +158,9 @@
         rgba(247,241,230,.25) 100%
       );
     }
-    .hero__badge{ bottom:100px; right:20px; width:120px; height:120px; font-size:13px; }
+    .hero__badge{ bottom:130px; right:20px; width:120px; height:120px; font-size:13px; }
     .hero__badge::before{ font-size:21px; }
-    .hero__chip{ right:16px; bottom:48px; font-size:10px; }
+    .hero__chip{ right:16px; bottom:78px; font-size:10px; }
     .hero__caption{ display:none; }
   }
 
