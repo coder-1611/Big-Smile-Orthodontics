@@ -154,7 +154,8 @@ body.menu-open .nav__mobile{ transform:translateY(0); }
   .nav__hamburger{ display:block; }
   .nav__mobile{ display:flex; }
   .nav__cta{ display:none; }
-  .nav{ background:var(--navy) !important; backdrop-filter:none !important; box-shadow:none !important; }
+  .nav{ background:rgba(27,42,74,.72); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+  .nav.is-scrolled{ background:rgba(27,42,74,.88) !important; backdrop-filter:blur(18px) !important; -webkit-backdrop-filter:blur(18px) !important; box-shadow:0 1px 0 rgba(0,0,0,.15) !important; }
 }
 
 /* Type */
