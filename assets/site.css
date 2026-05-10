@@ -73,20 +73,17 @@ ul{ list-style:none; }
 }
 /* Default: pill background for clear visibility on both light and dark heroes */
 .nav__logo{
-  font-family:var(--serif); font-size:23px; color:var(--navy); letter-spacing:-.01em;
-  display:flex; align-items:center; gap:12px; flex:none;
+  display:flex; align-items:center; flex:none;
   background:var(--white);
-  padding:6px 18px 6px 6px;
+  padding:8px 16px;
   border-radius:100px;
   box-shadow:0 8px 24px rgba(11,23,48,.12);
   transition:all .35s ease;
 }
+.nav__logo img{ height:32px; width:auto; display:block; }
 /* When scrolled: keep the pill but drop the shadow for a cleaner look */
 .nav.is-scrolled .nav__logo, body.nav-solid .nav .nav__logo{ 
   box-shadow:0 2px 8px rgba(11,23,48,.05); 
-}
-.nav__logo .mark{
-  width:36px; height:36px; flex:none; display:block;
 }
 .nav__logo em{ font-style:italic; color:var(--primary); }
 .nav__links{
@@ -381,7 +378,7 @@ footer.site-footer{
   .nav{ padding:12px 16px; height:68px; }
   .nav.is-scrolled, body.nav-solid .nav{ padding:10px 16px; }
   .nav__logo{ font-size:17px; padding:5px 14px 5px 5px; gap:9px; }
-  .nav__logo .mark{ width:30px; height:30px; }
+  .nav__logo img{ height:26px; }
   .nav__cta{ padding:8px 14px; font-size:12px; }
   .nav__mobile{ padding:90px 24px 32px; }
   .nav__mobile a{ font-size:26px; padding:10px 0; }
