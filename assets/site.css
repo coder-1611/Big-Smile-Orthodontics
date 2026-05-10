@@ -147,13 +147,14 @@ body.menu-open .nav__mobile{ transform:translateY(0); }
   font-family:var(--serif); font-size:32px; color:var(--navy);
   padding:12px 0; border-bottom:1px solid rgba(27,42,74,.1);
 }
-.nav__mobile .btn{ margin-top:20px; }
+.nav__mobile .btn{ margin-top:20px; color:var(--white) !important; border-bottom:none; }
 
 @media (max-width:900px){
   .nav__links{ display:none; }
   .nav__hamburger{ display:block; }
   .nav__mobile{ display:flex; }
-  .nav__cta{ display:none; }
+  .nav__cta{ padding:8px 14px; font-size:12px; }
+  .nav__cta .dot{ display:none; }
   .nav{ background:rgba(27,42,74,.72); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
   .nav.is-scrolled{ background:rgba(27,42,74,.88) !important; backdrop-filter:blur(18px) !important; -webkit-backdrop-filter:blur(18px) !important; box-shadow:0 1px 0 rgba(0,0,0,.15) !important; }
 }
