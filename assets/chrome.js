@@ -3,7 +3,7 @@
   const navHTML = `
 <nav class="nav">
   <a href="big-smile.html" class="nav__logo">
-    <span class="mark"></span>
+    <svg class="mark" viewBox="0 0 60 76" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#0077B6" d="M9,27C8,10 18,4 30,4C42,4 52,10 51,27C50,41 45,51 42,56L38,70C37,74 33,74 32,70L30,63L28,70C27,74 23,74 22,70L18,56C15,51 10,41 9,27Z"/><path d="M21,35Q30,46 39,35" stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
     <span>Big Smile <em>Orthodontics</em></span>
   </a>
   <ul class="nav__links">

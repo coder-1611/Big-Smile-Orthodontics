@@ -86,12 +86,7 @@ ul{ list-style:none; }
   box-shadow:0 2px 8px rgba(11,23,48,.05); 
 }
 .nav__logo .mark{
-  width:36px; height:36px; border-radius:50%;
-  background:conic-gradient(from 220deg, var(--primary), var(--primary-light), var(--accent), var(--primary));
-  position:relative; display:grid; place-items:center;
-}
-.nav__logo .mark::after{
-  content:""; width:16px; height:16px; border-radius:50%; background:var(--white);
+  width:36px; height:36px; flex:none; display:block;
 }
 .nav__logo em{ font-style:italic; color:var(--primary); }
 .nav__links{
@@ -387,7 +382,6 @@ footer.site-footer{
   .nav.is-scrolled, body.nav-solid .nav{ padding:10px 16px; }
   .nav__logo{ font-size:17px; padding:5px 14px 5px 5px; gap:9px; }
   .nav__logo .mark{ width:30px; height:30px; }
-  .nav__logo .mark::after{ width:13px; height:13px; }
   .nav__cta{ padding:8px 14px; font-size:12px; }
   .nav__mobile{ padding:90px 24px 32px; }
   .nav__mobile a{ font-size:26px; padding:10px 0; }
