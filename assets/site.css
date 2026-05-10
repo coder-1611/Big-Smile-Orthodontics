@@ -154,6 +154,7 @@ body.menu-open .nav__mobile{ transform:translateY(0); }
   .nav__hamburger{ display:block; }
   .nav__mobile{ display:flex; }
   .nav__cta{ display:none; }
+  .nav{ background:var(--navy) !important; backdrop-filter:none !important; box-shadow:none !important; }
 }
 
 /* Type */
