@@ -147,7 +147,7 @@ body.menu-open .nav__mobile{ transform:translateY(0); }
   font-family:var(--serif); font-size:32px; color:var(--navy);
   padding:12px 0; border-bottom:1px solid rgba(27,42,74,.1);
 }
-.nav__mobile .btn{ margin-top:20px; color:var(--white) !important; border-bottom:none; }
+.nav__mobile .btn{ margin-top:20px; color:var(--white) !important; border-bottom:none; justify-content:center; }
 
 @media (max-width:900px){
   .nav__links{ display:none; }
