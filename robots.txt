@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.bigsmileorthodontics.com/sitemap.xml
+Sitemap: https://test-ortho-website.vercel.app/sitemap.xml
