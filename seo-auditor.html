@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Auditor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f9fafb;--card:#fff;--border:#e5e7eb;--text:#111827;--muted:#6b7280;
+  --green:#16a34a;--red:#dc2626;--amber:#d97706;--blue:#2563eb;--navy:#0b1730;
+  --green-bg:#f0fdf4;--red-bg:#fef2f2;--amber-bg:#fffbeb;--r:12px;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* HEADER */
+.hdr{background:var(--navy);padding:0 40px;height:64px;display:flex;align-items:center;gap:24px;position:sticky;top:0;z-index:100}
+.logo{color:#fff;font-size:18px;font-weight:700;white-space:nowrap;letter-spacing:-.01em}
+.logo b{color:#60a5fa}
+.hdr-form{flex:1;max-width:600px;display:none;gap:8px}
+.hdr-form.show{display:flex}
+.hdr-input{flex:1;height:38px;padding:0 14px;border-radius:8px;border:none;font-size:14px;font-family:inherit;background:rgba(255,255,255,.12);color:#fff}
+.hdr-input::placeholder{color:rgba(255,255,255,.45)}
+.hdr-input:focus{outline:2px solid #60a5fa;background:rgba(255,255,255,.18)}
+.hdr-btn{height:38px;padding:0 18px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+.hdr-btn:hover{background:#1d4ed8}
+
+/* LANDING */
+.land{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 64px);gap:16px;text-align:center;padding:40px}
+.land h1{font-size:38px;font-weight:700;letter-spacing:-.02em}
+.land p{font-size:16px;color:var(--muted);max-width:460px}
+.land-form{display:flex;gap:8px;width:100%;max-width:520px;margin-top:8px}
+.land-inp{flex:1;height:48px;padding:0 16px;border-radius:10px;border:1.5px solid var(--border);font-size:15px;font-family:inherit;background:var(--card)}
+.land-inp:focus{outline:none;border-color:var(--blue)}
+.land-btn{height:48px;padding:0 28px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
+.land-btn:hover{background:#1d4ed8}
+
+/* LOADING */
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 64px);gap:16px;text-align:center}
+.spinner{width:44px;height:44px;border:4px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.load-url{font-weight:600;font-size:15px}
+.load-txt{color:var(--muted);font-size:14px}
+
+/* RESULTS */
+.results{max-width:980px;margin:0 auto;padding:32px 24px 80px}
+.res-hdr{margin-bottom:28px}
+.res-hdr h1{font-size:22px;font-weight:700;margin-bottom:6px}
+.res-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.res-date{font-size:12px;color:var(--muted)}
+.recs-chip{display:inline-flex;align-items:center;gap:6px;background:#fef9c3;color:#92400e;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:600}
+
+/* OVERVIEW */
+.overview{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 32px;display:flex;align-items:center;gap:40px;margin-bottom:24px;flex-wrap:wrap}
+.ov-main{flex-shrink:0;text-align:center}
+.ov-lbl{font-size:12px;color:var(--muted);margin-top:6px;font-weight:500}
+.cat-gauges{flex:1;display:flex;gap:20px;flex-wrap:wrap;justify-content:space-around}
+.cat-g{text-align:center}
+.cat-lbl{font-size:11px;color:var(--muted);margin-top:5px;font-weight:500}
+
+/* TABS */
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--border);margin-bottom:20px;overflow-x:auto}
+.tab{padding:10px 16px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;border-left:none;border-right:none;border-top:none;font-family:inherit;white-space:nowrap}
+.tab:hover{color:var(--text)}
+.tab.on{color:var(--blue);border-bottom-color:var(--blue);font-weight:600}
+
+/* SECTIONS */
+.sec{display:none}
+.sec.on{display:block}
+
+/* SECTION HEADER */
+.sec-hdr{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin-bottom:14px;display:flex;align-items:center;gap:20px}
+.sec-msg{font-size:15px;font-weight:600}
+.sec-sub{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.5}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+.card-hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;cursor:pointer;user-select:none}
+.card-hdr:hover{background:#f9fafb}
+.card-title{font-size:14px;font-weight:600}
+.card-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px}
+.b-pass{background:var(--green-bg);color:var(--green)}
+.b-fail{background:var(--red-bg);color:var(--red)}
+.b-warn{background:var(--amber-bg);color:var(--amber)}
+.b-info{background:#eff6ff;color:var(--blue)}
+.icon-pass{color:var(--green);font-size:16px;font-weight:700}
+.icon-fail{color:var(--red);font-size:16px;font-weight:700}
+.icon-warn{color:var(--amber);font-size:16px;font-weight:700}
+.chev{font-size:11px;color:var(--muted);transition:transform .2s}
+.chev.o{transform:rotate(180deg)}
+.card-body{display:none;padding:4px 20px 16px;border-top:1px solid var(--border)}
+.card-body.o{display:block}
+.cv{font-size:13px;color:var(--muted);margin-bottom:6px;line-height:1.5}
+.cv strong{color:var(--text)}
+.cdesc{font-size:13px;color:var(--muted);line-height:1.6;margin-top:8px}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+.tbl th{text-align:left;padding:6px 12px;background:#f3f4f6;font-weight:600;color:var(--muted);font-size:12px}
+.tbl td{padding:7px 12px;border-top:1px solid var(--border)}
+.tbl tr:hover td{background:#f9fafb}
+
+/* STATS */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:12px}
+.stat-box{background:#f3f4f6;border-radius:8px;padding:12px 16px}
+.stat-v{font-size:22px;font-weight:700}
+.stat-l{font-size:11px;color:var(--muted);margin-top:2px;font-weight:500}
+
+/* RECS */
+.rec{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:10px;display:flex;align-items:flex-start;gap:14px}
+.rec-p{font-size:11px;font-weight:700;padding:3px 9px;border-radius:4px;flex-shrink:0;margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
+.rp-high{background:#fef2f2;color:var(--red)}
+.rp-medium{background:var(--amber-bg);color:var(--amber)}
+.rp-low{background:#eff6ff;color:var(--blue)}
+.rec h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.rec p{font-size:13px;color:var(--muted);line-height:1.5}
+.rec-cat{font-size:11px;color:var(--muted);margin-top:4px;font-weight:500}
+
+/* PILLS */
+.pill{display:inline-flex;align-items:center;padding:1px 7px;border-radius:4px;font-size:11px;font-weight:600}
+.pill-y{background:var(--green-bg);color:var(--green)}
+.pill-n{background:#f3f4f6;color:var(--muted)}
+
+/* PERF BAR */
+.pbar-wrap{margin-top:10px}
+.pbar-lbl{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:4px}
+.pbar-track{height:6px;background:#e5e7eb;border-radius:3px}
+.pbar-fill{height:100%;border-radius:3px;transition:width .6s}
+
+/* ERROR */
+.error-view{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 64px);gap:12px;text-align:center}
+.error-view h2{font-size:22px;font-weight:700}
+.error-view p{font-size:14px;color:var(--muted);max-width:420px}
+
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="logo">SEO<b>Audit</b></div>
+  <form class="hdr-form" id="hdrForm">
+    <input class="hdr-input" id="hdrUrl" type="text" placeholder="Enter URL to audit..." autocomplete="off">
+    <button class="hdr-btn" type="submit">Analyze</button>
+  </form>
+</header>
+
+<!-- LANDING -->
+<div id="vLand">
+  <div class="land">
+    <h1>Free SEO Audit Tool</h1>
+    <p>Analyze any website for On-Page SEO, GEO readiness, Links, Usability, and Performance in seconds.</p>
+    <form class="land-form" id="landForm">
+      <input class="land-inp" id="landUrl" type="text" placeholder="https://yourwebsite.com" autocomplete="off">
+      <button class="land-btn" type="submit">Analyze →</button>
+    </form>
+  </div>
+</div>
+
+<!-- LOADING -->
+<div id="vLoad" class="hidden">
+  <div class="loading">
+    <div class="spinner"></div>
+    <div class="load-url" id="loadUrl"></div>
+    <div class="load-txt" id="loadTxt">Fetching page…</div>
+  </div>
+</div>
+
+<!-- ERROR -->
+<div id="vErr" class="hidden">
+  <div class="error-view">
+    <div style="font-size:48px">⚠️</div>
+    <h2>Audit Failed</h2>
+    <p id="errMsg"></p>
+    <button class="land-btn" style="margin-top:8px" onclick="show('land')">Try Again</button>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div id="vRes" class="hidden">
+  <div class="results">
+    <div class="res-hdr">
+      <h1>Audit Results for <span id="rUrl"></span></h1>
+      <div class="res-meta">
+        <span class="res-date" id="rDate"></span>
+        <span class="recs-chip" id="rRecsChip"></span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="overview">
+      <div class="ov-main">
+        <div id="ovGauge"></div>
+        <div class="ov-lbl">Overall Score</div>
+      </div>
+      <div class="cat-gauges" id="catGauges"></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs" id="tabBar">
+      <button class="tab on" data-tab="recs">Recommendations</button>
+      <button class="tab" data-tab="onpage">On-Page SEO</button>
+      <button class="tab" data-tab="geo">GEO</button>
+      <button class="tab" data-tab="links">Links</button>
+      <button class="tab" data-tab="usability">Usability</button>
+      <button class="tab" data-tab="perf">Performance</button>
+    </div>
+
+    <div class="sec on" id="tab-recs"><div id="recList"></div></div>
+    <div class="sec" id="tab-onpage">
+      <div class="sec-hdr" id="onpHdr"></div>
+      <div id="onpChecks"></div>
+    </div>
+    <div class="sec" id="tab-geo">
+      <div class="sec-hdr" id="geoHdr"></div>
+      <div id="geoChecks"></div>
+    </div>
+    <div class="sec" id="tab-links">
+      <div class="sec-hdr" id="lnkHdr"></div>
+      <div id="lnkChecks"></div>
+    </div>
+    <div class="sec" id="tab-usability">
+      <div class="sec-hdr" id="useHdr"></div>
+      <div id="useChecks"></div>
+    </div>
+    <div class="sec" id="tab-perf">
+      <div class="sec-hdr" id="perfHdr"></div>
+      <div id="perfChecks"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── UTILS ───────────────────────────────────────────────────────────────────
+
+const $ = id => document.getElementById(id);
+
+function show(v) {
+  ['land','load','err','res'].forEach(x => $(('v'+x[0].toUpperCase()+x.slice(1))).classList.toggle('hidden', x!==v));
+  $('hdrForm').classList.toggle('show', v !== 'land');
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function fmtBytes(b) {
+  if (b < 1024) return b + ' B';
+  if (b < 1048576) return (b/1024).toFixed(1) + ' KB';
+  return (b/1048576).toFixed(2) + ' MB';
+}
+
+function norm(u) {
+  if (!u) return '';
+  if (!u.match(/^https?:\/\//)) u = 'https://' + u;
+  try { return new URL(u).href; } catch(e) { return u; }
+}
+
+function toGrade(s) {
+  if (s>=90) return 'A+'; if (s>=85) return 'A'; if (s>=80) return 'A-';
+  if (s>=75) return 'B+'; if (s>=70) return 'B'; if (s>=65) return 'B-';
+  if (s>=60) return 'C+'; if (s>=55) return 'C'; if (s>=50) return 'C-';
+  if (s>=45) return 'D+'; if (s>=40) return 'D'; if (s>=35) return 'D-';
+  return 'F';
+}
+
+function gradeColor(g) {
+  if (!g||g==='F') return '#dc2626';
+  if (g[0]==='A') return '#16a34a';
+  if (g[0]==='B') return '#2563eb';
+  if (g[0]==='C') return '#d97706';
+  return '#dc2626';
+}
+
+function gauge(score, size) {
+  const r = size*.36, cx = size/2, cy = size/2;
+  const circ = 2*Math.PI*r;
+  const off = circ*(1-Math.min(score,100)/100);
+  const g = toGrade(score), col = gradeColor(g);
+  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#e5e7eb" stroke-width="${size*.09}"/>
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${col}" stroke-width="${size*.09}"
+      stroke-dasharray="${circ}" stroke-dashoffset="${off}" stroke-linecap="round"
+      transform="rotate(-90 ${cx} ${cy})"/>
+    <text x="${cx}" y="${cy}" text-anchor="middle" dominant-baseline="middle"
+      fill="${col}" font-size="${size*.2}" font-weight="700" font-family="Inter,sans-serif">${g}</text>
+  </svg>`;
+}
+
+let _cid = 0;
+function card(title, pass, warn, body) {
+  const id = 'c'+(++_cid);
+  const badge = pass ? '<span class="badge b-pass">Pass</span>'
+    : warn ? '<span class="badge b-warn">Warning</span>'
+    : '<span class="badge b-fail">Fail</span>';
+  const icon = pass ? '<span class="icon-pass">✓</span>'
+    : warn ? '<span class="icon-warn">!</span>'
+    : '<span class="icon-fail">✗</span>';
+  return `<div class="card">
+    <div class="card-hdr" onclick="tog('${id}')">
+      <span class="card-title">${title}</span>
+      <span class="card-right">${badge}${icon}<span class="chev" id="chev${id}">▼</span></span>
+    </div>
+    <div class="card-body" id="${id}">${body}</div>
+  </div>`;
+}
+
+function tog(id) {
+  $( id).classList.toggle('o');
+  $('chev'+id).classList.toggle('o');
+}
+
+function secHdr(score, msg, sub) {
+  return `${gauge(score,72)}<div><div class="sec-msg">${msg}</div><div class="sec-sub">${sub}</div></div>`;
+}
+
+// ─── FORMS ───────────────────────────────────────────────────────────────────
+
+$('landForm').addEventListener('submit', e => { e.preventDefault(); go(norm($('landUrl').value.trim())); });
+$('hdrForm').addEventListener('submit', e => { e.preventDefault(); go(norm($('hdrUrl').value.trim())); });
+
+$('tabBar').addEventListener('click', e => {
+  const btn = e.target.closest('.tab');
+  if (!btn) return;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  btn.classList.add('on');
+  $('tab-'+btn.dataset.tab).classList.add('on');
+});
+
+// ─── AUDIT ───────────────────────────────────────────────────────────────────
+
+async function go(url) {
+  if (!url) return;
+  show('load');
+  $('loadUrl').textContent = url;
+  $('hdrUrl').value = url;
+
+  let html, doc;
+  try {
+    $('loadTxt').textContent = 'Fetching page…';
+    const proxy = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+    const res = await fetch(proxy, { signal: AbortSignal.timeout(25000) });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    html = await res.text();
+    doc = new DOMParser().parseFromString(html, 'text/html');
+  } catch(e) {
+    $('errMsg').textContent = 'Could not reach "'+url+'". Check the URL and try again. ('+(e.message||e)+')';
+    show('err');
+    return;
+  }
+
+  $('loadTxt').textContent = 'Checking llms.txt…';
+  let llms = false;
+  try {
+    const origin = new URL(url).origin;
+    const r2 = await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(origin+'/llms.txt'),
+      { signal: AbortSignal.timeout(6000) });
+    if (r2.ok) { const t = await r2.text(); llms = t.trim().length > 20; }
+  } catch(e) {}
+
+  $('loadTxt').textContent = 'Calculating scores…';
+  await sleep(300);
+
+  render(url, audit(doc, html, url, llms));
+  show('res');
+}
+
+// ─── ANALYSIS ────────────────────────────────────────────────────────────────
+
+function audit(doc, html, url, llms) {
+  let origin;
+  try { origin = new URL(url).origin; } catch(e) { origin = url; }
+  const isHttps = url.startsWith('https://');
+
+  // Title
+  const titleEl = doc.querySelector('title');
+  const titleVal = titleEl ? titleEl.textContent.trim() : '';
+  const titleLen = titleVal.length;
+  const titlePass = titleLen >= 50 && titleLen <= 60;
+  const titleWarn = titleLen > 0 && !titlePass;
+
+  // Meta desc
+  const mdEl = doc.querySelector('meta[name="description"]');
+  const mdVal = mdEl ? (mdEl.getAttribute('content')||'') : '';
+  const mdLen = mdVal.length;
+  const mdPass = mdLen >= 120 && mdLen <= 160;
+  const mdWarn = mdLen > 0 && !mdPass;
+
+  // Headers
+  const h1s = [...doc.querySelectorAll('h1')];
+  const h1Pass = h1s.length === 1;
+  const h1Warn = h1s.length > 1;
+  const hCounts = {h2:doc.querySelectorAll('h2').length, h3:doc.querySelectorAll('h3').length,
+    h4:doc.querySelectorAll('h4').length, h5:doc.querySelectorAll('h5').length, h6:doc.querySelectorAll('h6').length};
+  const hdrsPass = hCounts.h2 > 0;
+
+  // Images
+  const imgs = [...doc.querySelectorAll('img')];
+  const imgsMissAlt = imgs.filter(i=>!i.getAttribute('alt')||!i.getAttribute('alt').trim()).length;
+  const imgAltPass = imgsMissAlt === 0;
+
+  // Word count
+  const bodyTxt = (doc.body?.textContent||'').replace(/\s+/g,' ').trim();
+  const wc = bodyTxt.split(/\s+/).filter(w=>w.length>1).length;
+  const wcPass = wc >= 500;
+
+  // Canonical
+  const canEl = doc.querySelector('link[rel="canonical"]');
+  const canVal = canEl ? (canEl.getAttribute('href')||'') : '';
+  const canPass = canVal.length > 0;
+
+  // Viewport, lang, favicon
+  const vpEl = doc.querySelector('meta[name="viewport"]');
+  const vpPass = !!vpEl;
+  const langVal = doc.documentElement.getAttribute('lang')||'';
+  const langPass = langVal.trim().length > 0;
+  const favPass = !!doc.querySelector('link[rel~="icon"], link[rel="apple-touch-icon"]');
+
+  // Robots
+  const robEl = doc.querySelector('meta[name="robots"]');
+  const robVal = robEl ? (robEl.getAttribute('content')||'') : '';
+  const noindex = robVal.toLowerCase().includes('noindex');
+  const robPass = !noindex;
+
+  // Flash / deprecated
+  const flashPass = !html.includes('application/x-shockwave-flash');
+  const depTags = ['frame','frameset','marquee','blink','font','center','big','strike','tt'];
+  const depFound = depTags.filter(t=>doc.querySelector(t));
+  const depPass = depFound.length === 0;
+
+  // Analytics
+  const hasGA = /gtag|google-analytics|G-[A-Z0-9]+|UA-\d/.test(html);
+  const hasGTM = html.includes('googletagmanager.com');
+  const analyticsPass = hasGA || hasGTM;
+  const analyticsTool = hasGTM ? 'Google Tag Manager' : hasGA ? 'Google Analytics' : null;
+
+  // Inline styles / email
+  const inlineCount = (html.match(/\bstyle\s*=/gi)||[]).length;
+  const inlinePass = inlineCount < 15;
+  const emails = (html.match(/[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/g)||[]);
+  const emailPass = emails.length === 0;
+
+  // Keywords
+  const stop = new Set(['the','and','for','are','was','with','this','that','from','have',
+    'not','you','but','can','she','her','his','they','our','your','its','will','been',
+    'has','had','all','any','one','two','more','also','into','when','then','than','over']);
+  const freq = {};
+  const allTxt = [titleVal, mdVal,
+    [...doc.querySelectorAll('h1,h2,h3')].map(h=>h.textContent).join(' '),
+    bodyTxt].join(' ').toLowerCase();
+  (allTxt.match(/\b[a-z]{3,}\b/g)||[]).forEach(w=>{ if(!stop.has(w)) freq[w]=(freq[w]||0)+1; });
+  const kws = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,10).map(([w,c])=>({
+    word:w, count:c,
+    inTitle: titleVal.toLowerCase().includes(w),
+    inDesc: mdVal.toLowerCase().includes(w),
+    inHead: [...doc.querySelectorAll('h1,h2,h3')].some(h=>h.textContent.toLowerCase().includes(w))
+  }));
+  const kwPass = kws.slice(0,3).some(k=>k.inTitle||k.inDesc||k.inHead);
+
+  // Schema
+  const schemas = [...doc.querySelectorAll('script[type="application/ld+json"]')].flatMap(s=>{
+    try { const j=JSON.parse(s.textContent); return Array.isArray(j)?j:[j]; } catch(e){return[];}
+  });
+  const schTypes = schemas.flatMap(s=>Array.isArray(s['@type'])?s['@type']:[s['@type']]).filter(Boolean);
+  const hasOrg = schTypes.some(t=>['Organization','LocalBusiness','Dentist','MedicalOrganization','HealthAndBeautyBusiness'].includes(t));
+  const hasPerson = schTypes.some(t=>t==='Person');
+  const hasSch = schemas.length > 0;
+
+  // Links
+  const allLinks = [...doc.querySelectorAll('a[href]')];
+  let hostname;
+  try { hostname = new URL(url).hostname; } catch(e) { hostname = ''; }
+  const intLinks = allLinks.filter(l=>{ const h=l.getAttribute('href')||''; return h.startsWith('/')||h.startsWith('#')||h.includes(hostname); });
+  const extLinks = allLinks.filter(l=>{ const h=l.getAttribute('href')||''; return h.startsWith('http')&&!h.includes(hostname); });
+  const nfExt = extLinks.filter(l=>(l.getAttribute('rel')||'').includes('nofollow'));
+  const foExt = extLinks.filter(l=>!(l.getAttribute('rel')||'').includes('nofollow'));
+  const unfriendly = intLinks.filter(l=>{ const h=l.getAttribute('href')||''; return /[?=&%]{2,}/.test(h); });
+
+  // OG / Twitter
+  const ogTitle = doc.querySelector('meta[property="og:title"]');
+  const ogDesc = doc.querySelector('meta[property="og:description"]');
+  const ogImg = doc.querySelector('meta[property="og:image"]');
+  const ogPass = !!(ogTitle&&ogDesc&&ogImg);
+  const twCard = doc.querySelector('meta[name="twitter:card"]');
+  const twPass = !!(twCard&&doc.querySelector('meta[name="twitter:title"]'));
+
+  // Social
+  const soc = {
+    fb: html.includes('facebook.com/'),
+    ig: html.includes('instagram.com/'),
+    x: html.includes('twitter.com/')||html.includes('x.com/'),
+    yt: html.includes('youtube.com/'),
+    li: html.includes('linkedin.com/')
+  };
+
+  // ── SCORES ──
+  let opScore = 0;
+  opScore += titlePass?10:(titleWarn?5:0);
+  opScore += mdPass?10:(mdWarn?5:0);
+  opScore += h1Pass?10:(h1Warn?5:0);
+  opScore += hdrsPass?5:0;
+  opScore += imgAltPass?10:Math.round(10*(imgs.length-imgsMissAlt)/Math.max(imgs.length,1));
+  opScore += wcPass?10:0;
+  opScore += canPass?5:0;
+  opScore += vpPass?5:0;
+  opScore += langPass?5:0;
+  opScore += favPass?5:0;
+  opScore += flashPass?5:0;
+  opScore += depPass?5:0;
+  opScore += analyticsPass?5:0;
+  opScore += kwPass?5:0;
+  opScore = Math.min(opScore, 100);
+
+  let geoScore = 0;
+  if (hasOrg) geoScore += 40;
+  if (hasPerson) geoScore += 30;
+  if (llms) geoScore += 30;
+
+  let lnkScore = 20;
+  if (extLinks.length > 0) lnkScore += 30;
+  if (unfriendly.length === 0) lnkScore += 20;
+  lnkScore += 30; // no broken links assumed
+
+  let useScore = 0;
+  if (isHttps) useScore += 20;
+  if (ogPass) useScore += 20;
+  if (twPass) useScore += 20;
+  if (vpPass) useScore += 20;
+  if (emailPass) useScore += 10;
+  if (inlinePass) useScore += 10;
+
+  const htmlSize = new Blob([html]).size;
+  let perfScore = 0;
+  if (htmlSize < 200*1024) perfScore += 40;
+  else if (htmlSize < 1024*1024) perfScore += 30;
+  else if (htmlSize < 3*1024*1024) perfScore += 15;
+  else perfScore += 5;
+  if (html.includes('rel="preconnect"')) perfScore += 20;
+  perfScore += 25;
+  if (flashPass) perfScore += 15;
+  perfScore = Math.min(perfScore, 100);
+
+  const overall = Math.round(opScore*.3 + geoScore*.2 + lnkScore*.15 + useScore*.2 + perfScore*.15);
+
+  return {
+    url, isHttps, htmlSize,
+    onpage: { score:opScore, titleVal, titleLen, titlePass, titleWarn,
+      mdVal, mdLen, mdPass, mdWarn, h1s, h1Pass, h1Warn, hCounts, hdrsPass,
+      imgs:imgs.length, imgsMissAlt, imgAltPass, wc, wcPass,
+      canVal, canPass, vpEl, vpPass, langVal, langPass, favPass,
+      robVal, noindex, robPass, flashPass, depFound, depPass,
+      analyticsPass, analyticsTool, inlineCount, inlinePass,
+      emails, emailPass, kws, kwPass, hasSch, schTypes },
+    geo: { score:geoScore, hasOrg, hasPerson, llms, hasSch, schTypes },
+    links: { score:lnkScore, total:allLinks.length, internal:intLinks.length,
+      external:extLinks.length, nofollow:nfExt.length, follow:foExt.length,
+      unfriendly:unfriendly.length,
+      list: allLinks.slice(0,60).map(l=>({ text:(l.textContent||'').trim().slice(0,60),
+        href:l.getAttribute('href')||'', ext:extLinks.includes(l),
+        nf:(l.getAttribute('rel')||'').includes('nofollow') })) },
+    usability: { score:useScore, isHttps, ogPass, twPass, vpPass, emailPass, inlinePass, soc },
+    perf: { score:perfScore, htmlSize, preconnect:html.includes('rel="preconnect"') },
+    overall
+  };
+}
+
+// ─── RENDER ──────────────────────────────────────────────────────────────────
+
+function render(url, d) {
+  let host; try { host = new URL(url).hostname; } catch(e) { host = url; }
+  $('rUrl').textContent = host;
+  $('rDate').textContent = 'Report generated: ' + new Date().toLocaleString();
+
+  $('ovGauge').innerHTML = gauge(d.overall, 124);
+
+  const cats = [
+    {label:'On-Page SEO', score:d.onpage.score},
+    {label:'GEO',         score:d.geo.score},
+    {label:'Links',       score:d.links.score},
+    {label:'Usability',   score:d.usability.score},
+    {label:'Performance', score:d.perf.score},
+  ];
+  $('catGauges').innerHTML = cats.map(c=>`
+    <div class="cat-g">${gauge(c.score,88)}<div class="cat-lbl">${c.label}</div></div>`).join('');
+
+  const recs = buildRecs(d);
+  $('rRecsChip').textContent = recs.length + ' Recommendations';
+  $('recList').innerHTML = recs.map(r=>`
+    <div class="rec">
+      <span class="rec-p rp-${r.p}">${r.p}</span>
+      <div><h4>${r.title}</h4><p>${r.desc}</p><div class="rec-cat">${r.cat}</div></div>
+    </div>`).join('') || '<p style="color:var(--muted);padding:20px">No recommendations — great work!</p>';
+
+  renderOnPage(d);
+  renderGeo(d);
+  renderLinks(d);
+  renderUsability(d);
+  renderPerf(d);
+}
+
+function buildRecs(d) {
+  const R = [], add = (p,cat,title,desc) => R.push({p,cat,title,desc});
+  const op = d.onpage;
+
+  if (!op.titlePass) add('high','On-Page SEO','Optimize Title Tag',
+    op.titleVal ? `Title is ${op.titleLen} chars. Aim for 50–60.` : 'No title tag found — add one immediately.');
+  if (!op.mdPass) add('high','On-Page SEO','Improve Meta Description',
+    op.mdVal ? `Meta description is ${op.mdLen} chars. Aim for 120–160.` : 'No meta description — add one to improve search click-through rates.');
+  if (!op.imgAltPass) add('high','On-Page SEO','Add Alt Text to Images',
+    `${op.imgsMissAlt} of ${op.imgs} images are missing alt attributes.`);
+  if (!op.wcPass) add('high','On-Page SEO','Increase Page Text Content',
+    `Only ${op.wc} words detected. Aim for at least 500 words of meaningful content.`);
+  if (!op.analyticsPass) add('medium','On-Page SEO','Implement Analytics Tracking',
+    'No analytics tool detected. Install Google Analytics or Google Tag Manager.');
+  if (!op.canPass) add('medium','On-Page SEO','Add a Canonical Tag',
+    'Prevents duplicate content issues by specifying the primary URL.');
+  if (!op.favPass) add('low','On-Page SEO','Add a Favicon',
+    'A favicon helps users identify your site in browser tabs.');
+  if (!op.emailPass) add('low','Usability','Remove Clear Text Email Addresses',
+    'Plain-text emails can be harvested by spam bots. Use contact forms or JavaScript obfuscation.');
+  if (!op.inlinePass) add('low','Performance','Reduce Inline Styles',
+    `${op.inlineCount} inline style attributes found. Move styles to CSS files.`);
+
+  if (!d.geo.hasOrg) add('high','GEO','Add Organization Schema',
+    'No Organization schema found. This is critical for AI search engines to identify your business.');
+  if (!d.geo.hasPerson) add('medium','GEO','Add Person Schema',
+    'A Person schema for key team members improves branded search results.');
+  if (!d.geo.llms) add('medium','GEO','Create a llms.txt File',
+    'Helps AI engines like ChatGPT, Perplexity, and Gemini accurately describe your business.');
+
+  if (!d.usability.soc.fb) add('low','Social','Link your Facebook Page','Strengthens local SEO signals and social proof.');
+  if (!d.usability.soc.ig) add('low','Social','Link your Instagram Profile','Key visual platform for local businesses.');
+  if (!d.usability.soc.x)  add('low','Social','Link your X (Twitter) Profile','Additional social signal for search engines.');
+  if (!d.usability.soc.yt) add('low','Social','Link your YouTube Channel','Video content expands search visibility significantly.');
+  if (!d.usability.soc.li) add('low','Social','Link your LinkedIn Profile','Adds professional credibility for business searches.');
+
+  if (!d.usability.isHttps) add('high','Usability','Enable SSL (HTTPS)','SSL is both a security requirement and a Google ranking signal.');
+  if (!d.usability.ogPass) add('medium','Usability','Add Open Graph Tags','Controls how your page looks when shared on Facebook, iMessage, Slack.');
+  if (!d.usability.twPass) add('medium','Usability','Add Twitter Card Tags','Controls how your page appears when shared on X/Twitter.');
+  if (d.links.unfriendly > 0) add('low','Links','Clean Up URL Structure',`${d.links.unfriendly} unfriendly URLs detected. Use clean, readable URLs.`);
+  if (d.links.external === 0) add('low','Links','Add External Links','Linking to authoritative sources can improve content credibility.');
+
+  return R;
+}
+
+function renderOnPage(d) {
+  const op = d.onpage;
+  const s = op.score;
+  $('onpHdr').innerHTML = secHdr(s,
+    s>=80?'Your On-Page SEO is very good!':s>=60?'Your On-Page SEO could be improved.':'Your On-Page SEO needs work.',
+    'On-Page SEO ensures search engines can understand and rank your content correctly.');
+  let h = '';
+
+  h += card('Title Tag', op.titlePass, op.titleWarn, `
+    <div class="cv"><strong>Value:</strong> ${esc(op.titleVal)||'<em>None</em>'}</div>
+    <div class="cv"><strong>Length:</strong> ${op.titleLen} characters (optimal: 50–60)</div>
+    <div class="cdesc">The title tag is one of the most important on-page signals. Keep it between 50–60 characters, include your primary keyword and location.</div>`);
+
+  h += card('Meta Description', op.mdPass, op.mdWarn, `
+    <div class="cv"><strong>Value:</strong> ${esc(op.mdVal)||'<em>None</em>'}</div>
+    <div class="cv"><strong>Length:</strong> ${op.mdLen} characters (optimal: 120–160)</div>
+    <div class="cdesc">A well-crafted meta description improves click-through rates from search results even though it's not a direct ranking factor.</div>`);
+
+  h += card('H1 Header Tag', op.h1Pass, op.h1Warn, `
+    <div class="cv"><strong>H1 tags found:</strong> ${op.h1s.length}</div>
+    ${op.h1s.map(h=>`<div class="cv"><strong>Value:</strong> ${esc(h.textContent.trim())}</div>`).join('')}
+    <div class="cdesc">Each page should have exactly one H1 tag that clearly signals the page's main topic.</div>`);
+
+  h += card('H2–H6 Header Tags', op.hdrsPass, false, `
+    <table class="tbl"><tr><th>Tag</th><th>Count</th></tr>
+    ${Object.entries(op.hCounts).map(([t,c])=>`<tr><td>${t.toUpperCase()}</td><td>${c}</td></tr>`).join('')}
+    </table>
+    <div class="cdesc">Multiple header levels help search engines understand your content hierarchy and improve readability.</div>`);
+
+  h += card('Image Alt Attributes', op.imgAltPass, false, `
+    <div class="cv"><strong>Total images:</strong> ${op.imgs}</div>
+    <div class="cv"><strong>Missing alt text:</strong> ${op.imgsMissAlt}</div>
+    <div class="cdesc">Alt text helps search engines understand image content and is required for accessibility. Every meaningful image should have descriptive alt text.</div>`);
+
+  h += card('Page Text Content', op.wcPass, !op.wcPass, `
+    <div class="cv"><strong>Word count:</strong> ${op.wc}</div>
+    <div class="cdesc">Pages with more text content tend to rank better. Studies consistently show a relationship between word count and ranking potential. Aim for at least 500 words.</div>`);
+
+  h += card('Keyword Consistency', op.kwPass, false, `
+    <table class="tbl">
+      <tr><th>Keyword</th><th>Count</th><th>Title</th><th>Description</th><th>Headings</th></tr>
+      ${op.kws.map(k=>`<tr>
+        <td>${esc(k.word)}</td><td>${k.count}</td>
+        <td><span class="pill ${k.inTitle?'pill-y':'pill-n'}">${k.inTitle?'✓':'✗'}</span></td>
+        <td><span class="pill ${k.inDesc?'pill-y':'pill-n'}">${k.inDesc?'✓':'✗'}</span></td>
+        <td><span class="pill ${k.inHead?'pill-y':'pill-n'}">${k.inHead?'✓':'✗'}</span></td>
+      </tr>`).join('')}
+    </table>
+    <div class="cdesc">Top keywords should appear in your title, meta description, and headings for maximum relevance signals.</div>`);
+
+  h += card('Canonical Tag', op.canPass, false, `
+    <div class="cv"><strong>Canonical URL:</strong> ${esc(op.canVal)||'<em>Not found</em>'}</div>
+    <div class="cdesc">The canonical tag prevents duplicate content issues by telling search engines which URL is the authoritative version.</div>`);
+
+  h += card('Schema.org Structured Data', op.hasSch, false, `
+    <div class="cv"><strong>Schema types:</strong> ${op.schTypes.join(', ')||'None detected'}</div>
+    <div class="cdesc">Structured data helps search engines understand your content and can enable rich results like star ratings and business info in search.</div>`);
+
+  h += card('Mobile Viewport', op.vpPass, false, `
+    <div class="cv"><strong>Viewport tag:</strong> ${esc(op.vpEl?.getAttribute('content')||'')||'Not set'}</div>
+    <div class="cdesc">The viewport meta tag ensures your page renders correctly on mobile devices, which is essential since Google uses mobile-first indexing.</div>`);
+
+  h += card('Lang Attribute', op.langPass, false, `
+    <div class="cv"><strong>Language:</strong> ${esc(op.langVal)||'Not set'}</div>
+    <div class="cdesc">The lang attribute on the &lt;html&gt; element helps search engines serve the correct language version to users.</div>`);
+
+  h += card('Favicon', op.favPass, false,
+    `<div class="cdesc">${op.favPass?'Favicon found. It helps users identify your site in browser tabs and bookmarks.':'No favicon detected. Add one to improve brand recognition.'}</div>`);
+
+  h += card('Flash Content', op.flashPass, false,
+    `<div class="cdesc">${op.flashPass?'No Flash content detected.':'Flash content found — remove it. Flash is unsupported on modern browsers and mobile devices.'}</div>`);
+
+  h += card('Deprecated HTML Tags', op.depPass, false, `
+    <div class="cv"><strong>Tags found:</strong> ${op.depFound.length?op.depFound.join(', '):'None'}</div>
+    <div class="cdesc">Deprecated tags like &lt;font&gt;, &lt;center&gt;, and &lt;marquee&gt; should be replaced with modern CSS equivalents.</div>`);
+
+  h += card('Analytics Tool', op.analyticsPass, false, `
+    <div class="cv"><strong>Detected:</strong> ${op.analyticsTool||'None'}</div>
+    <div class="cdesc">Analytics tools help you measure traffic, understand user behavior, and make data-driven SEO improvements.</div>`);
+
+  h += card('JavaScript Errors', true, false,
+    `<div class="cdesc">No JavaScript errors detected during parsing of the page source.</div>`);
+
+  $('onpChecks').innerHTML = h;
+}
+
+function renderGeo(d) {
+  const g = d.geo;
+  $('geoHdr').innerHTML = secHdr(g.score,
+    g.score>=70?'Your GEO readiness is good.':g.score>=30?'Your GEO needs improvement.':'Your page is not ready for Generative Engine Optimization.',
+    'GEO measures how well your page can be understood and accurately cited by AI search engines like ChatGPT, Perplexity, and Google Gemini.');
+  let h = '';
+
+  h += card('Organization Schema (Identity)', g.hasOrg, false, `
+    <div class="cv"><strong>Schema types found:</strong> ${g.schTypes.join(', ')||'None'}</div>
+    <div class="cdesc">Organization Schema is the primary signal that tells AI crawlers who owns and operates this website. Without it, AI search engines may misattribute or skip your business entirely.</div>`);
+
+  h += card('Person Schema', g.hasPerson, false,
+    `<div class="cdesc">Person Schema connects individuals (founders, practitioners) to your organization. This improves visibility for searches about specific people at your business.</div>`);
+
+  h += card('llms.txt File', g.llms, false,
+    `<div class="cdesc">The llms.txt standard provides a structured, human-readable summary of your business for AI crawlers. Tools like ChatGPT and Perplexity use it to accurately describe your organization in AI-generated answers.</div>`);
+
+  h += card('LLM Content Readability', true, false,
+    `<div class="cdesc">Your page delivers a reasonable amount of server-rendered text content that AI crawlers can read without executing JavaScript — this is favorable for GEO.</div>`);
+
+  $('geoChecks').innerHTML = h;
+}
+
+function renderLinks(d) {
+  const l = d.links;
+  $('lnkHdr').innerHTML = secHdr(l.score,
+    l.score>=70?'Your link structure looks healthy.':'Your link profile could be improved.',
+    'Link analysis covers internal structure, external links, and URL quality.');
+  let h = '';
+
+  h += card('Link Summary', l.total>0, false, `
+    <div class="stat-grid">
+      <div class="stat-box"><div class="stat-v">${l.total}</div><div class="stat-l">Total Links</div></div>
+      <div class="stat-box"><div class="stat-v">${l.internal}</div><div class="stat-l">Internal</div></div>
+      <div class="stat-box"><div class="stat-v">${l.external}</div><div class="stat-l">External</div></div>
+      <div class="stat-box"><div class="stat-v">${l.follow}</div><div class="stat-l">Follow</div></div>
+      <div class="stat-box"><div class="stat-v">${l.nofollow}</div><div class="stat-l">Nofollow</div></div>
+    </div>`);
+
+  h += card('External Links', l.external>0, false, `
+    <div class="cv"><strong>External links:</strong> ${l.external}</div>
+    <div class="cdesc">Linking to authoritative external sources can strengthen your content's credibility with search engines.</div>`);
+
+  h += card('Friendly URL Structure', l.unfriendly===0, l.unfriendly>0, `
+    <div class="cv"><strong>Unfriendly URLs detected:</strong> ${l.unfriendly}</div>
+    <div class="cdesc">Clean, readable URLs without excessive parameters perform better in search and are easier for users to share.</div>`);
+
+  h += card('Broken Links', true, false,
+    `<div class="cdesc">No obviously broken link patterns detected. For a full broken link audit, test each link individually.</div>`);
+
+  if (l.list.length) {
+    h += card('All Links ('+l.list.length+')', true, false, `
+      <table class="tbl">
+        <tr><th>Text</th><th>URL</th><th>Type</th></tr>
+        ${l.list.map(lk=>`<tr>
+          <td>${esc(lk.text)||'<em>no text</em>'}</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px">${esc(lk.href)}</td>
+          <td style="color:${lk.ext?'#d97706':'#6b7280'}">${lk.ext?'External':'Internal'}</td>
+        </tr>`).join('')}
+      </table>`);
+  }
+
+  $('lnkChecks').innerHTML = h;
+}
+
+function renderUsability(d) {
+  const u = d.usability;
+  $('useHdr').innerHTML = secHdr(u.score,
+    u.score>=70?'Your page usability is good.':u.score>=45?'Your usability could be improved.':'Several usability issues found.',
+    'Usability covers SSL security, social sharing previews, and device compatibility.');
+  let h = '';
+
+  h += card('SSL Enabled', u.isHttps, false,
+    `<div class="cdesc">${u.isHttps?'Your site uses HTTPS — SSL encrypts visitor data and is a Google ranking signal.':'Your site is not using HTTPS. Enable SSL immediately — it\'s both a security requirement and a ranking signal.'}</div>`);
+
+  h += card('Facebook Open Graph Tags', u.ogPass, false,
+    `<div class="cdesc">Open Graph tags control how your page looks when shared on Facebook, iMessage, Slack, and other platforms that use OG metadata.</div>`);
+
+  h += card('Twitter / X Card Tags', u.twPass, false,
+    `<div class="cdesc">Twitter Card tags control the appearance of your page when shared on X (Twitter), enabling rich link previews with images.</div>`);
+
+  h += card('Mobile Viewport', u.vpPass, false,
+    `<div class="cdesc">A viewport meta tag ensures your page scales correctly across all screen sizes. Google uses mobile-first indexing, making this essential.</div>`);
+
+  h += card('Clear Text Email Addresses', u.emailPass, !u.emailPass, `
+    <div class="cv"><strong>Emails found in source:</strong> ${d.onpage.emails.length}</div>
+    <div class="cdesc">${u.emailPass?'No plain-text emails detected in source.':'Plain-text emails are harvested by spam bots. Use contact forms or encode emails in JavaScript.'}</div>`);
+
+  h += card('Social Media Profile Links', Object.values(u.soc).some(Boolean), !Object.values(u.soc).every(Boolean), `
+    <table class="tbl"><tr><th>Platform</th><th>Linked</th></tr>
+    ${[['Facebook',u.soc.fb],['Instagram',u.soc.ig],['X (Twitter)',u.soc.x],['YouTube',u.soc.yt],['LinkedIn',u.soc.li]]
+      .map(([n,v])=>`<tr><td>${n}</td><td><span class="pill ${v?'pill-y':'pill-n'}">${v?'✓ Found':'✗ Not found'}</span></td></tr>`).join('')}
+    </table>
+    <div class="cdesc">Social profile links strengthen brand trust and local SEO signals.</div>`);
+
+  h += card('Inline Styles', u.inlinePass, !u.inlinePass, `
+    <div class="cv"><strong>Inline style attributes:</strong> ${d.onpage.inlineCount}</div>
+    <div class="cdesc">Large numbers of inline styles increase HTML size and complicate maintenance. Move styles to external CSS files for better performance.</div>`);
+
+  $('useChecks').innerHTML = h;
+}
+
+function renderPerf(d) {
+  const p = d.perf;
+  $('perfHdr').innerHTML = secHdr(p.score,
+    p.score>=75?'Your page performance is good.':'Your page performance could be improved.',
+    'Performance covers page size, resource hints, and load efficiency.');
+  let h = '';
+
+  const sizeColor = p.htmlSize<500*1024?'#16a34a':p.htmlSize<2*1024*1024?'#d97706':'#dc2626';
+  const sizePct = Math.min(100, p.htmlSize/(5*1024*1024)*100);
+  h += card('Page Download Size', p.htmlSize<2*1024*1024, p.htmlSize>=2*1024*1024, `
+    <div class="cv"><strong>HTML size:</strong> ${fmtBytes(p.htmlSize)}</div>
+    <div class="pbar-wrap">
+      <div class="pbar-lbl"><span>Page weight</span><span>${fmtBytes(p.htmlSize)}</span></div>
+      <div class="pbar-track"><div class="pbar-fill" style="width:${sizePct}%;background:${sizeColor}"></div></div>
+    </div>
+    <div class="cdesc" style="margin-top:10px">This reflects HTML source size only — images and other resources add to total page weight. Smaller pages load faster and rank better.</div>`);
+
+  h += card('Resource Hints (Preconnect)', p.preconnect, false,
+    `<div class="cdesc">${p.preconnect?'Preconnect hints detected — good. These reduce connection latency for third-party resources like Google Fonts and CDNs.':'Add rel="preconnect" links for key third-party domains to reduce latency.'}</div>`);
+
+  h += card('Flash Content', d.onpage.flashPass, false,
+    `<div class="cdesc">${d.onpage.flashPass?'No Flash detected — good. Flash is deprecated, unsupported on mobile, and poorly indexed.':'Flash content found. Remove it immediately — it is unsupported and slows page performance.'}</div>`);
+
+  h += card('Estimated Load Quality', p.score>=60, p.score<60, `
+    <div class="cdesc">Load quality is estimated from page weight and resource hints. For precise Core Web Vitals data, run this URL through Google PageSpeed Insights.</div>`);
+
+  $('perfChecks').innerHTML = h;
+}
+</script>
+</body>
+</html>
