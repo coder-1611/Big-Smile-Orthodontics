@@ -1,0 +1,40 @@
+# Big Smile Orthodontics
+
+> Top-rated orthodontic practice in Round Rock, TX, founded and led by Dr. Saba Asrar, a board-certified orthodontist and Platinum Invisalign Provider.
+
+## About
+
+Big Smile Orthodontics is an orthodontic practice located at 1025 Sendero Springs Dr, Suite 110, Round Rock, TX 78681. The practice is founded and led by Dr. Saba Asrar, a board-certified orthodontist with extensive training and a member of the 3M Innovative Orthodontics Advisory Board. The practice has earned 350+ five-star reviews and is recognized for delivering high-quality, personalized orthodontic care.
+
+## Services
+
+- Traditional metal braces
+- Invisalign (clear aligners) — Platinum Provider
+- Ceramic braces
+- Retainers and post-treatment care
+- Free initial consultations
+
+## Location & Contact
+
+- Address: 1025 Sendero Springs Dr, Suite 110, Round Rock, TX 78681
+- Phone: (512) 828-7900
+- Email: info@bigsmileorthodontics.com
+- Serving: Round Rock, Cedar Park, Georgetown, and North Austin, TX
+
+## Hours
+
+- Monday: 8:00am – 6:00pm
+- Tuesday: 8:30am – 6:00pm
+- Wednesday: 8:30am – 6:00pm
+- Thursday: 9:00am – 5:00pm
+- Friday: 8:00am – 6:00pm
+- Saturday – Sunday: Closed
+
+## Pages
+
+- [Home](https://test-ortho-website.vercel.app/)
+- [Services](https://test-ortho-website.vercel.app/services.html)
+- [Dr. Saba Asrar](https://test-ortho-website.vercel.app/dr-asrar.html)
+- [For Patients](https://test-ortho-website.vercel.app/for-patients.html)
+- [Smile Gallery](https://test-ortho-website.vercel.app/smile-gallery.html)
+- [Contact & Book](https://test-ortho-website.vercel.app/contact.html)
