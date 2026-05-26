@@ -63,6 +63,15 @@
         <li><a href="mailto:info@bigsmileorthodontics.com">info@bigsmileorthodontics.com</a></li>
       </ul>
     </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://www.aaoinfo.org/" target="_blank" rel="noopener">American Association of Orthodontists</a></li>
+        <li><a href="https://www.invisalign.com/" target="_blank" rel="noopener">Invisalign Official Site</a></li>
+        <li><a href="https://www.google.com/maps/search/Big+Smile+Orthodontics+Round+Rock+TX" target="_blank" rel="noopener">Find Us on Google Maps</a></li>
+        <li><a href="https://www.healthgrades.com/" target="_blank" rel="noopener">Healthgrades</a></li>
+      </ul>
+    </div>
   </div>
   <div class="site-footer__bottom">
     <div>© 2026 Big Smile Orthodontics</div>
