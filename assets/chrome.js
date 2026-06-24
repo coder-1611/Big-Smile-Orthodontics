@@ -77,6 +77,7 @@
     <div>© 2026 Big Smile Orthodontics</div>
     <div>Round Rock · Cedar Park · Georgetown · North Austin</div>
     <div>Designed with <span style="color:var(--warm)">♥</span> in Texas</div>
+    <div>Made by Soham Sthitpragya</div>
   </div>
 </footer>`;
 
