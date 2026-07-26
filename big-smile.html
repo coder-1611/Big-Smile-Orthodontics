@@ -135,9 +135,12 @@
 body{ background:var(--paper); }
 
 /* ---------- shared texture utilities ---------- */
+/* No mix-blend-mode here on purpose. Blending a full-section layer over a
+   PLAYING video makes Safari re-blend the whole hero on every video frame.
+   Plain low-opacity noise looks near-identical and costs one composite. */
 .grain::after{
   content:""; position:absolute; inset:0; z-index:6; pointer-events:none;
-  opacity:.5; mix-blend-mode:overlay;
+  opacity:.22;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
 }
 .aurora{
@@ -147,6 +150,10 @@ body{ background:var(--paper); }
     radial-gradient(34% 40% at 82% 20%, rgba(233,162,59,.20), transparent 62%),
     radial-gradient(46% 50% at 62% 88%, rgba(14,127,168,.30), transparent 62%);
   filter:blur(24px);
+  /* promote to its own layer so the blur is rasterized once instead of
+     re-rendered on every frame of the drift animation */
+  will-change:transform;
+  backface-visibility:hidden;
   animation:drift 26s ease-in-out infinite alternate;
 }
 @keyframes drift{
@@ -249,6 +256,22 @@ body{ background:var(--paper); }
   width:100%; height:100%; object-fit:cover; display:block;
   transform:scale(1.04);
 }
+/* Safari draws its own play-button overlay whenever autoplay is refused
+   (Low Power Mode, or Settings > Websites > Auto-Play). Suppress the native
+   chrome, and swap in the poster via .is-static so the frame still reads as
+   a photograph rather than a stalled player. */
+.arch video::-webkit-media-controls,
+.arch video::-webkit-media-controls-enclosure,
+.arch video::-webkit-media-controls-panel,
+.arch video::-webkit-media-controls-overlay-play-button,
+.arch video::-webkit-media-controls-start-playback-button{
+  display:none !important;
+  -webkit-appearance:none;
+  opacity:0 !important;
+}
+.arch__fallback{ position:absolute; inset:0; display:none; }
+.arch.is-static video{ display:none; }
+.arch.is-static .arch__fallback{ display:block; }
 .arch::after{
   content:""; position:absolute; inset:0; pointer-events:none;
   background:linear-gradient(to top, rgba(7,13,25,.62) 0%, rgba(7,13,25,.08) 42%, transparent 72%);
@@ -991,10 +1014,15 @@ body{ background:var(--paper); }
     </div>
 
     <div class="hero__stage" data-reveal data-reveal-delay="2">
-      <div class="arch">
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.webp" aria-hidden="true">
+      <div class="arch" id="heroArch">
+        <video autoplay muted loop playsinline preload="auto"
+               poster="assets/hero-poster.webp"
+               disablepictureinpicture disableremoteplayback
+               tabindex="-1" aria-hidden="true">
           <source src="assets/hero-loop.mp4" type="video/mp4"/>
         </video>
+        <img class="arch__fallback" src="assets/hero-poster.webp"
+             alt="Dr. Saba Asrar at Big Smile Orthodontics in Round Rock, TX"/>
       </div>
 
       <div class="hero__badge" aria-hidden="true">
@@ -1487,6 +1515,45 @@ body{ background:var(--paper); }
   /* ---------- hero headline line-mask reveal ---------- */
   var title = document.getElementById('heroTitle');
   if (title) requestAnimationFrame(function(){ title.classList.add('is-in'); });
+
+  /* ---------- hero video: never leave a stalled player on screen ----------
+     Safari refuses autoplay under Low Power Mode or a per-site Auto-Play
+     rule and then paints its own play button. If play() is rejected we fall
+     back to the poster image, and retry once on the first real interaction. */
+  var arch = document.getElementById('heroArch');
+  var vid  = arch && arch.querySelector('video');
+  if (arch && vid){
+    var showPoster = function(){ arch.classList.add('is-static'); };
+    var showVideo  = function(){ arch.classList.remove('is-static'); };
+
+    vid.addEventListener('error', showPoster);
+    vid.addEventListener('stalled', showPoster);
+
+    if (reduce){
+      showPoster();
+    } else {
+      var attempt = function(){
+        var p;
+        try { p = vid.play(); } catch (err){ showPoster(); return; }
+        if (p && typeof p.then === 'function'){
+          p.then(showVideo).catch(function(){
+            showPoster();
+            window.addEventListener('pointerdown', function once(){
+              window.removeEventListener('pointerdown', once);
+              var q = vid.play();
+              if (q && typeof q.then === 'function') q.then(showVideo).catch(showPoster);
+            }, { once:true });
+          });
+        }
+      };
+      if (vid.readyState >= 2) attempt();
+      else vid.addEventListener('loadeddata', attempt, { once:true });
+      /* Safari can suspend the element when the tab is backgrounded */
+      document.addEventListener('visibilitychange', function(){
+        if (!document.hidden && vid.paused && !arch.classList.contains('is-static')) vid.play().catch(showPoster);
+      });
+    }
+  }
 
   /* ---------- animated stat counters ---------- */
   var counters = document.querySelectorAll('.pstat__num[data-count]');

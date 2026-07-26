@@ -45,16 +45,28 @@ ul{ list-style:none; }
   box-shadow:0 0 10px rgba(0,180,216,.6);
 }
 
-/* Cursor dot */
+/* Cursor dot
+   Position is driven by a rAF lerp in site.js — do NOT add a transition on
+   `transform` here. A transition restarts on every pointer event and fights
+   the animation loop, which is what made the trail stutter. `mix-blend-mode`
+   is deliberately absent too: blending this against the hero video, the
+   blurred aurora and the backdrop-filter panels forced a full-screen
+   recomposite each frame and dropped Safari to single-digit fps. */
 .cursor-dot{
   position:fixed; top:0; left:0; width:10px; height:10px; border-radius:50%;
   background:var(--warm); pointer-events:none; z-index:300;
-  transform:translate(-50%,-50%);
-  transition:transform .15s ease, background .2s ease, width .2s ease, height .2s ease;
-  mix-blend-mode:difference;
+  transform:translate3d(-100px,-100px,0);
+  will-change:transform;
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.5), 0 2px 10px rgba(11,23,48,.35);
+  transition:width .2s ease, height .2s ease, background .2s ease, opacity .2s ease;
 }
-.cursor-dot.is-hover{ width:42px; height:42px; background:var(--primary-light); }
-@media (hover:none){ .cursor-dot{ display:none; } }
+.cursor-dot.is-hover{
+  width:38px; height:38px;
+  background:rgba(72,202,228,.32);
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.6);
+}
+@media (hover:none),(pointer:coarse){ .cursor-dot{ display:none; } }
+@media (prefers-reduced-motion: reduce){ .cursor-dot{ display:none; } }
 
 /* ========= NAV ========= */
 .nav{
