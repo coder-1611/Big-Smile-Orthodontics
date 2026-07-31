@@ -32,9 +32,9 @@ Big Smile Orthodontics is an orthodontic practice located at 1025 Sendero Spring
 
 ## Pages
 
-- [Home](https://test-ortho-website.vercel.app/)
-- [Services](https://test-ortho-website.vercel.app/services.html)
-- [Dr. Saba Asrar](https://test-ortho-website.vercel.app/dr-asrar.html)
-- [For Patients](https://test-ortho-website.vercel.app/for-patients.html)
-- [Smile Gallery](https://test-ortho-website.vercel.app/smile-gallery.html)
-- [Contact & Book](https://test-ortho-website.vercel.app/contact.html)
+- [Home](https://www.bigsmileorthodontics.com/)
+- [Services](https://www.bigsmileorthodontics.com/services.html)
+- [Dr. Saba Asrar](https://www.bigsmileorthodontics.com/dr-asrar.html)
+- [For Patients](https://www.bigsmileorthodontics.com/for-patients.html)
+- [Smile Gallery](https://www.bigsmileorthodontics.com/smile-gallery.html)
+- [Contact & Book](https://www.bigsmileorthodontics.com/contact.html)
