@@ -1,5 +1,69 @@
 {
+  "trailingSlash": false,
   "rewrites": [
     { "source": "/", "destination": "/big-smile.html" }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "bigsmileorthodontics.com" }],
+      "destination": "https://www.bigsmileorthodontics.com/:path*",
+      "permanent": true
+    },
+
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/about-us.html", "destination": "/dr-asrar.html", "permanent": true },
+    { "source": "/meet-dr-asrar.html", "destination": "/dr-asrar.html", "permanent": true },
+    { "source": "/meet-the-team.html", "destination": "/dr-asrar.html", "permanent": true },
+    { "source": "/tour-our-office.html", "destination": "/contact.html", "permanent": true },
+    { "source": "/dental-insurance.html", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/special-offers.html", "destination": "/", "permanent": true },
+    { "source": "/virtual-consultations.html", "destination": "/contact.html", "permanent": true },
+    { "source": "/our-services.html", "destination": "/services.html", "permanent": true },
+    { "source": "/traditional-orthodontics.html", "destination": "/services.html", "permanent": true },
+    { "source": "/clear-ceramic-braces.html", "destination": "/services.html", "permanent": true },
+    { "source": "/invisalign-clear-aligners.html", "destination": "/services.html", "permanent": true },
+    { "source": "/phase-1-orthodontics.html", "destination": "/services.html", "permanent": true },
+    { "source": "/retainers-orthodontic-appliances.html", "destination": "/services.html", "permanent": true },
+    { "source": "/orthodontic-emergencies.html", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/life-with-braces.html", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/reviews.html", "destination": "/smile-gallery.html", "permanent": true },
+
+    { "source": "/blog/invisalign-vs-braces-which-one-is-right-for-you", "destination": "/services.html", "permanent": true },
+    { "source": "/blog/invisalign-vs-braces", "destination": "/services.html", "permanent": true },
+    { "source": "/blog/the-dangers-of-mail-order-aligners", "destination": "/services.html", "permanent": true },
+    { "source": "/blog/4-reasons-teens-love-invisalign", "destination": "/services.html", "permanent": true },
+    { "source": "/blog/traditional-braces-when-they-are-necessary", "destination": "/services.html", "permanent": true },
+    { "source": "/blog/phase-1-orthodontics-for-my-kid", "destination": "/services.html", "permanent": true },
+    { "source": "/blog/4-signs-child-needs-braces", "destination": "/services.html", "permanent": true },
+    { "source": "/blog/5-things-to-know-as-adult-getting-braces", "destination": "/services.html", "permanent": true },
+    { "source": "/blog/cost-of-orthodontic-treatment-factors", "destination": "/services.html", "permanent": true },
+    { "source": "/blog/aligned-advantages-3-health-benefits-of-a-straighter-smile", "destination": "/services.html", "permanent": true },
+
+    { "source": "/blog/invisalign-how-to-achieve-22-hour-wear-time", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/invisalign-what-to-do-if-tray-wont-fit", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/invisalign-and-teeth-grinding-is-treatment-possible", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/invisalign-tips-for-traveling", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/invisalign-refinements-what-are-they", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/a-simple-guide-for-healthy-smile", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/hot-take-can-you-sip-coffee-with-invisalign", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/cavities-during-invisalign-treatment", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/easing-the-aches-addressing-invisalign-discomfort", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/result-retention-3-reasons-to-wear-your-retainer", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/bracing-for-bracket-breaks-5-tips-to-prevent-orthodontic-emergencies", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/help-why-do-my-teeth-feel-loose-with-braces", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/rumor-recourse-3-things-you-shouldnt-believe-about-braces", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/life-after-braces-what-to-expect-when-treatment-ends", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/3-reasons-to-wear-retainer", "destination": "/for-patients.html", "permanent": true },
+    { "source": "/blog/can-i-use-old-retainer-to-realign-teeth", "destination": "/for-patients.html", "permanent": true },
+
+    { "source": "/blog/:path*", "destination": "/", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "test-ortho-website.vercel.app" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
   ]
 }
