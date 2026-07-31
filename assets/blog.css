@@ -1,0 +1,101 @@
+/* Blog — post pages + index. Uses the site design system (site.css vars). */
+
+.blog-hero h1{
+  font-size:clamp(36px, 4.5vw, 64px);
+  max-width:22ch;
+  line-height:1.08;
+}
+.blog-hero .post-meta{
+  font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(247,241,230,.65); margin-top:22px;
+}
+
+/* Post body typography */
+.post-wrap{ max-width:760px; margin:0 auto; }
+.post-body{ color:var(--body); font-size:17px; line-height:1.75; }
+.post-body p{ margin:0 0 22px; }
+.post-body h2{
+  font-family:var(--serif); color:var(--navy); font-size:clamp(24px, 2.6vw, 32px);
+  line-height:1.2; margin:44px 0 16px;
+}
+.post-body h3{
+  font-family:var(--serif); color:var(--navy); font-size:clamp(20px, 2.2vw, 25px);
+  margin:36px 0 14px;
+}
+.post-body ul, .post-body ol{ margin:0 0 22px; padding-left:24px; }
+.post-body li{ margin-bottom:10px; }
+.post-body a{ color:var(--primary); text-decoration:underline; text-underline-offset:3px; }
+.post-body a:hover{ color:var(--navy); }
+.post-body strong{ color:var(--navy); }
+.post-body img{
+  max-width:100%; height:auto; border-radius:12px; display:block;
+}
+.post-body figure{ margin:0 0 24px; }
+.post-body figure.alignleft, .post-body .wp-block-image .alignleft{
+  float:left; margin:6px 28px 16px 0; max-width:320px;
+}
+.post-body figure.alignright, .post-body .wp-block-image .alignright{
+  float:right; margin:6px 0 16px 28px; max-width:320px;
+}
+.post-body figcaption{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--body);
+  opacity:.7; margin-top:8px;
+}
+.post-body::after{ content:""; display:block; clear:both; }
+
+/* End-of-post CTA */
+.post-cta{
+  margin-top:56px; padding:36px; background:var(--navy); border-radius:16px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+}
+.post-cta h3{ font-family:var(--serif); color:var(--cream); font-size:26px; margin:0; }
+.post-cta h3 em{ font-style:italic; color:var(--primary-light); }
+
+.post-backlink{
+  display:inline-block; margin-top:40px;
+  font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--primary);
+}
+.post-backlink:hover{ color:var(--navy); }
+
+/* Blog index cards */
+.blog-grid{
+  max-width:var(--max); margin:0 auto;
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
+}
+.blog-card{
+  background:#fff; border-radius:16px; padding:32px; display:flex; flex-direction:column;
+  border:1px solid rgba(11,37,69,.08);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.blog-card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(11,37,69,.10); }
+.blog-card__date{
+  font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--primary); margin-bottom:14px;
+}
+.blog-card h2{
+  font-family:var(--serif); font-size:22px; line-height:1.25; color:var(--navy); margin:0 0 12px;
+}
+.blog-card p{ color:var(--body); font-size:15px; line-height:1.6; margin:0 0 18px; flex:1; }
+.blog-card__more{
+  font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--primary);
+}
+.blog-card:hover .blog-card__more{ color:var(--navy); }
+
+/* Mobile */
+@media (max-width:900px){
+  .blog-grid{ grid-template-columns:repeat(2, 1fr); }
+}
+@media (max-width:600px){
+  .blog-grid{ grid-template-columns:1fr; gap:18px; }
+  .blog-card{ padding:24px; }
+  .blog-hero h1{ font-size:clamp(30px, 8vw, 40px); }
+  .post-body{ font-size:16px; }
+  .post-body figure.alignleft, .post-body figure.alignright,
+  .post-body .wp-block-image .alignleft, .post-body .wp-block-image .alignright{
+    float:none; margin:0 0 20px; max-width:100%;
+  }
+  .post-cta{ padding:28px 24px; }
+  .post-cta h3{ font-size:22px; }
+}

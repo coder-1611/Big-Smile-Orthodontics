@@ -2,17 +2,18 @@
 (function(){
   const navHTML = `
 <nav class="nav">
-  <a href="big-smile.html" class="nav__logo">
-    <img src="assets/logo.png" alt="Big Smile Orthodontics">
+  <a href="/" class="nav__logo">
+    <img src="/assets/logo.png" alt="Big Smile Orthodontics">
   </a>
   <ul class="nav__links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="dr-asrar.html">Dr. Asrar</a></li>
-    <li><a href="smile-gallery.html">Smile Gallery</a></li>
-    <li><a href="for-patients.html">For Patients</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/dr-asrar.html">Dr. Asrar</a></li>
+    <li><a href="/smile-gallery.html">Smile Gallery</a></li>
+    <li><a href="/for-patients.html">For Patients</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/contact.html">Contact</a></li>
   </ul>
-  <a href="contact.html" class="nav__cta" data-hover>
+  <a href="/contact.html" class="nav__cta" data-hover>
     <span class="dot"></span>
     <span class="label">Book free consult</span>
   </a>
@@ -21,12 +22,13 @@
   </button>
 </nav>
 <div class="nav__mobile">
-  <a href="services.html">Services</a>
-  <a href="dr-asrar.html">Dr. Asrar</a>
-  <a href="smile-gallery.html">Smile Gallery</a>
-  <a href="for-patients.html">For Patients</a>
-  <a href="contact.html">Contact</a>
-  <a href="contact.html" class="btn btn--primary">Book free consult</a>
+  <a href="/services.html">Services</a>
+  <a href="/dr-asrar.html">Dr. Asrar</a>
+  <a href="/smile-gallery.html">Smile Gallery</a>
+  <a href="/for-patients.html">For Patients</a>
+  <a href="/blog">Blog</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/contact.html" class="btn btn--primary">Book free consult</a>
 </div>`;
 
   const footerHTML = `
@@ -39,19 +41,20 @@
     <div>
       <h4>Explore</h4>
       <ul>
-        <li><a href="big-smile.html">Home</a></li>
-        <li><a href="dr-asrar.html">Dr. Asrar</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="smile-gallery.html">Smile Gallery</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dr-asrar.html">Dr. Asrar</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/smile-gallery.html">Smile Gallery</a></li>
+        <li><a href="/blog">Blog</a></li>
       </ul>
     </div>
     <div>
       <h4>Patients</h4>
       <ul>
-        <li><a href="for-patients.html">For Patients</a></li>
-        <li><a href="for-patients.html#first-visit">Your First Visit</a></li>
-        <li><a href="for-patients.html#forms">Patient Forms</a></li>
-        <li><a href="for-patients.html#insurance">Insurance</a></li>
+        <li><a href="/for-patients.html">For Patients</a></li>
+        <li><a href="/for-patients.html#first-visit">Your First Visit</a></li>
+        <li><a href="/for-patients.html#forms">Patient Forms</a></li>
+        <li><a href="/for-patients.html#insurance">Insurance</a></li>
       </ul>
     </div>
     <div>
