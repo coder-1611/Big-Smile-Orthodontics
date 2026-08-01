@@ -73,6 +73,21 @@ PageSpeed score). Subpages still link the file normally. **If you edit
 between the `==== inlined copy of assets/site.css` comment markers with the new file
 contents. `site.js` is `defer`red on the homepage for the same reason.
 
+## Perf setup on the homepage (why the PSI score is 95+/100)
+
+`big-smile.html` self-hosts everything the first paint depends on: `assets/site.css`
+is inlined (see note above), the Google Fonts CSS (`@font-face` rules for DM Serif
+Display / Inter / JetBrains Mono) is inlined in `<head>` (font binaries still stream
+from fonts.gstatic.com), `site.js` is deferred, and metric-matched fallback fonts
+('DM Serif Fallback' → Georgia, 'Inter Fallback' → Arial, in site.css) keep CLS ≈ 0.
+Mobile (≤600px) paints the hero with no entrance animation. Don't re-add a
+render-blocking `<link>` (stylesheet or fonts) to this page's head — that's what
+capped the score before.
+
+`vercel.json` sets `s-maxage=86400, stale-while-revalidate` so Google's probe hits a
+warm edge. Beware: right after a deploy some edge POPs briefly serve the previous
+build — verify deployed changes with a content grep, not just an HTTP 200.
+
 ## Facts a fresh session will otherwise re-derive
 
 - Old vendor site: ~46 indexed URLs (20 pages + 26 blog posts). The 1:1 redirect map
