@@ -323,10 +323,17 @@ body{ background:var(--paper); }
     pointer-events:none; z-index:3;
   }
 
+  /* Mobile hero still (Dr. Asrar) — video element never renders below 901px */
+  .hero__still{ display:none; }
   @media (max-width:900px){
     .hero{ grid-template-columns:1fr; }
     .hero__left{ padding:80px 24px 200px; }
     .hero__right{ display:none; }
+    .hero__video-bg video{ display:none; }
+    .hero__still{
+      display:block; position:absolute; inset:0;
+      width:100%; height:100%; object-fit:cover; object-position:50% 22%;
+    }
     .hero__video-overlay{
       background: linear-gradient(
         to bottom,
@@ -339,6 +346,25 @@ body{ background:var(--paper); }
     .hero__badge::before{ font-size:21px; }
     .hero__chip{ right:16px; bottom:100px; font-size:10px; }
     .hero__caption{ display:none; }
+  }
+  /* Phones: everything in the hero must fit one viewport, always */
+  @media (max-width:600px){
+    .hero__left{ padding:76px 20px 120px; }
+    .hero__tag{ margin-bottom:16px; padding:6px 12px; font-size:11.5px; }
+    .hero h1{ font-size:clamp(30px, min(10vw, 6vh), 56px); }
+    .hero__lead{ font-size:14.5px; margin-top:12px; max-width:34ch; }
+    .hero__cta-row{ margin-top:16px; gap:10px; }
+    .hero__meta{
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:10px; margin-top:20px; font-size:11.5px;
+    }
+    .hero__meta .stars{ font-size:12px; letter-spacing:1px; }
+    .hero__badge, .hero__chip{ display:none; }
+  }
+  @media (max-width:360px){
+    .hero__left{ padding-top:62px; }
+    .hero__lead{ margin-top:8px; font-size:13.5px; }
+    .hero__meta{ margin-top:14px; gap:8px; font-size:10.5px; }
   }
 
 /* ================================================================
@@ -939,6 +965,8 @@ body{ background:var(--paper); }
     <video muted loop playsinline preload="none" poster="assets/index-banner.webp">
       <source src="assets/hero-doctor.mp4" type="video/mp4"/>
     </video>
+    <img class="hero__still" src="assets/hero-still-mobile.webp" width="480" height="720"
+         alt="Dr. Saba Asrar, orthodontist at Big Smile Orthodontics in Round Rock, TX" />
   </div>
   <!-- Cream gradient: opaque left (text readable), fades to clear on right (video shows) -->
   <div class="hero__video-overlay"></div>
