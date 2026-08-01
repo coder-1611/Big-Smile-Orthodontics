@@ -80,9 +80,16 @@ is inlined (see note above), the Google Fonts CSS (`@font-face` rules for DM Ser
 Display / Inter / JetBrains Mono) is inlined in `<head>` (font binaries still stream
 from fonts.gstatic.com), `site.js` is deferred, and metric-matched fallback fonts
 ('DM Serif Fallback' → Georgia, 'Inter Fallback' → Arial, in site.css) keep CLS ≈ 0.
-Mobile (≤600px) paints the hero with no entrance animation. Don't re-add a
-render-blocking `<link>` (stylesheet or fonts) to this page's head — that's what
-capped the score before.
+Mobile (≤600px) paints the hero with no entrance animation, defers below-fold
+sections via content-visibility:auto, and — critically — the inline font
+stylesheet (`id="ff-inline"`) ships `media="print"` and is flipped to `all` by the
+script right after it: synchronously on desktop, on **window.load** on mobile.
+That load-gating is what took mobile from 96 to 100: it keeps the
+fonts.gstatic.com fetches out of the simulated first-paint chain. Do NOT
+"simplify" it to a plain `<style>`, and do NOT flip it in requestAnimationFrame —
+rAF runs before paint, which silently reverts the score to 96 (learned the hard
+way). Don't re-add a render-blocking `<link>` (stylesheet or fonts) to this
+page's head either — that's what capped the score originally.
 
 `vercel.json` sets `s-maxage=86400, stale-while-revalidate` so Google's probe hits a
 warm edge. Beware: right after a deploy some edge POPs briefly serve the previous
