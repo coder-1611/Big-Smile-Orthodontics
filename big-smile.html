@@ -377,6 +377,13 @@ body{ background:var(--paper); }
     from{ opacity:.01; transform:translateY(14px); }
     to{ opacity:1; transform:none; }
   }
+  /* Phones: no entrance animation at all. The hero lead is the LCP element,
+     and even a .55s fade-from-.01 pushes the observed first paint late enough
+     that Lighthouse's mobile simulation lands FCP/LCP at ~3.4s (score 85).
+     Desktop keeps the full reveal; mobile paints the final frame immediately. */
+  @media (max-width:600px){
+    .hero [data-reveal]{ animation:none; opacity:1; transform:none; }
+  }
 
 /* ================================================================
    PROOF / STATS
@@ -846,6 +853,10 @@ body{ background:var(--paper); }
 .hero h1.is-in .ln > span{ transform:none; }
 .hero h1 .ln:nth-child(2) > span{ transition-delay:.09s; }
 .hero h1 .ln:nth-child(3) > span{ transition-delay:.18s; }
+/* Phones: headline paints in place immediately (see heroIn note above) */
+@media (max-width:600px){
+  .hero h1 .ln > span{ transform:none; transition:none; }
+}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{
