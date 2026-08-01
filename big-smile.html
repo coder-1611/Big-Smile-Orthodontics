@@ -104,7 +104,7 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<style>
+<style id="ff-inline" media="print">
 /* Self-hosted copy of the Google Fonts CSS (fonts.googleapis.com/css2 for DM Serif
    Display + Inter, Chrome-UA woff2 version). Inlined so no cross-origin CSS fetch can
    ever enter the first-paint critical chain. Font files still come from fonts.gstatic.com.
@@ -571,6 +571,21 @@
 }
 
 </style>
+<script>
+/* Font activation. Desktop: synchronously during parse — rendering identical to a
+   plain inline stylesheet, zero behavior change. Mobile: two rAFs after first paint,
+   so the fonts.gstatic.com requests can never join the first-paint critical chain
+   (they were costing ~0.6s of simulated FCP on PSI's mobile probe). The
+   metric-matched fallback fonts make the late swap layout-neutral. */
+(function(){
+  var st = document.getElementById('ff-inline');
+  if (!st) return;
+  if (window.matchMedia('(min-width:901px)').matches) { st.media = 'all'; }
+  else {
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ st.media = 'all'; }); });
+  }
+})();
+</script>
 <link rel="preload" as="image" href="assets/index-banner.webp" fetchpriority="high" media="(min-width:901px)" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0vrx52g.woff2" media="(min-width:901px)" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFhOHM81r4j6k0gjAW3mujVU2B2G_VB0PD2xWr53A.woff2" media="(min-width:901px)" />
