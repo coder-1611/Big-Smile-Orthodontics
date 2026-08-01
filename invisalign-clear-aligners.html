@@ -23,6 +23,35 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 <link rel="stylesheet" href="assets/site.css" />
 <link rel="stylesheet" href="assets/subpage.css" />
+<style>
+  /* page-scoped layout */
+  .service-block[id]{ scroll-margin-top:150px; }
+  .service-block__details{ margin-top:48px; }
+  .service-block__media--2x2{ grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; }
+  .service-block__num{ align-items:flex-start; }
+  .service-block__num::before{ margin-top:8px; }
+  .check-list li > strong{ flex:none; }
+  .steps{
+    grid-column:1 / -1; margin-top:48px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  }
+  #overview .benefits{ grid-column:1 / -1; margin-top:56px; grid-template-columns:repeat(4,1fr); }
+  #how-it-works .service-block__media .m:first-child img{ object-position:70% center; }
+  #teen-nitime .service-block__media .m:last-child img{ object-position:90% 45%; }
+  .faq-side .faq{ margin-top:0; }
+  .ask-card{ margin-top:34px; padding:28px; border-radius:16px; background:var(--navy); }
+  .ask-card .t{ font-family:var(--serif); font-size:24px; color:var(--cream); }
+  .ask-card .t i{ font-style:italic; color:var(--primary-light); }
+  .ask-card p{ margin:12px 0 20px; font-size:14px; color:rgba(247,241,230,.75); line-height:1.6; }
+  @media (prefers-reduced-motion:reduce){ [data-reveal]{ opacity:1; transform:none; } }
+  @media (max-width:900px){ #overview .benefits{ grid-template-columns:repeat(2,1fr); margin-top:32px; } }
+  @media (max-width:600px){
+    .service-block__details{ margin-top:32px; }
+    .steps{ grid-template-columns:1fr; margin-top:28px; gap:12px; }
+    #overview .benefits{ grid-template-columns:1fr; }
+    .ask-card{ margin-top:24px; padding:22px; }
+  }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -136,25 +165,25 @@
 <section class="service-block" id="overview">
   <div class="service-block__inner">
     <div data-reveal>
-      <div class="service-block__num">01 — The top choice for convenient clear aligners</div>
+      <div class="service-block__num">01 — Why patients choose clear aligners</div>
       <h2>Straight teeth, <i class="italic">invisibly.</i></h2>
       <div class="service-block__subtitle">Virtually invisible &middot; Removable &middot; No diet restrictions</div>
       <div class="prose">
         <p>Our Round Rock orthodontic team offers Invisalign clear aligners for patients who need orthodontic treatment but don't like the look of metal braces. Invisalign is a series of clear aligners worn to move teeth — the most aesthetic option, as it's almost invisible, which is why it's such a popular choice among adults seeking orthodontic treatment. It's also easy to keep your teeth clean, far more comfortable, and there are no diet restrictions: you just take them out to eat.</p>
         <p>Clear aligners may not seem as powerful as metal braces and wires, but the effectiveness is nearly equal in many cases. With Invisalign, we're able to predictably treat many cases that would have required braces in the past — from slightly crooked teeth to more major dental problems.</p>
       </div>
-      <div class="benefits">
-        <div class="benefit"><div class="benefit__num">01</div><div class="benefit__title">Discreet</div><div class="benefit__body">Virtually unnoticeable — most people won't know you're in treatment.</div></div>
-        <div class="benefit"><div class="benefit__num">02</div><div class="benefit__title">Removable</div><div class="benefit__body">Easier brushing and flossing, and every favorite food stays on the menu.</div></div>
-        <div class="benefit"><div class="benefit__num">03</div><div class="benefit__title">Comfortable</div><div class="benefit__body">Smooth plastic trays — no brackets or wires to irritate your cheeks.</div></div>
-        <div class="benefit"><div class="benefit__num">04</div><div class="benefit__title">Quick visits</div><div class="benefit__body">Simple progress checks roughly every eight weeks.</div></div>
-      </div>
     </div>
-    <div class="service-block__media" data-reveal data-reveal-delay="1" style="grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;">
+    <div class="service-block__media service-block__media--2x2" data-reveal data-reveal-delay="1">
       <div class="m"><img src="assets/invisalign-3.webp" alt="Invisalign clear aligner tray held by a patient in Round Rock, TX" width="453" height="451" loading="lazy" decoding="async"/></div>
       <div class="m m--label"><span>Avg treatment</span><strong>12&ndash;18 months</strong></div>
-      <div class="m m--teen"><img src="assets/invisalign-4.webp" alt="Teen patient smiling with Invisalign Teen clear aligners" width="453" height="451" loading="lazy" decoding="async"/></div>
+      <div class="m"><img src="assets/office-3.webp" alt="Hygiene station at Big Smile Orthodontics in Round Rock" width="453" height="451" loading="lazy" decoding="async"/></div>
       <div class="m m--label"><span>Daily wear</span><strong>20&ndash;22 hours</strong></div>
+    </div>
+    <div class="benefits" data-reveal data-reveal-delay="2">
+      <div class="benefit"><div class="benefit__num">01</div><div class="benefit__title">Discreet</div><div class="benefit__body">Virtually unnoticeable — most people won't know you're in treatment.</div></div>
+      <div class="benefit"><div class="benefit__num">02</div><div class="benefit__title">Removable</div><div class="benefit__body">Easier brushing and flossing, and every favorite food stays on the menu.</div></div>
+      <div class="benefit"><div class="benefit__num">03</div><div class="benefit__title">Comfortable</div><div class="benefit__body">Smooth plastic trays — no brackets or wires to irritate your cheeks.</div></div>
+      <div class="benefit"><div class="benefit__num">04</div><div class="benefit__title">Quick visits</div><div class="benefit__body">Simple progress checks roughly every eight weeks.</div></div>
     </div>
   </div>
 </section>
@@ -162,24 +191,25 @@
 <!-- How it works -->
 <section class="service-block service-block--reverse" id="how-it-works">
   <div class="service-block__inner">
-    <div class="service-block__media" data-reveal style="grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;">
+    <div class="service-block__media service-block__media--2x2" data-reveal>
+      <div class="m"><img src="assets/index-tech.webp" alt="iTero digital scanner used for Invisalign impressions at Big Smile Orthodontics" width="400" height="400" loading="lazy" decoding="async"/></div>
       <div class="m m--label"><span>Step 1</span><strong>iTero 3D scan</strong></div>
-      <div class="m"><img src="assets/invisalign-2.webp" alt="iTero digital scanner used for Invisalign impressions at Big Smile Orthodontics" width="453" height="451" loading="lazy" decoding="async"/></div>
       <div class="m m--label"><span>Checkups</span><strong>Every 8 weeks</strong></div>
-      <div class="m m--label"><span>Lab-made</span><strong>Custom trays</strong></div>
+      <div class="m"><img src="assets/invisalign-2.webp" alt="Patient placing an Invisalign clear aligner tray" width="453" height="451" loading="lazy" decoding="async"/></div>
     </div>
     <div data-reveal data-reveal-delay="1">
       <div class="service-block__num">02 — How does Invisalign work?</div>
       <h2>From scan to <i class="italic">smile.</i></h2>
+      <div class="service-block__subtitle">Digital scan &middot; Custom trays &middot; Progress checks</div>
       <div class="prose">
         <p>Every Invisalign treatment starts with a consultation with <a href="dr-asrar.html" style="color:var(--primary);">Dr.&nbsp;Asrar</a>. She'll examine your mouth, inspect your X-rays, and help determine if you're a good candidate. If you are, our team provides a treatment timeline and cost estimate and takes a digital impression with our <strong>iTero scanner</strong> — no messy molds. As soon as you decide to move forward, your impression goes to the Invisalign laboratory to craft your first set of trays.</p>
         <p>After we teach you how to use and clean your clear aligners, you'll start treatment at home, wearing your trays <strong>20 to 22 hours each day</strong>. You'll return every eight or so weeks for a quick progress check — Dr.&nbsp;Asrar makes sure your teeth are adjusting as they should, and you'll receive the next series of aligners until you reach your final result.</p>
       </div>
-      <div class="benefits">
-        <div class="benefit"><div class="benefit__num">01</div><div class="benefit__title">Consult &amp; scan</div><div class="benefit__body">Free exam, X-rays, candidacy check, and a digital iTero impression.</div></div>
-        <div class="benefit"><div class="benefit__num">02</div><div class="benefit__title">Wear your trays</div><div class="benefit__body">20&ndash;22 hours a day, swapping sets as your teeth move.</div></div>
-        <div class="benefit"><div class="benefit__num">03</div><div class="benefit__title">Quick checkups</div><div class="benefit__body">Progress visits every ~8 weeks until your smile is final.</div></div>
-      </div>
+    </div>
+    <div class="steps" data-reveal data-reveal-delay="2">
+      <div class="benefit"><div class="benefit__num">01</div><div class="benefit__title">Consult &amp; scan</div><div class="benefit__body">Free exam, X-rays, candidacy check, and a digital iTero impression — no messy molds.</div></div>
+      <div class="benefit"><div class="benefit__num">02</div><div class="benefit__title">Wear your trays</div><div class="benefit__body">20&ndash;22 hours a day, swapping to a fresh set as your teeth gradually move.</div></div>
+      <div class="benefit"><div class="benefit__num">03</div><div class="benefit__title">Quick checkups</div><div class="benefit__body">Progress visits every ~8 weeks until your final smile is locked in.</div></div>
     </div>
   </div>
 </section>
@@ -202,8 +232,11 @@
         <li><strong>Effective</strong> — Achieve your desired smile faster than you thought possible.</li>
       </ul>
     </div>
-    <div class="service-block__visual" data-reveal data-reveal-delay="1" style="border-radius:18px; overflow:hidden;">
-      <img src="assets/invisalign-1.webp" alt="Woman holding an Invisalign clear aligner" style="width:100%; height:100%; object-fit:cover;" width="800" height="345" loading="lazy" decoding="async"/>
+    <div class="service-block__media service-block__media--2x2" data-reveal data-reveal-delay="1">
+      <div class="m m--teen"><img src="assets/invisalign-4.webp" alt="Teen patient smiling while holding her Invisalign Teen clear aligners" width="453" height="451" loading="lazy" decoding="async"/></div>
+      <div class="m m--label"><span>Invisalign Teen</span><strong>No brackets &middot; 24 months</strong></div>
+      <div class="m m--label"><span>OrthoFX NiTime</span><strong>Night-only wear</strong></div>
+      <div class="m"><img src="assets/invisalign-1.webp" alt="Woman holding an Invisalign clear aligner" width="800" height="345" loading="lazy" decoding="async"/></div>
     </div>
   </div>
 </section>
@@ -211,8 +244,14 @@
 <!-- Cost -->
 <section class="service-block service-block--reverse" id="cost">
   <div class="service-block__inner">
+    <div class="service-block__media service-block__media--2x2" data-reveal data-reveal-delay="1">
+      <div class="m m--label"><span>Current special</span><strong>$1,000 off</strong></div>
+      <div class="m"><img src="assets/office-1.jpg" alt="Reception at Big Smile Orthodontics in Round Rock, TX" width="453" height="451" loading="lazy" decoding="async"/></div>
+      <div class="m"><img src="assets/office-2.webp" alt="Treatment bay at Big Smile Orthodontics" width="452" height="451" loading="lazy" decoding="async"/></div>
+      <div class="m m--label"><span>Financing</span><strong>CareCredit monthly plans</strong></div>
+    </div>
     <div data-reveal>
-      <div class="service-block__num">04 — Understanding the cost of Invisalign</div>
+      <div class="service-block__num">04 — Pricing &amp; financing</div>
       <h2>What Invisalign <i class="italic">costs.</i></h2>
       <div class="service-block__subtitle">$1,000 off &middot; Insurance accepted &middot; CareCredit financing</div>
       <div class="prose">
@@ -261,10 +300,14 @@
       <div class="service-block__num">05 — Invisalign FAQs</div>
       <h2>Questions, <i class="italic">answered.</i></h2>
       <div class="service-block__subtitle">Straight talk from your Round Rock Invisalign team</div>
+      <div class="ask-card">
+        <div class="t">Still <i>deciding?</i></div>
+        <p>The fastest way to know if Invisalign fits your smile — and your budget — is a free 30-minute consult with Dr.&nbsp;Asrar. No pressure, no obligation.</p>
+        <a href="tel:5128287900" class="btn btn--ghost" data-hover style="border-color:rgba(255,255,255,.3); color:var(--cream);">Call (512) 828-7900</a>
+      </div>
     </div>
-    <div class="service-block__details" data-reveal data-reveal-delay="1">
-      <div class="topic topic--full">
-        <div class="faq">
+    <div class="faq-side" data-reveal data-reveal-delay="1">
+      <div class="faq">
           <details>
             <summary>Can you get Invisalign after braces?</summary>
             <p>It's possible, yes. Many patients who experienced orthodontic relapse in the years following traditional braces achieve a straight smile again with Invisalign in Round Rock. Once we understand your dental history, oral health, and smile goals, we can determine if you're a good candidate for clear aligners.</p>
@@ -292,7 +335,6 @@
           </details>
         </div>
         <p style="margin-top:24px; color:var(--body); font-size:14.5px;">Exploring other options too? Compare <a href="services.html#braces" style="color:var(--primary);">traditional braces</a>, <a href="services.html#ceramic" style="color:var(--primary);">ceramic braces</a>, and more on our <a href="services.html" style="color:var(--primary);">services page</a> — or read our patients' favorite explainer, <a href="blog/invisalign-vs-braces-which-one-is-right-for-you" style="color:var(--primary);">Invisalign vs. braces</a>.</p>
-      </div>
     </div>
   </div>
 </section>
