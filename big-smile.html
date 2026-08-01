@@ -368,11 +368,11 @@ body{ background:var(--paper); }
   }
   /* Hero content must paint without waiting for JS (it is the LCP element).
      CSS keyframes replace the JS-gated reveal above the fold only. */
-  .hero [data-reveal]{ opacity:1; transform:none; animation:heroIn .9s var(--ease) both; }
-  .hero [data-reveal-delay="1"]{ animation-delay:.08s; }
-  .hero [data-reveal-delay="2"]{ animation-delay:.16s; }
-  .hero [data-reveal-delay="3"]{ animation-delay:.24s; }
-  .hero [data-reveal-delay="4"]{ animation-delay:.32s; }
+  .hero [data-reveal]{ opacity:1; transform:none; animation:heroIn .55s var(--ease) both; }
+  .hero [data-reveal-delay="1"]{ animation-delay:.05s; }
+  .hero [data-reveal-delay="2"]{ animation-delay:.10s; }
+  .hero [data-reveal-delay="3"]{ animation-delay:.15s; }
+  .hero [data-reveal-delay="4"]{ animation-delay:.20s; }
   @keyframes heroIn{
     from{ opacity:.01; transform:translateY(14px); }
     to{ opacity:1; transform:none; }
