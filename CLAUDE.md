@@ -1,5 +1,12 @@
 # Project Guidelines
 
+## ⚠️ Deployment / domain cutover
+**Read `DEPLOYMENT.md` before ANY deployment, DNS, indexing, or SEO work.**
+If the user asks "what did you tell me to do for deployment?", the answer is
+`DEPLOYMENT.md`. Key standing fact: the test host's `noindex` header was
+deliberately removed on 2026-08-01 for the PageSpeed SEO score and MUST be
+re-added when `bigsmileorthodontics.com` goes live on Vercel.
+
 ## Default Edit Target
 The site is multi-page. Edit the HTML file that matches the page being changed:
 
