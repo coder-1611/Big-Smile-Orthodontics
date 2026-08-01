@@ -105,7 +105,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 <link rel="stylesheet" href="assets/site.css" />
 <style>
 /* ==================================================================
@@ -934,8 +936,8 @@ body{ background:var(--paper); }
 
   <!-- Full-bleed background video -->
   <div class="hero__video-bg">
-    <video autoplay muted playsinline preload="auto" poster="assets/index-banner.webp">
-      <source src="assets/actualorthovideo.mp4#t=63.5" type="video/mp4"/>
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/index-banner.webp">
+      <source src="assets/hero-doctor.mp4" type="video/mp4"/>
     </video>
   </div>
   <!-- Cream gradient: opaque left (text readable), fades to clear on right (video shows) -->
@@ -1074,10 +1076,10 @@ body{ background:var(--paper); }
       <div>
         <div class="ba__stage" id="baStage" style="--pos:50%">
           <div class="ba__layer ba__layer--after">
-            <img id="baAfter" src="assets/ba/c1-2-after.jpg" alt="After orthodontic treatment at Big Smile Orthodontics"/>
+            <img loading="lazy" decoding="async" id="baAfter" src="assets/ba/c1-2-after.jpg" alt="After orthodontic treatment at Big Smile Orthodontics"/>
           </div>
           <div class="ba__layer ba__layer--before">
-            <img id="baBefore" src="assets/ba/c1-2-before.jpg" alt="Before orthodontic treatment at Big Smile Orthodontics"/>
+            <img loading="lazy" decoding="async" id="baBefore" src="assets/ba/c1-2-before.jpg" alt="Before orthodontic treatment at Big Smile Orthodontics"/>
           </div>
           <span class="ba__tag ba__tag--b">Before</span>
           <span class="ba__tag ba__tag--a">After</span>
@@ -1098,21 +1100,21 @@ body{ background:var(--paper); }
 
       <div class="ba__rail">
         <button class="ba__case is-on" data-before="assets/ba/c1-2-before.jpg" data-after="assets/ba/c1-2-after.jpg" data-hover>
-          <img src="assets/ba/c1-2-after.jpg" alt=""/>
+          <img loading="lazy" decoding="async" src="assets/ba/c1-2-after.jpg" alt=""/>
           <span>
             <span class="t">From crowded to confident</span>
             <span class="m">Case 01 · 14 mo · Invisalign</span>
           </span>
         </button>
         <button class="ba__case" data-before="assets/ba/c4-1-before.jpg" data-after="assets/ba/c4-1-after.jpg" data-hover>
-          <img src="assets/ba/c4-1-after.jpg" alt=""/>
+          <img loading="lazy" decoding="async" src="assets/ba/c4-1-after.jpg" alt=""/>
           <span>
             <span class="t">Overcrowding, resolved</span>
             <span class="m">Case 02 · 18 mo · Metal braces</span>
           </span>
         </button>
         <button class="ba__case" data-before="assets/ba/c2-1-before.jpg" data-after="assets/ba/c2-1-after.jpg" data-hover>
-          <img src="assets/ba/c2-1-after.jpg" alt=""/>
+          <img loading="lazy" decoding="async" src="assets/ba/c2-1-after.jpg" alt=""/>
           <span>
             <span class="t">A bite that works for life</span>
             <span class="m">Case 03 · 16 mo · Ceramic braces</span>
@@ -1210,7 +1212,7 @@ body{ background:var(--paper); }
 <section class="doctor">
   <div class="doctor__inner">
     <div class="doctor__portrait" data-reveal>
-      <img src="assets/index-meet.webp" alt="Dr. Saba Asrar, orthodontist in Round Rock, TX"/>
+      <img loading="lazy" decoding="async" src="assets/index-meet.webp" alt="Dr. Saba Asrar, orthodontist in Round Rock, TX"/>
       <div class="doctor__ticker">
         <span>Dr. Saba <strong>Asrar, DDS</strong></span>
         <span>Round Rock, TX</span>
@@ -1331,10 +1333,10 @@ body{ background:var(--paper); }
       </ul>
     </div>
     <div class="office__gallery" data-reveal data-reveal-delay="1">
-      <div class="office__tile"><img src="assets/office-1.jpg" alt="Big Smile Orthodontics reception area"/></div>
-      <div class="office__tile"><img src="assets/office-2.webp" alt="Treatment operatory"/></div>
-      <div class="office__tile"><img src="assets/office-3.webp" alt="Hygiene station"/></div>
-      <div class="office__tile"><img src="assets/index-tech.webp" alt="iTero digital scanner"/></div>
+      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/office-1.jpg" alt="Big Smile Orthodontics reception area"/></div>
+      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/office-2.webp" alt="Treatment operatory"/></div>
+      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/office-3.webp" alt="Hygiene station"/></div>
+      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/index-tech.webp" alt="iTero digital scanner"/></div>
     </div>
   </div>
 </section>
@@ -1406,11 +1408,11 @@ body{ background:var(--paper); }
   <span class="eyebrow" style="justify-content:center">Follow us</span>
   <h3>@bsosmilebig on <i>Instagram</i></h3>
   <div class="insta__grid">
-    <div class="insta__tile"><img src="assets/follow-1.webp" alt=""/></div>
-    <div class="insta__tile"><img src="assets/follow-2.webp" alt=""/></div>
-    <div class="insta__tile"><img src="assets/follow-3.webp" alt=""/></div>
-    <div class="insta__tile"><img src="assets/follow-4.webp" alt=""/></div>
-    <div class="insta__tile"><img src="assets/follow-5.webp" alt=""/></div>
+    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-1.webp" alt=""/></div>
+    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-2.webp" alt=""/></div>
+    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-3.webp" alt=""/></div>
+    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-4.webp" alt=""/></div>
+    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-5.webp" alt=""/></div>
   </div>
 </section>
 
@@ -1468,18 +1470,7 @@ body{ background:var(--paper); }
 </footer>
 
 <script src="assets/site.js"></script>
-<script>
-// Hero video: start at the doctor close-up (63.5s) and loop back there, not to 0
-(function(){
-  const heroVid = document.querySelector('.hero__video-bg video');
-  if (!heroVid) return;
-  const START = 63.5;
-  const seekStart = () => { try { heroVid.currentTime = START; } catch(e){} };
-  if (heroVid.readyState >= 1 && heroVid.currentTime < START) seekStart();
-  else heroVid.addEventListener('loadedmetadata', () => { if (heroVid.currentTime < START) seekStart(); }, { once:true });
-  heroVid.addEventListener('ended', () => { seekStart(); heroVid.play(); });
-})();
-</script>
+<!-- hero video is pre-trimmed to the doctor close-up; native loop handles replay -->
 <script>
 (function(){
   'use strict';
