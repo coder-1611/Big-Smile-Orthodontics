@@ -106,6 +106,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+<link rel="preload" as="image" href="assets/hero-still-mobile.webp" fetchpriority="high" media="(max-width:900px)" />
+<link rel="preload" as="image" href="assets/index-banner.webp" fetchpriority="high" media="(min-width:901px)" />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
 <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 <style>
@@ -1451,7 +1453,7 @@ body{ background:var(--paper); }
     <video muted loop playsinline preload="none">
       <source src="assets/hero-doctor.mp4" type="video/mp4"/>
     </video>
-    <img class="hero__still" src="assets/hero-still-mobile.webp" width="480" height="720"
+    <img class="hero__still" src="assets/hero-still-mobile.webp" width="480" height="720" fetchpriority="high"
          alt="Dr. Saba Asrar, orthodontist at Big Smile Orthodontics in Round Rock, TX" />
   </div>
   <!-- Cream gradient: opaque left (text readable), fades to clear on right (video shows) -->
@@ -1992,15 +1994,22 @@ body{ background:var(--paper); }
   if (!v) return;
   var desktop = window.matchMedia('(min-width: 901px)');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var started = false;
+  function poster(){
+    if (desktop.matches) v.poster = 'assets/index-banner.webp'; // preloaded in <head>, paints instantly
+  }
   function start(){
-    if (!desktop.matches || reduce.matches) return;
-    v.poster = 'assets/index-banner.webp';   // poster fetched on desktop only
+    if (started || !desktop.matches || reduce.matches) return;
+    started = true;
     v.preload = 'auto';
     var p = v.play();
     if (p && p.catch) p.catch(function(){});
   }
-  start();
-  if (desktop.addEventListener) desktop.addEventListener('change', start);
+  poster();
+  // the 4.4MB video must not contend with first paint: wait for onload
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', function(){ setTimeout(start, 150); });
+  if (desktop.addEventListener) desktop.addEventListener('change', function(){ poster(); start(); });
 })();
 </script>
 <script>
