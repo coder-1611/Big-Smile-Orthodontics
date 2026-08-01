@@ -7,6 +7,7 @@
   </a>
   <ul class="nav__links">
     <li><a href="/services.html">Services</a></li>
+    <li><a href="/invisalign-clear-aligners.html">Invisalign</a></li>
     <li><a href="/dr-asrar.html">Dr. Asrar</a></li>
     <li><a href="/smile-gallery.html">Smile Gallery</a></li>
     <li><a href="/for-patients.html">For Patients</a></li>
@@ -23,6 +24,7 @@
 </nav>
 <div class="nav__mobile">
   <a href="/services.html">Services</a>
+  <a href="/invisalign-clear-aligners.html">Invisalign</a>
   <a href="/dr-asrar.html">Dr. Asrar</a>
   <a href="/smile-gallery.html">Smile Gallery</a>
   <a href="/for-patients.html">For Patients</a>
@@ -44,6 +46,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/dr-asrar.html">Dr. Asrar</a></li>
         <li><a href="/services.html">Services</a></li>
+        <li><a href="/invisalign-clear-aligners.html">Invisalign</a></li>
         <li><a href="/smile-gallery.html">Smile Gallery</a></li>
         <li><a href="/blog">Blog</a></li>
       </ul>
