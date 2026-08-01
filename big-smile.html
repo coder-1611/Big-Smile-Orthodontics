@@ -366,6 +366,17 @@ body{ background:var(--paper); }
     .hero__lead{ margin-top:8px; font-size:13.5px; }
     .hero__meta{ margin-top:14px; gap:8px; font-size:10.5px; }
   }
+  /* Hero content must paint without waiting for JS (it is the LCP element).
+     CSS keyframes replace the JS-gated reveal above the fold only. */
+  .hero [data-reveal]{ opacity:1; transform:none; animation:heroIn .9s var(--ease) both; }
+  .hero [data-reveal-delay="1"]{ animation-delay:.08s; }
+  .hero [data-reveal-delay="2"]{ animation-delay:.16s; }
+  .hero [data-reveal-delay="3"]{ animation-delay:.24s; }
+  .hero [data-reveal-delay="4"]{ animation-delay:.32s; }
+  @keyframes heroIn{
+    from{ opacity:.01; transform:translateY(14px); }
+    to{ opacity:1; transform:none; }
+  }
 
 /* ================================================================
    PROOF / STATS
@@ -928,7 +939,7 @@ body{ background:var(--paper); }
 <!-- ============ NAV ============ -->
 <nav class="nav">
   <a href="big-smile.html" class="nav__logo">
-    <img src="assets/logo.png" alt="Big Smile Orthodontics">
+    <img src="assets/logo.png" alt="Big Smile Orthodontics" width="634" height="146">
   </a>
   <ul class="nav__links">
     <li><a href="services.html">Services</a></li>
@@ -962,7 +973,7 @@ body{ background:var(--paper); }
 
   <!-- Full-bleed background video -->
   <div class="hero__video-bg">
-    <video muted loop playsinline preload="none" poster="assets/index-banner.webp">
+    <video muted loop playsinline preload="none">
       <source src="assets/hero-doctor.mp4" type="video/mp4"/>
     </video>
     <img class="hero__still" src="assets/hero-still-mobile.webp" width="480" height="720"
@@ -1104,10 +1115,10 @@ body{ background:var(--paper); }
       <div>
         <div class="ba__stage" id="baStage" style="--pos:50%">
           <div class="ba__layer ba__layer--after">
-            <img loading="lazy" decoding="async" id="baAfter" src="assets/ba/c1-2-after.jpg" alt="After orthodontic treatment at Big Smile Orthodontics"/>
+            <img loading="lazy" decoding="async" id="baAfter" src="assets/ba/c1-2-after.webp" alt="After orthodontic treatment at Big Smile Orthodontics" width="588" height="351" />
           </div>
           <div class="ba__layer ba__layer--before">
-            <img loading="lazy" decoding="async" id="baBefore" src="assets/ba/c1-2-before.jpg" alt="Before orthodontic treatment at Big Smile Orthodontics"/>
+            <img loading="lazy" decoding="async" id="baBefore" src="assets/ba/c1-2-before.webp" alt="Before orthodontic treatment at Big Smile Orthodontics" width="588" height="351" />
           </div>
           <span class="ba__tag ba__tag--b">Before</span>
           <span class="ba__tag ba__tag--a">After</span>
@@ -1127,22 +1138,22 @@ body{ background:var(--paper); }
       </div>
 
       <div class="ba__rail">
-        <button class="ba__case is-on" data-before="assets/ba/c1-2-before.jpg" data-after="assets/ba/c1-2-after.jpg" data-hover>
-          <img loading="lazy" decoding="async" src="assets/ba/c1-2-after.jpg" alt=""/>
+        <button class="ba__case is-on" data-before="assets/ba/c1-2-before.webp" data-after="assets/ba/c1-2-after.webp" data-hover>
+          <img loading="lazy" decoding="async" src="assets/ba/c1-2-after.webp" alt="" width="588" height="351" />
           <span>
             <span class="t">From crowded to confident</span>
             <span class="m">Case 01 · 14 mo · Invisalign</span>
           </span>
         </button>
-        <button class="ba__case" data-before="assets/ba/c4-1-before.jpg" data-after="assets/ba/c4-1-after.jpg" data-hover>
-          <img loading="lazy" decoding="async" src="assets/ba/c4-1-after.jpg" alt=""/>
+        <button class="ba__case" data-before="assets/ba/c4-1-before.webp" data-after="assets/ba/c4-1-after.webp" data-hover>
+          <img loading="lazy" decoding="async" src="assets/ba/c4-1-after.webp" alt="" width="753" height="417" />
           <span>
             <span class="t">Overcrowding, resolved</span>
             <span class="m">Case 02 · 18 mo · Metal braces</span>
           </span>
         </button>
-        <button class="ba__case" data-before="assets/ba/c2-1-before.jpg" data-after="assets/ba/c2-1-after.jpg" data-hover>
-          <img loading="lazy" decoding="async" src="assets/ba/c2-1-after.jpg" alt=""/>
+        <button class="ba__case" data-before="assets/ba/c2-1-before.webp" data-after="assets/ba/c2-1-after.webp" data-hover>
+          <img loading="lazy" decoding="async" src="assets/ba/c2-1-after.webp" alt="" width="629" height="373" />
           <span>
             <span class="t">A bite that works for life</span>
             <span class="m">Case 03 · 16 mo · Ceramic braces</span>
@@ -1240,7 +1251,7 @@ body{ background:var(--paper); }
 <section class="doctor">
   <div class="doctor__inner">
     <div class="doctor__portrait" data-reveal>
-      <img loading="lazy" decoding="async" src="assets/index-meet.webp" alt="Dr. Saba Asrar, orthodontist in Round Rock, TX"/>
+      <img loading="lazy" decoding="async" src="assets/index-meet.webp" alt="Dr. Saba Asrar, orthodontist in Round Rock, TX" width="700" height="736" />
       <div class="doctor__ticker">
         <span>Dr. Saba <strong>Asrar, DDS</strong></span>
         <span>Round Rock, TX</span>
@@ -1361,10 +1372,10 @@ body{ background:var(--paper); }
       </ul>
     </div>
     <div class="office__gallery" data-reveal data-reveal-delay="1">
-      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/office-1.jpg" alt="Big Smile Orthodontics reception area"/></div>
-      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/office-2.webp" alt="Treatment operatory"/></div>
-      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/office-3.webp" alt="Hygiene station"/></div>
-      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/index-tech.webp" alt="iTero digital scanner"/></div>
+      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/office-1.jpg" alt="Big Smile Orthodontics reception area" width="453" height="451" /></div>
+      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/office-2.webp" alt="Treatment operatory" width="452" height="451" /></div>
+      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/office-3.webp" alt="Hygiene station" width="453" height="451" /></div>
+      <div class="office__tile"><img loading="lazy" decoding="async" src="assets/index-tech.webp" alt="iTero digital scanner" width="400" height="400" /></div>
     </div>
   </div>
 </section>
@@ -1436,11 +1447,11 @@ body{ background:var(--paper); }
   <span class="eyebrow" style="justify-content:center">Follow us</span>
   <h3>@bsosmilebig on <i>Instagram</i></h3>
   <div class="insta__grid">
-    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-1.webp" alt=""/></div>
-    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-2.webp" alt=""/></div>
-    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-3.webp" alt=""/></div>
-    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-4.webp" alt=""/></div>
-    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-5.webp" alt=""/></div>
+    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-1.webp" alt="" width="165" height="165" /></div>
+    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-2.webp" alt="" width="165" height="165" /></div>
+    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-3.webp" alt="" width="165" height="165" /></div>
+    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-4.webp" alt="" width="165" height="165" /></div>
+    <div class="insta__tile"><img loading="lazy" decoding="async" src="assets/follow-5.webp" alt="" width="165" height="165" /></div>
   </div>
 </section>
 
@@ -1507,6 +1518,7 @@ body{ background:var(--paper); }
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   function start(){
     if (!desktop.matches || reduce.matches) return;
+    v.poster = 'assets/index-banner.webp';   // poster fetched on desktop only
     v.preload = 'auto';
     var p = v.play();
     if (p && p.catch) p.catch(function(){});
