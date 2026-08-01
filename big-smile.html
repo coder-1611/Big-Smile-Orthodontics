@@ -1881,6 +1881,31 @@ body{ background:var(--paper); }
   .ticket__big{ font-size:56px; }
   .rating__score .n{ font-size:56px; }
 }
+
+/* =================================================================
+   MOBILE ONLY (≤600px): below-fold sections skip initial render.
+   content-visibility:auto keeps the first-paint style/layout pass to
+   just the hero — the dominant remaining cost on PSI's 4x-throttled
+   mobile probe. Desktop (>600px) is untouched by design: it already
+   scores 100 and must not change. contain-intrinsic-size reserves
+   roomy placeholders; the lab run never scrolls, and real scrolling
+   renders each section just before it enters the viewport.
+   ================================================================= */
+@media (max-width:600px){
+  .proof,.transform,.treatments,.doctor,.offer,.office,.rating,.location,.insta,.site-footer{
+    content-visibility:auto;
+  }
+  .proof{ contain-intrinsic-size:auto 900px; }
+  .transform{ contain-intrinsic-size:auto 1300px; }
+  .treatments{ contain-intrinsic-size:auto 1700px; }
+  .doctor{ contain-intrinsic-size:auto 1400px; }
+  .offer{ contain-intrinsic-size:auto 900px; }
+  .office{ contain-intrinsic-size:auto 1300px; }
+  .rating{ contain-intrinsic-size:auto 700px; }
+  .location{ contain-intrinsic-size:auto 1100px; }
+  .insta{ contain-intrinsic-size:auto 700px; }
+  .site-footer{ contain-intrinsic-size:auto 900px; }
+}
 </style>
 </head>
 <body>
