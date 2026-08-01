@@ -936,7 +936,7 @@ body{ background:var(--paper); }
 
   <!-- Full-bleed background video -->
   <div class="hero__video-bg">
-    <video autoplay muted loop playsinline preload="metadata" poster="assets/index-banner.webp">
+    <video muted loop playsinline preload="none" poster="assets/index-banner.webp">
       <source src="assets/hero-doctor.mp4" type="video/mp4"/>
     </video>
   </div>
@@ -1470,7 +1470,23 @@ body{ background:var(--paper); }
 </footer>
 
 <script src="assets/site.js"></script>
-<!-- hero video is pre-trimmed to the doctor close-up; native loop handles replay -->
+<script>
+// Hero: video plays on desktop only — phones keep the still poster and download zero video bytes
+(function(){
+  var v = document.querySelector('.hero__video-bg video');
+  if (!v) return;
+  var desktop = window.matchMedia('(min-width: 901px)');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function start(){
+    if (!desktop.matches || reduce.matches) return;
+    v.preload = 'auto';
+    var p = v.play();
+    if (p && p.catch) p.catch(function(){});
+  }
+  start();
+  if (desktop.addEventListener) desktop.addEventListener('change', start);
+})();
+</script>
 <script>
 (function(){
   'use strict';
