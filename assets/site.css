@@ -1,3 +1,16 @@
+/* Metric-matched fallbacks: fallback text occupies the same space as the webfont,
+   so the swap causes ~zero layout shift (desktop CLS was 0.174 from the headline reflow). */
+@font-face{
+  font-family:'DM Serif Fallback';
+  src:local('Georgia');
+  size-adjust:100.66%; ascent-override:102.92%; descent-override:33.28%; line-gap-override:0%;
+}
+@font-face{
+  font-family:'Inter Fallback';
+  src:local('Arial');
+  size-adjust:107%; ascent-override:90.54%; descent-override:22.54%; line-gap-override:0%;
+}
+
 :root{
   --navy:#1B2A4A;
   --navy-2:#0f1a34;
@@ -13,8 +26,8 @@
   --white:#FFFFFF;
   --ink:#0B1730;
 
-  --serif:'DM Serif Display', Georgia, serif;
-  --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif:'DM Serif Display','DM Serif Fallback', Georgia, serif;
+  --sans:'Inter','Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono:'JetBrains Mono', ui-monospace, monospace;
 
   --max: 1280px;

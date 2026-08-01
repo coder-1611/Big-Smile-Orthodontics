@@ -108,12 +108,27 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
 <link rel="preload" as="image" href="assets/hero-still-mobile.webp" fetchpriority="high" media="(max-width:900px)" />
 <link rel="preload" as="image" href="assets/index-banner.webp" fetchpriority="high" media="(min-width:901px)" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0vrx52g.woff2" media="(min-width:901px)" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFhOHM81r4j6k0gjAW3mujVU2B2G_VB0PD2xWr53A.woff2" media="(min-width:901px)" />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
 <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 <style>
 /* ==== inlined copy of assets/site.css (perf: removes a render-blocking round trip on the
    homepage critical chain). If you edit assets/site.css, re-inline it here — or run:
    python3 -c "see DEPLOYMENT.md 'inline css' note" ==== */
+/* Metric-matched fallbacks: fallback text occupies the same space as the webfont,
+   so the swap causes ~zero layout shift (desktop CLS was 0.174 from the headline reflow). */
+@font-face{
+  font-family:'DM Serif Fallback';
+  src:local('Georgia');
+  size-adjust:100.66%; ascent-override:102.92%; descent-override:33.28%; line-gap-override:0%;
+}
+@font-face{
+  font-family:'Inter Fallback';
+  src:local('Arial');
+  size-adjust:107%; ascent-override:90.54%; descent-override:22.54%; line-gap-override:0%;
+}
+
 :root{
   --navy:#1B2A4A;
   --navy-2:#0f1a34;
@@ -129,8 +144,8 @@
   --white:#FFFFFF;
   --ink:#0B1730;
 
-  --serif:'DM Serif Display', Georgia, serif;
-  --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif:'DM Serif Display','DM Serif Fallback', Georgia, serif;
+  --sans:'Inter','Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono:'JetBrains Mono', ui-monospace, monospace;
 
   --max: 1280px;
