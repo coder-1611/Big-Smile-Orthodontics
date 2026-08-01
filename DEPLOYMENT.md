@@ -64,6 +64,15 @@ because every page's canonical points to `https://www.bigsmileorthodontics.com/`
    points at `https://www.bigsmileorthodontics.com/` (it should already — the domain
    isn't changing, only the host behind it).
 
+## Inline CSS note (homepage perf)
+
+`big-smile.html` carries an **inlined copy of `assets/site.css`** in its `<head>`
+(replaces the `<link>`; removes a render-blocking round trip that capped the mobile
+PageSpeed score). Subpages still link the file normally. **If you edit
+`assets/site.css`, re-inline it into `big-smile.html`** — replace the inlined block
+between the `==== inlined copy of assets/site.css` comment markers with the new file
+contents. `site.js` is `defer`red on the homepage for the same reason.
+
 ## Facts a fresh session will otherwise re-derive
 
 - Old vendor site: ~46 indexed URLs (20 pages + 26 blog posts). The 1:1 redirect map
