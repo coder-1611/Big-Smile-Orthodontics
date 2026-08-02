@@ -95,6 +95,11 @@ page's head either — that's what capped the score originally.
 warm edge. Beware: right after a deploy some edge POPs briefly serve the previous
 build — verify deployed changes with a content grep, not just an HTTP 200.
 
+**To verify or restore the perfect scores, run the `/all-hundreds` skill**
+(`~/.claude/skills/all-hundreds/`) — it drives the official pagespeed.web.dev probe
+on both form factors, diagnoses regressions to the failing element, and lists the
+do-not-break rules that protect the 100s.
+
 ## Facts a fresh session will otherwise re-derive
 
 - Old vendor site: ~46 indexed URLs (20 pages + 26 blog posts). The 1:1 redirect map
