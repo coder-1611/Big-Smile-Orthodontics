@@ -1495,7 +1495,10 @@ body{ background:var(--paper); }
   background:rgba(255,255,255,.05); backdrop-filter:blur(14px);
   border:1px solid rgba(255,255,255,.12); border-radius:22px; padding:32px;
 }
-.location__hours h4{ color:var(--cream); margin-bottom:8px; }
+.location__hours .hours-title{
+  color:var(--cream); margin-bottom:8px;
+  font-size:clamp(18px,1.4vw,22px);   /* keep the old h4 size; h3 only for document outline */
+}
 .location__hours .row{
   display:flex; justify-content:space-between; align-items:center;
   padding:13px 0; border-bottom:1px solid rgba(255,255,255,.08); font-size:14.5px;
@@ -1648,9 +1651,11 @@ body{ background:var(--paper); }
    renders each section just before it enters the viewport.
    ================================================================= */
 @media (max-width:600px){
-  .proof,.transform,.treatments,.doctor,.offer,.office,.rating,.location,.insta,.site-footer{
+  .proof,.transform,.treatments,.doctor,.offer,.office,.rating,.location,.insta{
     content-visibility:auto;
   }
+  /* .site-footer deliberately NOT in the list: with its render skipped, axe
+     resolves the footer text against the page background and fails contrast. */
   .proof{ contain-intrinsic-size:auto 900px; }
   .transform{ contain-intrinsic-size:auto 1300px; }
   .treatments{ contain-intrinsic-size:auto 1700px; }
@@ -1660,7 +1665,6 @@ body{ background:var(--paper); }
   .rating{ contain-intrinsic-size:auto 700px; }
   .location{ contain-intrinsic-size:auto 1100px; }
   .insta{ contain-intrinsic-size:auto 700px; }
-  .site-footer{ contain-intrinsic-size:auto 900px; }
 }
 
 /* MOBILE ONLY: first-frame raster diet. The marquee animation invalidates every
@@ -2178,7 +2182,7 @@ body{ background:var(--paper); }
     </div>
 
     <div class="location__hours" data-reveal data-reveal-delay="1">
-      <h4>Office hours</h4>
+      <h3 class="hours-title">Office hours</h3>
       <div class="row"><span class="day">Mon</span><span class="time">8:00a — 6:00p</span></div>
       <div class="row"><span class="day">Tue</span><span class="time">8:30a — 6:00p</span></div>
       <div class="row"><span class="day">Wed</span><span class="time">8:30a — 6:00p</span></div>
