@@ -457,12 +457,14 @@
 (function(){
   var st = document.getElementById('ff-inline');
   if (!st) return;
-  if (window.matchMedia('(min-width:901px)').matches) { st.media = 'all'; }
+  if (window.matchMedia('(min-width:901px)').matches) { st.media = 'all';
+    document.documentElement.classList.add('fonts-on'); }
   else {
     /* rAF fires BEFORE the frame paints, so a rAF flip still lets the font
        fetches into the first-paint window. window.load is unambiguously
        after FCP; the metric-matched fallbacks make the late swap shift-free. */
-    var flip = function(){ st.media = 'all'; };
+    var flip = function(){ st.media = 'all';
+      document.documentElement.classList.add('fonts-on'); };
     if (document.readyState === 'complete') setTimeout(flip, 0);
     else window.addEventListener('load', function(){ setTimeout(flip, 0); });
   }
@@ -1686,6 +1688,16 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
 .prose a{ color:var(--primary-ink); text-decoration:underline; text-underline-offset:2px; }
 .prose a:hover{ color:var(--navy); }
 .check-list a{ color:var(--primary-ink); text-decoration:underline; text-underline-offset:2px; }
+
+/* PSI landmine 7: on mobile the @font-face flip happens after first paint.
+   If a heading GROWS when DM Serif activates, LCP re-records at that later
+   moment (observed: FCP 0.9s but LCP 3.5s on subpages whose LCP element is
+   the hero H1). Making the pre-font state slightly WIDER means the swap can
+   only shrink the block, so LCP stays at first paint. Pure CSS on purpose —
+   a metric-matched local() @font-face would re-trigger landmine 1. */
+html:not(.fonts-on) .page-hero h1,
+html:not(.fonts-on) .dr-hero__left h1,
+html:not(.fonts-on) .blog-hero h1{ letter-spacing:.035em; }
 </style>
 <!-- END inlined-css -->
 </head>

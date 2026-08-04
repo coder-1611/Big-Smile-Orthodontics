@@ -326,12 +326,14 @@
 (function(){
   var st = document.getElementById('ff-inline');
   if (!st) return;
-  if (window.matchMedia('(min-width:901px)').matches) { st.media = 'all'; }
+  if (window.matchMedia('(min-width:901px)').matches) { st.media = 'all';
+    document.documentElement.classList.add('fonts-on'); }
   else {
     /* rAF fires BEFORE the frame paints, so a rAF flip still lets the font
        fetches into the first-paint window. window.load is unambiguously
        after FCP; the metric-matched fallbacks make the late swap shift-free. */
-    var flip = function(){ st.media = 'all'; };
+    var flip = function(){ st.media = 'all';
+      document.documentElement.classList.add('fonts-on'); };
     if (document.readyState === 'complete') setTimeout(flip, 0);
     else window.addEventListener('load', function(){ setTimeout(flip, 0); });
   }
