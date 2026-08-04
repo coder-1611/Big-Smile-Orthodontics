@@ -41,7 +41,7 @@
       <p>Dr. Saba Asrar &amp; team · Crafting confident, life-changing smiles in Round Rock, TX.</p>
     </div>
     <div>
-      <h4>Treatments</h4>
+      <h3>Treatments</h3>
       <ul>
         <li><a href="/invisalign-clear-aligners.html">Invisalign Clear Aligners</a></li>
         <li><a href="/traditional-orthodontics.html">Traditional Braces</a></li>
@@ -52,7 +52,7 @@
       </ul>
     </div>
     <div>
-      <h4>Practice</h4>
+      <h3>Practice</h3>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/dr-asrar.html">Dr. Saba Asrar</a></li>
@@ -63,7 +63,7 @@
       </ul>
     </div>
     <div>
-      <h4>Patients</h4>
+      <h3>Patients</h3>
       <ul>
         <li><a href="/for-patients.html">For Patients</a></li>
         <li><a href="/life-with-braces.html">Life with Braces</a></li>
@@ -74,7 +74,7 @@
       </ul>
     </div>
     <div>
-      <h4>Visit</h4>
+      <h3>Visit</h3>
       <ul>
         <li>1025 Sendero Springs Dr, Ste 110</li>
         <li>Round Rock, TX 78681</li>

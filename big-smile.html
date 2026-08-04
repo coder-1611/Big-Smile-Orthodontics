@@ -362,6 +362,9 @@
   --navy-2:#0f1a34;
   --primary:#0077B6;
   --primary-dark:#005A8C;
+  /* AA-compliant blue for text on cream/white (4.5:1 needs <=#006ba3;
+     plain --primary #0077B6 only reaches 4.33:1 at small sizes) */
+  --primary-ink:#006ba3;
   --primary-light:#48CAE4;
   --accent:#00B4D8;
   --warm:#F9A825;
@@ -456,7 +459,7 @@ ul{ list-style:none; }
 .nav.is-scrolled .nav__logo, body.nav-solid .nav .nav__logo{ 
   box-shadow:0 2px 8px rgba(11,23,48,.05); 
 }
-.nav__logo em{ font-style:italic; color:var(--primary); }
+.nav__logo em{ font-style:italic; color:var(--primary-ink); }
 .nav__links{
   display:flex; gap:28px; align-items:center; font-size:14px; color:rgba(255,255,255,.85);
   font-weight:500; transition:color .35s ease;
@@ -468,7 +471,7 @@ ul{ list-style:none; }
   background:var(--primary); transition:width .25s ease;
 }
 .nav__links a:hover::after, .nav__links a.is-active::after{ width:100%; }
-.nav__links a.is-active{ color:var(--primary); }
+.nav__links a.is-active{ color:var(--primary-ink); }
 .nav__cta{
   display:inline-flex; align-items:center; gap:10px;
   background:rgba(255,255,255,.15); color:#fff;
@@ -532,7 +535,7 @@ body.menu-open .nav__mobile{ transform:translateY(0); }
 /* Type */
 .eyebrow{
   font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--primary); display:inline-flex; align-items:center; gap:10px;
+  color:var(--primary-ink); display:inline-flex; align-items:center; gap:10px;
 }
 .eyebrow::before{
   content:""; width:24px; height:1px; background:currentColor; opacity:.6;
@@ -542,7 +545,7 @@ h1{ font-size:clamp(48px, 7vw, 108px); }
 h2{ font-size:clamp(36px, 5vw, 72px); }
 h3{ font-size:clamp(24px, 2.6vw, 38px); line-height:1.1; }
 h4{ font-size:clamp(18px, 1.4vw, 22px); }
-.italic{ font-style:italic; color:var(--primary); }
+.italic{ font-style:italic; color:var(--primary-ink); }
 p.lead{ font-size:clamp(16px,1.3vw,18.5px); color:var(--body); line-height:1.6; max-width:58ch; }
 
 /* Buttons */
@@ -686,7 +689,7 @@ footer.site-footer{
   display:grid; grid-template-columns:1.25fr repeat(4, 1fr); gap:38px;
   padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.08);
 }
-.site-footer h4{
+.site-footer h4, .site-footer h3{
   color:var(--cream); font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
   margin-bottom:20px; font-weight:500;
 }
@@ -812,6 +815,8 @@ footer.site-footer{
   .page-hero h1{ font-size:36px !important; }
   .nav__logo span:not(.mark){ font-size:15px; }
 }
+
+main{ display:block; }
 
 </style>
 <style>
@@ -1014,7 +1019,7 @@ body{ background:var(--paper); }
     box-shadow:0 8px 24px rgba(11,23,48,.12);
     z-index:3; white-space:nowrap;
   }
-  .hero__chip .bolt{ color:var(--primary); font-size:13px; }
+  .hero__chip .bolt{ color:var(--primary-ink); font-size:13px; }
 
   .hero__marquee{
     position:fixed; bottom:0; left:0; right:0; z-index:200;
@@ -1726,6 +1731,8 @@ body{ background:var(--paper); }
   <a href="contact.html#book" class="btn btn--primary">Book free consult</a>
 </div>
 
+<main id="main">
+
 <!-- ============ HERO ============ -->
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
@@ -2215,6 +2222,8 @@ body{ background:var(--paper); }
 </section>
 
 <!-- ============ FOOTER ============ -->
+</main>
+
 <footer class="site-footer">
   <div class="site-footer__inner">
     <div class="site-footer__brand">
@@ -2222,7 +2231,7 @@ body{ background:var(--paper); }
       <p>Dr. Saba Asrar &amp; team · Crafting confident, life-changing smiles in Round Rock, TX.</p>
     </div>
     <div>
-      <h4>Treatments</h4>
+      <h3>Treatments</h3>
       <ul>
         <li><a href="invisalign-clear-aligners.html">Invisalign Clear Aligners</a></li>
         <li><a href="traditional-orthodontics.html">Traditional Braces</a></li>
@@ -2233,7 +2242,7 @@ body{ background:var(--paper); }
       </ul>
     </div>
     <div>
-      <h4>Practice</h4>
+      <h3>Practice</h3>
       <ul>
         <li><a href="big-smile.html">Home</a></li>
         <li><a href="dr-asrar.html">Dr. Saba Asrar</a></li>
@@ -2244,7 +2253,7 @@ body{ background:var(--paper); }
       </ul>
     </div>
     <div>
-      <h4>Patients</h4>
+      <h3>Patients</h3>
       <ul>
         <li><a href="for-patients.html">For Patients</a></li>
         <li><a href="life-with-braces.html">Life with Braces</a></li>
@@ -2255,7 +2264,7 @@ body{ background:var(--paper); }
       </ul>
     </div>
     <div>
-      <h4>Visit</h4>
+      <h3>Visit</h3>
       <ul>
         <li>1025 Sendero Springs Dr, Ste 110</li>
         <li>Round Rock, TX 78681</li>

@@ -24,7 +24,7 @@
 }
 .post-body ul, .post-body ol{ margin:0 0 22px; padding-left:24px; }
 .post-body li{ margin-bottom:10px; }
-.post-body a{ color:var(--primary); text-decoration:underline; text-underline-offset:3px; }
+.post-body a{ color:var(--primary-ink); text-decoration:underline; text-underline-offset:3px; }
 .post-body a:hover{ color:var(--navy); }
 .post-body strong{ color:var(--navy); }
 .post-body img{

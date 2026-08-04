@@ -151,7 +151,7 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
 }
 .anchor-rail__inner::-webkit-scrollbar{ display:none; }
 .anchor-rail a{ white-space:nowrap; transition:color .2s; }
-.anchor-rail a:hover, .anchor-rail a.is-active{ color:var(--primary); }
+.anchor-rail a:hover, .anchor-rail a.is-active{ color:var(--primary-ink); }
 .anchor-rail a.is-active{ position:relative; }
 .anchor-rail a.is-active::after{
   content:""; position:absolute; left:0; right:0; bottom:-16px; height:2px; background:var(--primary);
@@ -169,7 +169,7 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
 .service-block--reverse .service-block__inner{ grid-template-columns:1.15fr .85fr; }
 .service-block--reverse .service-block__media{ order:-1; }
 .service-block__num{
-  font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--primary);
+  font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--primary-ink);
   display:flex; align-items:center; gap:14px;
 }
 .service-block__num::before{
@@ -734,3 +734,9 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
   .page-hero__inner > div[style*="text-align:right"]{ text-align:left !important; }
   .page-hero__inner > div[style*="text-align:right"] .btn{ width:100%; justify-content:center; }
 }
+
+/* Links in body copy must not rely on colour alone (link-in-text-block)
+   and need 4.5:1 on cream, hence --primary-ink. */
+.prose a{ color:var(--primary-ink); text-decoration:underline; text-underline-offset:2px; }
+.prose a:hover{ color:var(--navy); }
+.check-list a{ color:var(--primary-ink); text-decoration:underline; text-underline-offset:2px; }
