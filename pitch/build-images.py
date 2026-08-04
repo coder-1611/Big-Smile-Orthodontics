@@ -61,6 +61,12 @@ uri, n = enc(load('wp-users.png'), 1200, quality=92, fmt='WEBP', crop=(0, 62, 28
 out['wpUsers'] = uri
 sizes['wpUsers'] = n
 
+# The real AI-assistant answer (user's own screenshot), cropped to the
+# recommendations plus the source citation that shows it was a live web answer.
+uri, n = enc(load('gpt-recs.png'), 1180, quality=86, fmt='WEBP')
+out['gptRecs'] = uri
+sizes['gptRecs'] = n
+
 # First impression: both captured at an identical 1400x820 viewport, viewport-only,
 # animations paused, then cropped to the same height so the comparison is like-for-like.
 # Cut just above the rebuild's ticker so a mid-scroll marquee doesn't read as a glitch.
