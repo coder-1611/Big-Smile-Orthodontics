@@ -41,13 +41,24 @@
       <p>Dr. Saba Asrar &amp; team · Crafting confident, life-changing smiles in Round Rock, TX.</p>
     </div>
     <div>
-      <h4>Explore</h4>
+      <h4>Treatments</h4>
+      <ul>
+        <li><a href="/invisalign-clear-aligners.html">Invisalign Clear Aligners</a></li>
+        <li><a href="/traditional-orthodontics.html">Traditional Braces</a></li>
+        <li><a href="/clear-ceramic-braces.html">Clear Ceramic Braces</a></li>
+        <li><a href="/phase-1-orthodontics.html">Phase 1 for Kids</a></li>
+        <li><a href="/retainers-orthodontic-appliances.html">Retainers &amp; Appliances</a></li>
+        <li><a href="/orthodontic-emergencies.html">Orthodontic Emergencies</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Practice</h4>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/dr-asrar.html">Dr. Asrar</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/invisalign-clear-aligners.html">Invisalign</a></li>
+        <li><a href="/dr-asrar.html">Dr. Saba Asrar</a></li>
+        <li><a href="/services.html">All Services</a></li>
         <li><a href="/smile-gallery.html">Smile Gallery</a></li>
+        <li><a href="/reviews.html">Patient Reviews</a></li>
         <li><a href="/blog">Blog</a></li>
       </ul>
     </div>
@@ -55,9 +66,11 @@
       <h4>Patients</h4>
       <ul>
         <li><a href="/for-patients.html">For Patients</a></li>
-        <li><a href="/for-patients.html#first-visit">Your First Visit</a></li>
+        <li><a href="/life-with-braces.html">Life with Braces</a></li>
+        <li><a href="/dental-insurance.html">Insurance &amp; Financing</a></li>
         <li><a href="/for-patients.html#forms">Patient Forms</a></li>
-        <li><a href="/for-patients.html#insurance">Insurance</a></li>
+        <li><a href="/for-patients.html#first-visit">Your First Visit</a></li>
+        <li><a href="/contact.html">Book a Consult</a></li>
       </ul>
     </div>
     <div>
@@ -67,15 +80,8 @@
         <li>Round Rock, TX 78681</li>
         <li><a href="tel:5128287900">(512) 828-7900</a></li>
         <li><a href="mailto:info@bigsmileorthodontics.com">info@bigsmileorthodontics.com</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Resources</h4>
-      <ul>
-        <li><a href="https://www.aaoinfo.org/" target="_blank" rel="noopener">American Association of Orthodontists</a></li>
-        <li><a href="https://www.invisalign.com/" target="_blank" rel="noopener">Invisalign Official Site</a></li>
-        <li><a href="https://www.google.com/maps/search/Big+Smile+Orthodontics+Round+Rock+TX" target="_blank" rel="noopener">Find Us on Google Maps</a></li>
-        <li><a href="https://www.healthgrades.com/" target="_blank" rel="noopener">Healthgrades</a></li>
+        <li><a href="https://www.google.com/maps/place/Big+Smile+Orthodontics" target="_blank" rel="noopener">Get Directions</a></li>
+        <li><a href="/sitemap.html">Sitemap</a></li>
       </ul>
     </div>
   </div>
