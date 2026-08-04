@@ -1,0 +1,752 @@
+<title>What the Machines See — Big Smile Orthodontics</title>
+
+<style>
+  /* ============================================================
+     THE LIGHTBOX — a radiograph reading panel.
+     Palette, type and layout derive from orthodontic diagnostic
+     imaging: film-blue grounds, luminous bone-white type,
+     evidence mounted as plates and annotated like a report.
+     ============================================================ */
+
+  :root {
+    /* film grounds */
+    --ground:  #0A1320;
+    --film:    #111E31;
+    --plate:   #0D1827;
+    --edge:    #22384F;
+    /* luminance */
+    --lumen:   #E9F2F8;
+    --slate:   #8497AE;   /* blue-biased neutral, picked to sit under --signal */
+    --faint:   #5A6E86;
+    /* accent + semantics (semantics are NOT the accent) */
+    --signal:  #3FB8E8;
+    --signal-deep: #1B7FA8;
+    --pass:    #3BC896;
+    --fail:    #E2564E;
+    --warn:    #E8A33C;
+
+    --display: "Avenir Next", Avenir, Futura, "Century Gothic", "Trebuchet MS", sans-serif;
+    --body: Charter, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --rail: 74px;
+    --pad: clamp(22px, 4.4vw, 78px);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --ground: #EDF2F6;
+      --film:   #FFFFFF;
+      --plate:  #F6F9FB;
+      --edge:   #CBD8E4;
+      --lumen:  #0C1726;
+      --slate:  #56687D;
+      --faint:  #7C8DA1;
+      --signal: #1683B4;
+      --signal-deep: #0C5F84;
+      --pass:   #17835E;
+      --fail:   #C0322B;
+      --warn:   #9A6410;
+    }
+  }
+  :root[data-theme="light"] {
+    --ground: #EDF2F6; --film: #FFFFFF; --plate: #F6F9FB; --edge: #CBD8E4;
+    --lumen: #0C1726; --slate: #56687D; --faint: #7C8DA1;
+    --signal: #1683B4; --signal-deep: #0C5F84;
+    --pass: #17835E; --fail: #C0322B; --warn: #9A6410;
+  }
+  :root[data-theme="dark"] {
+    --ground: #0A1320; --film: #111E31; --plate: #0D1827; --edge: #22384F;
+    --lumen: #E9F2F8; --slate: #8497AE; --faint: #5A6E86;
+    --signal: #3FB8E8; --signal-deep: #1B7FA8;
+    --pass: #3BC896; --fail: #E2564E; --warn: #E8A33C;
+  }
+
+  * { box-sizing: border-box; }
+
+  .deck-root {
+    background: var(--ground);
+    color: var(--lumen);
+    font-family: var(--body);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* ---------- film strip rail (exposure marks = slide position) ---------- */
+  .rail {
+    position: fixed; left: 0; top: 0; bottom: 0; width: var(--rail);
+    border-right: 1px solid var(--edge);
+    background: var(--plate);
+    display: flex; flex-direction: column; align-items: center;
+    padding: 20px 0; gap: 14px; z-index: 60;
+  }
+  .rail__mark {
+    width: 22px; height: 22px; padding: 0; border: 0; cursor: pointer;
+    background: none; position: relative;
+    font-family: var(--mono); font-size: 9.5px; color: var(--faint);
+    display: grid; place-items: center; border-radius: 3px;
+  }
+  .rail__mark::before {
+    content: ""; position: absolute; inset: 3px;
+    border: 1px solid var(--edge); border-radius: 2px;
+  }
+  .rail__mark[aria-current="true"] { color: var(--ground); }
+  .rail__mark[aria-current="true"]::before {
+    background: var(--signal); border-color: var(--signal);
+  }
+  .rail__mark span { position: relative; z-index: 2; }
+  .rail__mark:hover::before { border-color: var(--signal); }
+  .rail__mark:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+  .rail__spacer { flex: 1; }
+  .rail__id {
+    font-family: var(--mono); font-size: 9px; letter-spacing: .18em;
+    color: var(--faint); writing-mode: vertical-rl; transform: rotate(180deg);
+  }
+
+  /* ---------- slides ---------- */
+  .stage { margin-left: var(--rail); }
+  .slide {
+    min-height: 100vh; padding: clamp(46px, 6vh, 84px) var(--pad) 96px;
+    display: none; flex-direction: column; justify-content: center;
+    max-width: 1240px;
+  }
+  .slide.is-live { display: flex; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--signal);
+    display: flex; align-items: center; gap: 11px; margin-bottom: 20px;
+  }
+  .eyebrow::before {
+    content: ""; width: 26px; height: 1px; background: currentColor; opacity: .65;
+  }
+
+  h1.t {
+    font-family: var(--display); font-weight: 600;
+    font-size: clamp(31px, 5.4vw, 70px); line-height: 1.03;
+    letter-spacing: -.022em; margin: 0 0 22px; text-wrap: balance;
+    max-width: 20ch;
+  }
+  h2.t {
+    font-family: var(--display); font-weight: 600;
+    font-size: clamp(26px, 3.8vw, 50px); line-height: 1.06;
+    letter-spacing: -.018em; margin: 0 0 18px; text-wrap: balance;
+    max-width: 26ch;
+  }
+  .t em { font-style: normal; color: var(--signal); }
+  .lede {
+    font-size: clamp(15.5px, 1.35vw, 19px); line-height: 1.62;
+    color: var(--slate); max-width: 64ch; margin: 0 0 26px;
+  }
+  .lede strong { color: var(--lumen); font-weight: 600; }
+  p.note {
+    font-family: var(--mono); font-size: 11.5px; line-height: 1.68;
+    color: var(--faint); max-width: 78ch; margin: 22px 0 0;
+    padding-left: 13px; border-left: 2px solid var(--edge);
+  }
+  p.note b { color: var(--slate); font-weight: 400; }
+
+  /* ---------- evidence plates ---------- */
+  .plate {
+    background: var(--plate); border: 1px solid var(--edge);
+    border-radius: 4px; padding: 13px; position: relative;
+  }
+  .plate > img {
+    display: block; width: 100%; height: auto; border-radius: 2px;
+  }
+  .plate figcaption {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .05em;
+    color: var(--faint); margin-top: 11px; line-height: 1.55;
+  }
+  figure { margin: 0; }
+
+  /* ---------- the agentic scoreboard: the one bold moment ---------- */
+  .board { display: grid; gap: 16px; margin: 4px 0 8px; }
+  .board__row {
+    display: grid; grid-template-columns: minmax(150px, 1.1fr) auto minmax(96px, auto);
+    align-items: center; gap: clamp(14px, 2.4vw, 34px);
+    padding: clamp(15px, 2vw, 22px) clamp(16px, 2.2vw, 26px);
+    background: var(--film); border: 1px solid var(--edge); border-radius: 5px;
+  }
+  .board__row--win { border-color: color-mix(in srgb, var(--pass) 52%, var(--edge)); }
+  .board__who {
+    font-family: var(--display); font-weight: 600; font-size: clamp(15px, 1.5vw, 20px);
+    letter-spacing: -.01em; line-height: 1.2;
+  }
+  .board__url {
+    font-family: var(--mono); font-size: 10px; color: var(--faint);
+    margin-top: 5px; word-break: break-all;
+  }
+  .cells { display: flex; gap: 7px; flex-wrap: wrap; }
+  .cell {
+    width: clamp(26px, 3.1vw, 40px); height: clamp(34px, 4vw, 52px);
+    border-radius: 3px; border: 1.5px solid var(--edge);
+    display: grid; place-items: center;
+    font-family: var(--mono); font-size: clamp(11px, 1.1vw, 15px);
+    color: var(--faint); background: transparent;
+    opacity: 0; transform: translateY(7px);
+    transition: opacity .34s ease, transform .34s ease, background .34s ease,
+                border-color .34s ease, color .34s ease;
+  }
+  .slide.is-live .cell { opacity: 1; transform: none; }
+  .cell--pass {
+    border-color: var(--pass); color: var(--ground);
+    background: var(--pass);
+  }
+  .cell--fail { border-color: var(--fail); color: var(--fail); background: transparent; }
+  .board__score {
+    font-family: var(--mono); font-weight: 500; text-align: right;
+    font-size: clamp(24px, 3.3vw, 44px); letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .board__score .of { color: var(--faint); font-size: .48em; }
+  .board__row--win .board__score { color: var(--pass); }
+  .board__row--lose .board__score { color: var(--fail); }
+  .board__caption {
+    font-family: var(--mono); font-size: 10px; color: var(--faint);
+    letter-spacing: .05em; margin-top: 2px;
+  }
+
+  /* ---------- score comparison table ---------- */
+  .tablewrap { overflow-x: auto; margin: 6px 0 4px; }
+  table.card {
+    border-collapse: collapse; width: 100%; min-width: 560px;
+    font-family: var(--mono); font-size: clamp(11.5px, 1.15vw, 14px);
+  }
+  table.card th, table.card td {
+    padding: 12px 14px; text-align: right; border-bottom: 1px solid var(--edge);
+    font-variant-numeric: tabular-nums; font-weight: 400;
+  }
+  table.card th:first-child, table.card td:first-child {
+    text-align: left; color: var(--slate);
+  }
+  table.card thead th {
+    color: var(--faint); font-size: 10px; letter-spacing: .15em;
+    text-transform: uppercase; border-bottom-color: var(--slate);
+  }
+  td.good { color: var(--pass); }
+  td.bad  { color: var(--fail); }
+  td.mid  { color: var(--warn); }
+
+  /* ---------- transcript block ---------- */
+  .transcript {
+    background: var(--film); border: 1px solid var(--edge); border-radius: 5px;
+    padding: clamp(18px, 2.4vw, 30px); max-width: 60ch;
+  }
+  .transcript__q {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .13em;
+    text-transform: uppercase; color: var(--faint); margin: 0 0 16px;
+  }
+  .transcript ol {
+    margin: 0; padding: 0; list-style: none;
+    display: grid; grid-template-columns: max-content 1fr; gap: 13px 16px;
+  }
+  .transcript li {
+    display: grid; grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    align-items: baseline;
+    font-size: clamp(15px, 1.4vw, 18.5px); line-height: 1.4;
+  }
+  @supports not (grid-template-columns: subgrid) {
+    .transcript ol { display: block; }
+    .transcript li { display: flex; gap: 14px; align-items: baseline; margin-bottom: 13px; }
+    .transcript li b { min-width: 19ch; flex-shrink: 0; }
+  }
+  .transcript li b {
+    font-family: var(--display); font-weight: 600; color: var(--lumen);
+    font-size: .84em; white-space: nowrap;
+  }
+  .transcript li span { color: var(--slate); }
+  .transcript__absent {
+    margin: 20px 0 0; padding-top: 17px; border-top: 1px solid var(--edge);
+    font-family: var(--mono); font-size: 11.5px; color: var(--fail);
+    letter-spacing: .04em;
+  }
+
+  /* ---------- generic layout helpers ---------- */
+  .two { display: grid; gap: clamp(20px, 3vw, 42px); align-items: start; }
+  @media (min-width: 900px) { .two { grid-template-columns: 1fr 1fr; } }
+  .two--wide { grid-template-columns: 1fr; }
+  @media (min-width: 900px) { .two--wide { grid-template-columns: 1.15fr .85fr; } }
+
+  .stats { display: flex; flex-wrap: wrap; gap: clamp(18px, 3vw, 46px); margin: 4px 0 24px; }
+  .stat__n {
+    font-family: var(--mono); font-weight: 500; letter-spacing: -.035em;
+    font-size: clamp(38px, 6vw, 76px); line-height: .92; color: var(--signal);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat__l {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--faint); margin-top: 10px; max-width: 22ch;
+    line-height: 1.5;
+  }
+
+  .stat__n--words {
+    font-family: var(--display); font-weight: 600; letter-spacing: -.02em;
+  }
+  ul.findings { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 15px; }
+  ul.findings li {
+    display: grid; grid-template-columns: auto 1fr; gap: 13px;
+    align-items: baseline; font-size: clamp(14.5px, 1.3vw, 17.5px);
+    line-height: 1.52; color: var(--slate); max-width: 62ch;
+  }
+  ul.findings b { color: var(--lumen); font-weight: 600; font-family: var(--display); }
+  .tick {
+    font-family: var(--mono); font-size: 12px; line-height: 1.5;
+  }
+  .tick--x { color: var(--fail); }
+  .tick--ok { color: var(--pass); }
+
+  /* ---------- title slide ---------- */
+  .title-meta {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--faint); line-height: 1.9;
+    margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--edge);
+    max-width: 46ch;
+  }
+  .scanline {
+    height: 2px; width: clamp(120px, 22vw, 300px); margin: 0 0 30px;
+    background: linear-gradient(90deg, var(--signal), transparent);
+  }
+
+  /* ---------- nav ---------- */
+  .nav {
+    position: fixed; right: clamp(14px, 2.4vw, 30px); bottom: clamp(14px, 2.4vw, 26px);
+    display: flex; align-items: center; gap: 9px; z-index: 60;
+    /* the nav floats over slide content, so it needs a ground of its own */
+    padding: 6px 8px; border-radius: 6px;
+    background: color-mix(in srgb, var(--ground) 86%, transparent);
+    backdrop-filter: blur(7px);
+    border: 1px solid var(--edge);
+  }
+  .nav button {
+    font-family: var(--mono); font-size: 12px; color: var(--lumen);
+    background: var(--film); border: 1px solid var(--edge); border-radius: 4px;
+    width: 40px; height: 34px; cursor: pointer; display: grid; place-items: center;
+    transition: border-color .18s ease, color .18s ease;
+  }
+  .nav button:hover:not(:disabled) { border-color: var(--signal); color: var(--signal); }
+  .nav button:disabled { opacity: .32; cursor: default; }
+  .nav button:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+  .counter {
+    font-family: var(--mono); font-size: 11px; color: var(--faint);
+    letter-spacing: .1em; font-variant-numeric: tabular-nums;
+    min-width: 58px; text-align: center;
+  }
+  .counter b { color: var(--lumen); font-weight: 500; }
+
+  /* entrance */
+  .anim > * { opacity: 0; transform: translateY(11px); }
+  .slide.is-live .anim > * { animation: rise .52s cubic-bezier(.2,.7,.3,1) forwards; }
+  .slide.is-live .anim > *:nth-child(1) { animation-delay: .04s; }
+  .slide.is-live .anim > *:nth-child(2) { animation-delay: .11s; }
+  .slide.is-live .anim > *:nth-child(3) { animation-delay: .18s; }
+  .slide.is-live .anim > *:nth-child(4) { animation-delay: .25s; }
+  .slide.is-live .anim > *:nth-child(5) { animation-delay: .32s; }
+  .slide.is-live .anim > *:nth-child(6) { animation-delay: .39s; }
+  .slide.is-live .anim > *:nth-child(7) { animation-delay: .46s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim > *, .slide.is-live .anim > * { opacity: 1; transform: none; animation: none; }
+    .cell { transition: none; opacity: 1; transform: none; }
+  }
+
+  @media (max-width: 700px) {
+    :root { --rail: 46px; }
+    .slide { padding-bottom: 118px; }
+    .rail { padding: 12px 0; gap: 9px; }
+    .rail__id { display: none; }
+    .board__row { grid-template-columns: 1fr auto; row-gap: 13px; }
+    .board__score { grid-column: 2; }
+    .cells { grid-column: 1 / -1; }
+  }
+</style>
+
+<div class="deck-root">
+  <nav class="rail" aria-label="Slide navigation">
+    <div class="rail__id">LIGHTBOX / 09</div>
+    <div class="rail__spacer"></div>
+    <div id="marks" style="display:flex;flex-direction:column;gap:12px;"></div>
+    <div class="rail__spacer"></div>
+  </nav>
+
+  <div class="stage">
+
+    <!-- 01 ................................................................. -->
+    <section class="slide" data-t="Cover">
+      <div class="anim">
+        <div class="scanline"></div>
+        <div class="eyebrow">Big Smile Orthodontics &middot; Round Rock, TX</div>
+        <h1 class="t">Half your patients now ask a machine <em>first.</em></h1>
+        <p class="lede">This is what AI assistants see when they look at
+          <strong>bigsmileorthodontics.com</strong> today &mdash; and what they see when they look
+          at the rebuild. Every number in this deck was measured, not estimated, and every
+          screenshot is captured from the live sites.</p>
+        <div class="title-meta">
+          Prepared for Dr. Saba Asrar<br>
+          By Soham Sthitpragya &middot; 4 August 2026<br>
+          Measured with Google PageSpeed Insights
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 ................................................................. -->
+    <section class="slide" data-t="The shift">
+      <div class="anim">
+        <div class="eyebrow">The shift</div>
+        <h2 class="t">About half of U.S. adults now use AI chatbots.</h2>
+        <div class="two two--wide">
+          <div>
+            <div class="stats">
+              <div>
+                <div class="stat__n">49%</div>
+                <div class="stat__l">use AI chatbots, up from 33% in 2024</div>
+              </div>
+              <div>
+                <div class="stat__n stat__n--words">1 in 4</div>
+                <div class="stat__l">use them every single day</div>
+              </div>
+            </div>
+            <p class="lede">Pew also found that <strong>searching for information is the single
+              most common thing people use them for</strong>. That is the same job the search box
+              used to do &mdash; which means an assistant is now standing between a patient and
+              the list of orthodontists they choose from.</p>
+            <p class="note"><b>On the numbers:</b> Pew Research Center surveyed 5,119 U.S. adults,
+              17&ndash;23 February 2026. This is national data &mdash; no Round Rock&ndash;specific
+              survey of AI use exists, so I am not going to invent one. Round Rock skews higher in
+              both household income and college education than the U.S. average, and Pew finds
+              chatbot use rises with both, so local use is likely at least this high. That last
+              step is an inference, not a measurement.</p>
+          </div>
+          <figure class="plate">
+            <img src="__IMG_pew__" width="620" height="720"
+                 alt="Pew Research Center chart: 49% of U.S. adults use AI chatbots in 2026, up from 33% in 2024">
+            <figcaption>Pew Research Center, &ldquo;Americans and AI 2026&rdquo;, published
+              17 June 2026. Captured from pewresearch.org.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 ................................................................. -->
+    <section class="slide" data-t="The cost">
+      <div class="anim">
+        <div class="eyebrow">What happened when we asked</div>
+        <h2 class="t">Three practices got named. <em>Big Smile wasn't one of them.</em></h2>
+        <div class="two">
+          <div class="transcript">
+            <p class="transcript__q">AI assistant &middot; &ldquo;best orthodontist in Round Rock&rdquo;</p>
+            <ol>
+              <li><b>Best overall</b><span>Round Rock Orthodontics</span></li>
+              <li><b>Best for Invisalign</b><span>Carus Orthodontics Round Rock</span></li>
+              <li><b>Best personalized</b><span>Jovan Orthodontics</span></li>
+            </ol>
+            <p class="transcript__absent">Big Smile Orthodontics: not mentioned.</p>
+          </div>
+          <div>
+            <p class="lede">This is the part that should sting. Big Smile has
+              <strong>350+ five-star Google reviews</strong> and ranks <strong>first</strong> in the
+              three-result Google map pack for &ldquo;braces round rock&rdquo;. By every traditional measure
+              the practice is winning.</p>
+            <p class="lede">And it still did not make the list. The assistant answered the
+              question without it, and the patient reading that answer never learns the practice
+              exists.</p>
+            <p class="note"><b>Source:</b> transcript excerpt from an AI assistant answering a
+              best-orthodontist-in-Round-Rock question, August 2026. Assistants do not give
+              identical answers every time &mdash; but a practice that is hard for them to read is
+              a practice that gets left out more often.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 ................................................................. -->
+    <section class="slide" data-t="New measure">
+      <div class="anim">
+        <div class="eyebrow">The new measure</div>
+        <h2 class="t">Google now grades whether an AI agent can <em>actually use</em> your site.</h2>
+        <p class="lede">PageSpeed Insights is the tool the whole industry uses to grade a website.
+          For years it reported four scores: Performance, Accessibility, Best Practices and SEO.
+          It now reports a fifth, sitting right beside them &mdash; <strong>Agentic
+          Browsing</strong>.</p>
+        <p class="lede">It runs three checks per device, testing whether an automated agent can
+          load your pages, understand what your practice is and what it offers, and reach the
+          things a patient would want. Two devices, three checks each: <strong>six checks
+          total.</strong></p>
+        <p class="note"><b>Reading it fairly:</b> this category is new and Google still labels it
+          experimental, so it is not yet a ranking factor anyone can point to. It is a direct
+          readout of machine-readability, which is exactly the thing that decides whether an
+          assistant can describe your practice to a patient.</p>
+      </div>
+    </section>
+
+    <!-- 05 ................................................................. -->
+    <section class="slide" data-t="6 vs 1">
+      <div class="anim">
+        <div class="eyebrow">Agentic browsing &middot; measured 4 August 2026</div>
+        <h2 class="t">Six out of six. <em>Against one out of six.</em></h2>
+        <div class="board">
+          <div class="board__row board__row--win">
+            <div>
+              <div class="board__who">The rebuild</div>
+              <div class="board__url">test-ortho-website.vercel.app</div>
+            </div>
+            <div class="cells" data-cells="pass,pass,pass,pass,pass,pass">
+              <div class="board__caption" style="flex-basis:100%;margin:0 0 3px">mobile 3/3 &middot; desktop 3/3</div>
+            </div>
+            <div class="board__score">6<span class="of">/6</span></div>
+          </div>
+          <div class="board__row board__row--lose">
+            <div>
+              <div class="board__who">The current site</div>
+              <div class="board__url">bigsmileorthodontics.com</div>
+            </div>
+            <div class="cells" data-cells="pass,fail,fail,fail,fail,fail">
+              <div class="board__caption" style="flex-basis:100%;margin:0 0 3px">mobile 1/3 &middot; desktop 0/3</div>
+            </div>
+            <div class="board__score">1<span class="of">/6</span></div>
+          </div>
+        </div>
+        <div class="two" style="margin-top:6px">
+          <figure class="plate">
+            <img src="__IMG_theirsM__" width="1080" height="174"
+                 alt="PageSpeed Insights mobile scores for bigsmileorthodontics.com: Performance 57, Accessibility 92, Best Practices 100, SEO 100, Agentic Browsing 1 of 3">
+            <figcaption>Current site &middot; mobile &mdash; Agentic Browsing 1/3</figcaption>
+          </figure>
+          <figure class="plate">
+            <img src="__IMG_oursM__" width="1080" height="174"
+                 alt="PageSpeed Insights mobile scores for the rebuild: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO, Agentic Browsing 3 of 3">
+            <figcaption>Rebuild &middot; mobile &mdash; Agentic Browsing 3/3</figcaption>
+          </figure>
+          <figure class="plate">
+            <img src="__IMG_theirsD__" width="1080" height="174"
+                 alt="PageSpeed Insights desktop scores for bigsmileorthodontics.com: Performance 71, Accessibility 88, Best Practices 96, SEO 100, Agentic Browsing 0 of 3">
+            <figcaption>Current site &middot; desktop &mdash; Agentic Browsing 0/3</figcaption>
+          </figure>
+          <figure class="plate">
+            <img src="__IMG_oursD__" width="1080" height="174"
+                 alt="PageSpeed Insights desktop scores for the rebuild: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO, Agentic Browsing 3 of 3">
+            <figcaption>Rebuild &middot; desktop &mdash; Agentic Browsing 3/3</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 ................................................................. -->
+    <section class="slide" data-t="Full card">
+      <div class="anim">
+        <div class="eyebrow">The rest of the report card</div>
+        <h2 class="t">The same tool, the same day, both sites.</h2>
+        <div class="tablewrap">
+          <table class="card">
+            <caption class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">
+              PageSpeed Insights scores compared</caption>
+            <thead>
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Current &middot; mobile</th>
+                <th scope="col">Current &middot; desktop</th>
+                <th scope="col">Rebuild &middot; mobile</th>
+                <th scope="col">Rebuild &middot; desktop</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Performance</td><td class="bad">57</td><td class="mid">71</td>
+                  <td class="good">100</td><td class="good">100</td></tr>
+              <tr><td>Accessibility</td><td class="mid">92</td><td class="mid">88</td>
+                  <td class="good">100</td><td class="good">100</td></tr>
+              <tr><td>Best Practices</td><td class="good">100</td><td class="mid">96</td>
+                  <td class="good">100</td><td class="good">100</td></tr>
+              <tr><td>SEO</td><td class="good">100</td><td class="good">100</td>
+                  <td class="good">100</td><td class="good">100</td></tr>
+              <tr><td>Agentic Browsing</td><td class="bad">1/3</td><td class="bad">0/3</td>
+                  <td class="good">3/3</td><td class="good">3/3</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="findings" style="margin-top:26px">
+          <li><span class="tick tick--ok">&#10003;</span><span><b>SEO is the one they already
+            win.</b> A perfect 100, both devices. Their agency did the search-engine basics
+            properly, and the rebuild holds that same 100 &mdash; nothing is being given up.</span></li>
+          <li><span class="tick tick--x">&times;</span><span><b>A 57 on mobile is the real
+            problem.</b> Most patients arrive on a phone. On their
+            braces page, the largest thing on the screen takes <b>11.6 seconds</b> to
+            appear.</span></li>
+          <li><span class="tick tick--x">&times;</span><span><b>44 images on the homepage, one of
+            them deferred.</b> The other 43 all load immediately, whether or not you ever scroll
+            far enough to see them.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 07 ................................................................. -->
+    <section class="slide" data-t="First screen">
+      <div class="anim">
+        <div class="eyebrow">The first five seconds</div>
+        <h2 class="t">One screen. How many things are asking for attention?</h2>
+        <div class="two">
+          <figure class="plate">
+            <img src="__IMG_theirsTop__" width="660" height="471"
+                 alt="Top of the current bigsmileorthodontics.com homepage, showing a phone bar, review badge, four statistic blocks and multiple competing buttons">
+            <figcaption>Current site &middot; bigsmileorthodontics.com, first screen</figcaption>
+          </figure>
+          <figure class="plate">
+            <img src="__IMG_oursTop__" width="660" height="471"
+                 alt="Top of the rebuilt homepage, showing a single headline, one paragraph and two clear buttons over a video of Dr. Asrar">
+            <figcaption>Rebuild &middot; first screen</figcaption>
+          </figure>
+        </div>
+        <ul class="findings" style="margin-top:20px;gap:12px">
+          <li><span class="tick tick--x">&times;</span><span>The current first screen offers a
+            phone bar, a review badge, four statistic blocks and several buttons at once.
+            <b>Everything competes, so nothing wins.</b></span></li>
+          <li><span class="tick tick--ok">&#10003;</span><span>The rebuild says one thing &mdash;
+            <b>orthodontist in Round Rock</b> &mdash; shows Dr.&nbsp;Asrar, and offers one
+            obvious next step. The same information is all still there, further down, in an
+            order a patient can follow.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 08 ................................................................. -->
+    <section class="slide" data-t="Exposure">
+      <div class="anim">
+        <div class="eyebrow">Checked live &middot; 4 August 2026</div>
+        <h2 class="t">Their admin username is <em>published on the open internet.</em></h2>
+        <figure class="plate">
+          <img src="__IMG_wpUsers__" width="1160" height="108"
+               alt="Public JSON response from bigsmileorthodontics.com/blog/wp-json/wp/v2/users, listing the account name admin with the username slug tntadmin">
+          <figcaption>bigsmileorthodontics.com/blog/wp-json/wp/v2/users &mdash; open to anyone,
+            no login required. The username reads <b>tntadmin</b>.</figcaption>
+        </figure>
+        <ul class="findings" style="margin-top:24px">
+          <li><span class="tick tick--x">&times;</span><span><b>The username is public.</b> That
+            endpoint hands out the administrator account name to anyone who visits it.</span></li>
+          <li><span class="tick tick--x">&times;</span><span><b>The login page is wide open.</b>
+            <code style="font-family:var(--mono);font-size:.88em">/blog/wp-login.php</code>
+            answers to the public internet, so there is a door to type that username
+            into.</span></li>
+          <li><span class="tick tick--x">&times;</span><span><b>None of the four standard
+            browser-security headers are set</b> &mdash; no HSTS, no content-security policy, no
+            clickjacking protection, no referrer policy.</span></li>
+        </ul>
+        <p class="note"><b>Being precise, because this matters:</b> no password is exposed and
+          there is no sign anyone has broken in. What is exposed is the username &mdash; one of
+          the two things needed to get in &mdash; next to an unlocked door. On the rebuild there
+          is no login page and no admin account to find, because the site is published as plain
+          files rather than run on WordPress.</p>
+      </div>
+    </section>
+
+    <!-- 09 ................................................................. -->
+    <section class="slide" data-t="The ask">
+      <div class="anim">
+        <div class="eyebrow">Where things stand</div>
+        <h2 class="t">The rebuild is finished, measured, and waiting on one decision.</h2>
+        <ul class="findings">
+          <li><span class="tick tick--ok">&#10003;</span><span><b>6/6 on agentic browsing</b> and
+            <b>100 in all four categories on both phone and desktop</b> &mdash; verified twice on
+            Google's own tool.</span></li>
+          <li><span class="tick tick--ok">&#10003;</span><span><b>Every page you have today still
+            works.</b> All six treatment pages are back at their original web addresses, and all
+            <b>26 blog articles</b> are preserved at the exact links Google already
+            knows.</span></li>
+          <li><span class="tick tick--ok">&#10003;</span><span><b>Your search ranking comes with
+            you.</b> The domain does not change, the reviews do not change, and the Google
+            Business Profile is untouched. Only the site behind the address changes.</span></li>
+          <li><span class="tick tick--ok">&#10003;</span><span><b>The old site stays up for
+            60&ndash;90 days.</b> If you dislike anything, switching back is one setting and takes
+            minutes.</span></li>
+        </ul>
+        <p class="lede" style="margin-top:30px"><strong>The one thing I need is your go-ahead to
+          point the domain at it.</strong> Your email, your phone number and your booking system
+          are not touched by that change.</p>
+        <p class="note"><b>Every figure in this deck is reproducible.</b> Run
+          bigsmileorthodontics.com and test-ortho-website.vercel.app through
+          pagespeed.web.dev yourself and you will get these same five scores.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="nav">
+    <button id="prev" aria-label="Previous slide">&larr;</button>
+    <div class="counter"><b id="cur">1</b> / <span id="tot">9</span></div>
+    <button id="next" aria-label="Next slide">&rarr;</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var marks = document.getElementById('marks');
+  var cur = document.getElementById('cur');
+  var prev = document.getElementById('prev');
+  var next = document.getElementById('next');
+  document.getElementById('tot').textContent = slides.length;
+  var i = 0;
+
+  // build the film-strip marks
+  slides.forEach(function (s, n) {
+    var b = document.createElement('button');
+    b.className = 'rail__mark';
+    b.type = 'button';
+    b.innerHTML = '<span>' + (n + 1) + '</span>';
+    b.title = s.getAttribute('data-t') || ('Slide ' + (n + 1));
+    b.setAttribute('aria-label', 'Go to slide ' + (n + 1) + ': ' + b.title);
+    b.addEventListener('click', function () { go(n); });
+    marks.appendChild(b);
+  });
+  var markEls = Array.prototype.slice.call(marks.children);
+
+  // paint the scoreboard cells from their data attribute
+  document.querySelectorAll('.cells').forEach(function (row) {
+    var spec = (row.getAttribute('data-cells') || '').split(',');
+    spec.forEach(function (kind, n) {
+      var c = document.createElement('div');
+      c.className = 'cell ' + (kind === 'pass' ? 'cell--pass' : 'cell--fail');
+      c.textContent = kind === 'pass' ? '✓' : '✕';
+      c.style.transitionDelay = (0.34 + n * 0.075) + 's';
+      c.setAttribute('role', 'img');
+      c.setAttribute('aria-label', kind === 'pass' ? 'check passed' : 'check failed');
+      row.appendChild(c);
+    });
+  });
+
+  function go(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('is-live', k === i); });
+    markEls.forEach(function (m, k) {
+      if (k === i) { m.setAttribute('aria-current', 'true'); }
+      else { m.removeAttribute('aria-current'); }
+    });
+    cur.textContent = i + 1;
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+    window.scrollTo(0, 0);
+  }
+
+  prev.addEventListener('click', function () { go(i - 1); });
+  next.addEventListener('click', function () { go(i + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { go(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(i - 1); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(slides.length - 1); }
+  });
+
+  // touch swipe
+  var x0 = null;
+  document.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (x0 === null) { return; }
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 55) { go(dx < 0 ? i + 1 : i - 1); }
+    x0 = null;
+  }, { passive: true });
+
+  go(0);
+})();
+</script>
