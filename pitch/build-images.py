@@ -55,18 +55,20 @@ out['pew'] = uri
 sizes['pew'] = n
 
 # Exposed WordPress users endpoint
-uri, n = enc(load('wp-users.png'), 1160, quality=88, fmt='WEBP', crop=(0, 0, 2800, 260))
+# text lines measured at y=70-96 and 100-125; take those two so the crop actually
+# contains "name":"admin" and the author/tntadmin link rather than gravatar noise
+uri, n = enc(load('wp-users.png'), 1200, quality=92, fmt='WEBP', crop=(0, 62, 2800, 130))
 out['wpUsers'] = uri
 sizes['wpUsers'] = n
 
-# First-impression crops: the top of each homepage
-th = load('theirs-home.png')          # 2800 wide, dsf 2 -> CSS 1400
-uri, n = enc(th, 660, quality=80, fmt='WEBP', crop=(0, 0, 2800, 2000))
+# First impression: both captured at an identical 1400x820 viewport, viewport-only,
+# animations paused, then cropped to the same height so the comparison is like-for-like.
+# Cut just above the rebuild's ticker so a mid-scroll marquee doesn't read as a glitch.
+FIRST_CROP = (0, 0, 2800, 1465)
+uri, n = enc(load('theirs-first.png'), 680, quality=82, fmt='WEBP', crop=FIRST_CROP)
 out['theirsTop'] = uri
 sizes['theirsTop'] = n
-
-oh = load('ours-home.png')            # 1400 wide, dsf 1
-uri, n = enc(oh, 660, quality=80, fmt='WEBP', crop=(0, 0, 1400, 1000))
+uri, n = enc(load('ours-first.png'), 680, quality=82, fmt='WEBP', crop=FIRST_CROP)
 out['oursTop'] = uri
 sizes['oursTop'] = n
 

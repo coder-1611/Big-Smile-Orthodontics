@@ -17,7 +17,7 @@
     /* luminance */
     --lumen:   #E9F2F8;
     --slate:   #8497AE;   /* blue-biased neutral, picked to sit under --signal */
-    --faint:   #5A6E86;
+    --faint:   #6E8299;   /* 4.72:1 on --ground; #5A6E86 was 3.56:1 */
     /* accent + semantics (semantics are NOT the accent) */
     --signal:  #3FB8E8;
     --signal-deep: #1B7FA8;
@@ -41,7 +41,7 @@
       --edge:   #CBD8E4;
       --lumen:  #0C1726;
       --slate:  #56687D;
-      --faint:  #7C8DA1;
+      --faint:  #5D6E82;  /* 4.64:1 on --ground; #7C8DA1 was 3.01:1 */
       --signal: #1683B4;
       --signal-deep: #0C5F84;
       --pass:   #17835E;
@@ -51,13 +51,13 @@
   }
   :root[data-theme="light"] {
     --ground: #EDF2F6; --film: #FFFFFF; --plate: #F6F9FB; --edge: #CBD8E4;
-    --lumen: #0C1726; --slate: #56687D; --faint: #7C8DA1;
+    --lumen: #0C1726; --slate: #56687D; --faint: #5D6E82;
     --signal: #1683B4; --signal-deep: #0C5F84;
     --pass: #17835E; --fail: #C0322B; --warn: #9A6410;
   }
   :root[data-theme="dark"] {
     --ground: #0A1320; --film: #111E31; --plate: #0D1827; --edge: #22384F;
-    --lumen: #E9F2F8; --slate: #8497AE; --faint: #5A6E86;
+    --lumen: #E9F2F8; --slate: #8497AE; --faint: #6E8299;
     --signal: #3FB8E8; --signal-deep: #1B7FA8;
     --pass: #3BC896; --fail: #E2564E; --warn: #E8A33C;
   }
@@ -98,6 +98,7 @@
   .rail__mark span { position: relative; z-index: 2; }
   .rail__mark:hover::before { border-color: var(--signal); }
   .rail__mark:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+  .rail__marks { display: flex; flex-direction: column; gap: 12px; }
   .rail__spacer { flex: 1; }
   .rail__id {
     font-family: var(--mono); font-size: 9px; letter-spacing: .18em;
@@ -107,10 +108,14 @@
   /* ---------- slides ---------- */
   .stage { margin-left: var(--rail); }
   .slide {
-    min-height: 100vh; padding: clamp(46px, 6vh, 84px) var(--pad) 96px;
-    display: none; flex-direction: column; justify-content: center;
+    min-height: 100vh; padding: clamp(38px, 4.6vh, 62px) var(--pad) 78px;
+    display: none; flex-direction: column;
+    /* content slides share one masthead baseline; only the cover is centred, so
+       clicking through does not bounce the heading 130px up and down */
+    justify-content: flex-start;
     max-width: 1240px;
   }
+  .slide--cover { justify-content: center; }
   .slide.is-live { display: flex; }
 
   .eyebrow {
@@ -121,6 +126,10 @@
   .eyebrow::before {
     content: ""; width: 26px; height: 1px; background: currentColor; opacity: .65;
   }
+  /* --signal passes as large text but not at 10.5px on the light ground */
+  @media (prefers-color-scheme: light) { .eyebrow { color: var(--signal-deep); } }
+  :root[data-theme="light"] .eyebrow { color: var(--signal-deep); }
+  :root[data-theme="dark"] .eyebrow { color: var(--signal); }
 
   h1.t {
     font-family: var(--display); font-weight: 600;
@@ -137,15 +146,22 @@
   .t em { font-style: normal; color: var(--signal); }
   .lede {
     font-size: clamp(15.5px, 1.35vw, 19px); line-height: 1.62;
-    color: var(--slate); max-width: 64ch; margin: 0 0 26px;
+    color: var(--slate); max-width: 58ch; margin: 0 0 20px;
   }
   .lede strong { color: var(--lumen); font-weight: 600; }
+  /* the border-left is what makes this read as a margin annotation — not the
+     typeface. Mono on 78ch of running prose made sincere caveats look like logs. */
   p.note {
-    font-family: var(--mono); font-size: 11.5px; line-height: 1.68;
-    color: var(--faint); max-width: 78ch; margin: 22px 0 0;
-    padding-left: 13px; border-left: 2px solid var(--edge);
+    font-family: var(--body); font-size: 14px; line-height: 1.6;
+    color: var(--slate); max-width: 62ch; margin: 22px 0 0;
+    padding-left: 15px; border-left: 2px solid var(--edge);
   }
-  p.note b { color: var(--slate); font-weight: 400; }
+  p.note { margin-top: 18px; }
+  p.note strong { color: var(--lumen); font-weight: 600; }
+  p.note b {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--faint); font-weight: 400;
+  }
 
   /* ---------- evidence plates ---------- */
   .plate {
@@ -197,7 +213,7 @@
   .cell--fail { border-color: var(--fail); color: var(--fail); background: transparent; }
   .board__score {
     font-family: var(--mono); font-weight: 500; text-align: right;
-    font-size: clamp(24px, 3.3vw, 44px); letter-spacing: -.03em;
+    font-size: clamp(34px, 5vw, 66px); letter-spacing: -.03em;
     font-variant-numeric: tabular-nums;
   }
   .board__score .of { color: var(--faint); font-size: .48em; }
@@ -285,7 +301,7 @@
   .stat__n--words {
     font-family: var(--display); font-weight: 600; letter-spacing: -.02em;
   }
-  ul.findings { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 15px; }
+  ul.findings { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 13px; }
   ul.findings li {
     display: grid; grid-template-columns: auto 1fr; gap: 13px;
     align-items: baseline; font-size: clamp(14.5px, 1.3vw, 17.5px);
@@ -356,6 +372,16 @@
   @media (max-width: 700px) {
     :root { --rail: 46px; }
     .slide { padding-bottom: 118px; }
+    /* 86% alpha let body text show through the nav */
+    .nav { background: var(--ground); }
+    .rail__marks { gap: 9px; }
+    table.card { min-width: 480px; }
+    table.card th, table.card td { padding: 10px 9px; }
+    .tablewrap {
+      scroll-snap-type: x proximity;
+      -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
+      mask-image: linear-gradient(90deg, #000 88%, transparent);
+    }
     .rail { padding: 12px 0; gap: 9px; }
     .rail__id { display: none; }
     .board__row { grid-template-columns: 1fr auto; row-gap: 13px; }
@@ -366,24 +392,24 @@
 
 <div class="deck-root">
   <nav class="rail" aria-label="Slide navigation">
-    <div class="rail__id">LIGHTBOX / 09</div>
+    <div class="rail__id">EVIDENCE &middot; AUG 2026</div>
     <div class="rail__spacer"></div>
-    <div id="marks" style="display:flex;flex-direction:column;gap:12px;"></div>
+    <div id="marks" class="rail__marks"></div>
     <div class="rail__spacer"></div>
   </nav>
 
   <div class="stage">
 
     <!-- 01 ................................................................. -->
-    <section class="slide" data-t="Cover">
+    <section class="slide slide--cover" data-t="Cover">
       <div class="anim">
         <div class="scanline"></div>
         <div class="eyebrow">Big Smile Orthodontics &middot; Round Rock, TX</div>
-        <h1 class="t">Half your patients now ask a machine <em>first.</em></h1>
+        <h1 class="t">Your next patient may ask a machine <em>before they ask you.</em></h1>
         <p class="lede">This is what AI assistants see when they look at
           <strong>bigsmileorthodontics.com</strong> today &mdash; and what they see when they look
-          at the rebuild. Every number in this deck was measured, not estimated, and every
-          screenshot is captured from the live sites.</p>
+          at the rebuild. Every score here was measured with Google's own tool on
+          4&nbsp;August 2026, and every screenshot comes from the live sites.</p>
         <div class="title-meta">
           Prepared for Dr. Saba Asrar<br>
           By Soham Sthitpragya &middot; 4 August 2026<br>
@@ -415,10 +441,11 @@
               the list of orthodontists they choose from.</p>
             <p class="note"><b>On the numbers:</b> Pew Research Center surveyed 5,119 U.S. adults,
               17&ndash;23 February 2026. This is national data &mdash; no Round Rock&ndash;specific
-              survey of AI use exists, so I am not going to invent one. Round Rock skews higher in
-              both household income and college education than the U.S. average, and Pew finds
-              chatbot use rises with both, so local use is likely at least this high. That last
-              step is an inference, not a measurement.</p>
+              survey of AI use exists, so I am not going to invent one. Round Rock's median
+              household income and college-graduate share both run above the national average
+              (U.S. Census), so I would expect local use to be at least 49% &mdash; but that step
+              is an inference, not a measurement, and Pew's report does not break its figures
+              down by income or education.</p>
           </div>
           <figure class="plate">
             <img src="__IMG_pew__" width="620" height="720"
@@ -446,8 +473,9 @@
             <p class="transcript__absent">Big Smile Orthodontics: not mentioned.</p>
           </div>
           <div>
-            <p class="lede">This is the part that should sting. Big Smile has
-              <strong>350+ five-star Google reviews</strong> and ranks <strong>first</strong> in the
+            <p class="lede">This is the part I would want to know about. Big Smile has
+              a <strong>5.0 average across
+              hundreds of Google reviews</strong> and ranks <strong>first</strong> in the
               three-result Google map pack for &ldquo;braces round rock&rdquo;. By every traditional measure
               the practice is winning.</p>
             <p class="lede">And it still did not make the list. The assistant answered the
@@ -470,15 +498,30 @@
         <p class="lede">PageSpeed Insights is the tool the whole industry uses to grade a website.
           For years it reported four scores: Performance, Accessibility, Best Practices and SEO.
           It now reports a fifth, sitting right beside them &mdash; <strong>Agentic
-          Browsing</strong>.</p>
-        <p class="lede">It runs three checks per device, testing whether an automated agent can
-          load your pages, understand what your practice is and what it offers, and reach the
-          things a patient would want. Two devices, three checks each: <strong>six checks
-          total.</strong></p>
-        <p class="note"><b>Reading it fairly:</b> this category is new and Google still labels it
-          experimental, so it is not yet a ranking factor anyone can point to. It is a direct
-          readout of machine-readability, which is exactly the thing that decides whether an
-          assistant can describe your practice to a patient.</p>
+          Browsing</strong>. Google's own description: &ldquo;These checks ensure high-quality,
+          browsable websites for AI agents.&rdquo;</p>
+        <p class="lede" style="margin-bottom:14px">Three checks, run separately on phone and
+          desktop. Here is what each one asks, and how the current site does:</p>
+        <ul class="findings">
+          <li><span class="tick tick--x">&times;</span><span><b>Is the page's structure readable
+            to a machine?</b> Google calls this the accessibility tree &mdash; the same map a
+            screen reader uses. On the current site it reports
+            <b>&ldquo;not well-formed&rdquo;</b>.</span></li>
+          <li><span class="tick tick--x">&times;</span><span><b>Does the page hold still while
+            it is read?</b> Content that jumps around loses an agent partway through. The current
+            site's desktop layout shift measures <b>0.687</b>, where anything above 0.1 is
+            considered poor.</span></li>
+          <li><span class="tick tick--x">&times;</span><span><b>Is there an
+            <code style="font-family:var(--mono);font-size:.88em">llms.txt</code> file?</b> A short
+            plain-text index that tells an AI what your site contains. The current site does not
+            have one; the rebuild does.</span></li>
+        </ul>
+        <p class="note"><b>Reading it fairly:</b> Google labels this category &ldquo;still under
+          development and subject to change&rdquo;, so nobody can call it a ranking factor yet.
+          And two of the three are quick to fix &mdash; an <code
+          style="font-family:var(--mono);font-size:.9em">llms.txt</code> file is one afternoon's
+          work. The point is not that they are hard. It is that a year into AI assistants
+          answering patient questions, nobody had done them.</p>
       </div>
     </section>
 
@@ -486,7 +529,7 @@
     <section class="slide" data-t="6 vs 1">
       <div class="anim">
         <div class="eyebrow">Agentic browsing &middot; measured 4 August 2026</div>
-        <h2 class="t">Six out of six. <em>Against one out of six.</em></h2>
+        <h2 class="t">Six out of six.<br><em>Against one out of six.</em></h2>
         <div class="board">
           <div class="board__row board__row--win">
             <div>
@@ -513,22 +556,22 @@
           <figure class="plate">
             <img src="__IMG_theirsM__" width="1080" height="174"
                  alt="PageSpeed Insights mobile scores for bigsmileorthodontics.com: Performance 57, Accessibility 92, Best Practices 100, SEO 100, Agentic Browsing 1 of 3">
-            <figcaption>Current site &middot; mobile &mdash; Agentic Browsing 1/3</figcaption>
+            <figcaption>bigsmileorthodontics.com<br>mobile &middot; 4 Aug 2026 &mdash; Agentic Browsing 1/3</figcaption>
           </figure>
           <figure class="plate">
             <img src="__IMG_oursM__" width="1080" height="174"
                  alt="PageSpeed Insights mobile scores for the rebuild: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO, Agentic Browsing 3 of 3">
-            <figcaption>Rebuild &middot; mobile &mdash; Agentic Browsing 3/3</figcaption>
+            <figcaption>test-ortho-website.vercel.app<br>mobile &middot; 4 Aug 2026 &mdash; Agentic Browsing 3/3</figcaption>
           </figure>
           <figure class="plate">
             <img src="__IMG_theirsD__" width="1080" height="174"
                  alt="PageSpeed Insights desktop scores for bigsmileorthodontics.com: Performance 71, Accessibility 88, Best Practices 96, SEO 100, Agentic Browsing 0 of 3">
-            <figcaption>Current site &middot; desktop &mdash; Agentic Browsing 0/3</figcaption>
+            <figcaption>bigsmileorthodontics.com<br>desktop &middot; 4 Aug 2026 &mdash; Agentic Browsing 0/3</figcaption>
           </figure>
           <figure class="plate">
             <img src="__IMG_oursD__" width="1080" height="174"
                  alt="PageSpeed Insights desktop scores for the rebuild: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO, Agentic Browsing 3 of 3">
-            <figcaption>Rebuild &middot; desktop &mdash; Agentic Browsing 3/3</figcaption>
+            <figcaption>test-ortho-website.vercel.app<br>desktop &middot; 4 Aug 2026 &mdash; Agentic Browsing 3/3</figcaption>
           </figure>
         </div>
       </div>
@@ -538,7 +581,7 @@
     <section class="slide" data-t="Full card">
       <div class="anim">
         <div class="eyebrow">The rest of the report card</div>
-        <h2 class="t">The same tool, the same day, both sites.</h2>
+        <h2 class="t">The same tool,<br>the same day, both sites.</h2>
         <div class="tablewrap">
           <table class="card">
             <caption class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">
@@ -568,12 +611,15 @@
         </div>
         <ul class="findings" style="margin-top:26px">
           <li><span class="tick tick--ok">&#10003;</span><span><b>SEO is the one they already
-            win.</b> A perfect 100, both devices. Their agency did the search-engine basics
-            properly, and the rebuild holds that same 100 &mdash; nothing is being given up.</span></li>
+            win.</b> A perfect 100, both devices &mdash; and Best Practices 100 on mobile too.
+            Their agency did the search-engine basics properly, and the rebuild holds those same
+            scores. Nothing is being given up.</span></li>
           <li><span class="tick tick--x">&times;</span><span><b>A 57 on mobile is the real
-            problem.</b> Most patients arrive on a phone. On their
-            braces page, the largest thing on the screen takes <b>11.6 seconds</b> to
-            appear.</span></li>
+            problem</b>, and mobile is the score that matters most for a local practice. On one
+            page I measured separately &mdash; <code
+            style="font-family:var(--mono);font-size:.88em">traditional-orthodontics.html</code>
+            &mdash; the main image does not finish loading on a phone for <b>11.6
+            seconds</b>. Most people leave before then.</span></li>
           <li><span class="tick tick--x">&times;</span><span><b>44 images on the homepage, one of
             them deferred.</b> The other 43 all load immediately, whether or not you ever scroll
             far enough to see them.</span></li>
@@ -594,18 +640,18 @@
           </figure>
           <figure class="plate">
             <img src="__IMG_oursTop__" width="660" height="471"
-                 alt="Top of the rebuilt homepage, showing a single headline, one paragraph and two clear buttons over a video of Dr. Asrar">
+                 alt="Top of the rebuilt homepage: one headline, one paragraph and two buttons over a clinical video, with a $1,000-off badge and a free-consult pill">
             <figcaption>Rebuild &middot; first screen</figcaption>
           </figure>
         </div>
         <ul class="findings" style="margin-top:20px;gap:12px">
           <li><span class="tick tick--x">&times;</span><span>The current first screen offers a
             phone bar, a review badge, four statistic blocks and several buttons at once.
-            <b>Everything competes, so nothing wins.</b></span></li>
-          <li><span class="tick tick--ok">&#10003;</span><span>The rebuild says one thing &mdash;
-            <b>orthodontist in Round Rock</b> &mdash; shows Dr.&nbsp;Asrar, and offers one
-            obvious next step. The same information is all still there, further down, in an
-            order a patient can follow.</span></li>
+            <b>Everything competes for the same attention.</b></span></li>
+          <li><span class="tick tick--ok">&#10003;</span><span>The rebuild leads with one thing
+            &mdash; <b>orthodontist in Round Rock</b> &mdash; and one clear next step. The
+            reviews, the offer and the credentials are all still on the page, just further down,
+            in an order a patient can follow rather than all at once.</span></li>
         </ul>
       </div>
     </section>
@@ -616,27 +662,34 @@
         <div class="eyebrow">Checked live &middot; 4 August 2026</div>
         <h2 class="t">Their admin username is <em>published on the open internet.</em></h2>
         <figure class="plate">
-          <img src="__IMG_wpUsers__" width="1160" height="108"
+          <img src="__IMG_wpUsers__" width="1200" height="29"
                alt="Public JSON response from bigsmileorthodontics.com/blog/wp-json/wp/v2/users, listing the account name admin with the username slug tntadmin">
           <figcaption>bigsmileorthodontics.com/blog/wp-json/wp/v2/users &mdash; open to anyone,
             no login required. The username reads <b>tntadmin</b>.</figcaption>
         </figure>
         <ul class="findings" style="margin-top:24px">
           <li><span class="tick tick--x">&times;</span><span><b>The username is public.</b> That
-            endpoint hands out the administrator account name to anyone who visits it.</span></li>
-          <li><span class="tick tick--x">&times;</span><span><b>The login page is wide open.</b>
-            <code style="font-family:var(--mono);font-size:.88em">/blog/wp-login.php</code>
-            answers to the public internet, so there is a door to type that username
+            endpoint hands the administrator account name to anyone who visits it. This is
+            WordPress's default behaviour rather than a mistake unique to them &mdash; but on a
+            site whose login page is also reachable, it should have been switched
+            off.</span></li>
+          <li><span class="tick tick--x">&times;</span><span><b>The login page answers to anyone.</b>
+            <code style="font-family:var(--mono);font-size:.88em">/blog/wp-login.php</code> is
+            reachable from the public internet, so there is a door to type that username
             into.</span></li>
-          <li><span class="tick tick--x">&times;</span><span><b>None of the four standard
-            browser-security headers are set</b> &mdash; no HSTS, no content-security policy, no
-            clickjacking protection, no referrer policy.</span></li>
+          <li><span class="tick tick--x">&times;</span><span><b>Four standard browser protections
+            are switched off.</b> These are the instructions a site sends telling a visitor's
+            browser to always use a secure connection, to refuse to be impersonated inside
+            another site, and to stop leaking which page someone came from. The rebuild sends all
+            of them; in fairness, the current site does set one that the rebuild was missing until
+            today, and that is now fixed too.</span></li>
         </ul>
         <p class="note"><b>Being precise, because this matters:</b> no password is exposed and
           there is no sign anyone has broken in. What is exposed is the username &mdash; one of
-          the two things needed to get in &mdash; next to an unlocked door. On the rebuild there
-          is no login page and no admin account to find, because the site is published as plain
-          files rather than run on WordPress.</p>
+          the two things needed to get in &mdash; next to a door that opens. To be clear about
+          scope: your main site is already plain static pages; it is the <strong>blog</strong> that runs on
+          WordPress, and that is where this comes from. The rebuild has no WordPress install at
+          all, so there is no login page and no admin account to find.</p>
       </div>
     </section>
 
@@ -649,23 +702,26 @@
           <li><span class="tick tick--ok">&#10003;</span><span><b>6/6 on agentic browsing</b> and
             <b>100 in all four categories on both phone and desktop</b> &mdash; verified twice on
             Google's own tool.</span></li>
-          <li><span class="tick tick--ok">&#10003;</span><span><b>Every page you have today still
-            works.</b> All six treatment pages are back at their original web addresses, and all
-            <b>26 blog articles</b> are preserved at the exact links Google already
-            knows.</span></li>
-          <li><span class="tick tick--ok">&#10003;</span><span><b>Your search ranking comes with
-            you.</b> The domain does not change, the reviews do not change, and the Google
-            Business Profile is untouched. Only the site behind the address changes.</span></li>
+          <li><span class="tick tick--ok">&#10003;</span><span><b>Every address Google knows still
+            resolves.</b> All six treatment pages, your privacy policy and all <b>26 blog
+            articles</b> sit at their original addresses; the rest permanently forward to their
+            new home, so no link and no ranking is dropped. I found and fixed two pages that
+            would have broken while preparing this deck.</span></li>
+          <li><span class="tick tick--ok">&#10003;</span><span><b>Nothing that carries your ranking
+            changes hands.</b> The domain stays the same, the reviews stay the same, and the
+            Google Business Profile is untouched. Only the site behind the address
+            changes.</span></li>
           <li><span class="tick tick--ok">&#10003;</span><span><b>The old site stays up for
-            60&ndash;90 days.</b> If you dislike anything, switching back is one setting and takes
-            minutes.</span></li>
+            60&ndash;90 days.</b> If you dislike anything, going back is a single DNS change and
+            takes effect within the hour.</span></li>
         </ul>
         <p class="lede" style="margin-top:30px"><strong>The one thing I need is your go-ahead to
           point the domain at it.</strong> Your email, your phone number and your booking system
           are not touched by that change.</p>
-        <p class="note"><b>Every figure in this deck is reproducible.</b> Run
-          bigsmileorthodontics.com and test-ortho-website.vercel.app through
-          pagespeed.web.dev yourself and you will get these same five scores.</p>
+        <p class="note"><b>Every figure here is re-checkable.</b> Put both addresses through
+          pagespeed.web.dev yourself. Performance moves a few points run to run, as it does for
+          any site; the gap does not. <strong>What I still need from you:</strong> confirmation of your
+          board certification wording, and a date. Nothing else is outstanding.</p>
       </div>
     </section>
 
@@ -738,13 +794,17 @@
   });
 
   // touch swipe
-  var x0 = null;
-  document.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  var x0 = null, inScroller = false;
+  document.addEventListener('touchstart', function (e) {
+    x0 = e.touches[0].clientX;
+    // a horizontal drag inside the comparison table must scroll it, not skip the slide
+    inScroller = !!(e.target.closest && e.target.closest('.tablewrap'));
+  }, { passive: true });
   document.addEventListener('touchend', function (e) {
     if (x0 === null) { return; }
     var dx = e.changedTouches[0].clientX - x0;
-    if (Math.abs(dx) > 55) { go(dx < 0 ? i + 1 : i - 1); }
-    x0 = null;
+    if (!inScroller && Math.abs(dx) > 55) { go(dx < 0 ? i + 1 : i - 1); }
+    x0 = null; inScroller = false;
   }, { passive: true });
 
   go(0);

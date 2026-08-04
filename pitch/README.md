@@ -43,6 +43,35 @@ All measured 4 August 2026.
 | No security headers | No HSTS / CSP / X-Frame-Options / Referrer-Policy on any response |
 | 44 images, 1 lazy-loaded | Their homepage markup |
 
+## What the two Opus reviews changed
+
+A design review and an adversarial fact-check were run over the first draft. The
+fact-check found two problems that were **defects in the site, not the deck**, and
+both are now fixed: `privacy-policy.html` and `request-an-appointment.html` were
+live and indexed on the current site but 404'd on the rebuild, and the deck
+criticised the current site for missing security headers while the rebuild set only
+HSTS — and the current site sets `X-Content-Type-Options`, which the rebuild did
+not. See the commit history.
+
+Claims corrected in the deck itself:
+
+| Was | Now | Why |
+|---|---|---|
+| "Half your patients now ask a machine first" | "Your next patient may ask a machine before they ask you" | Pew measures adults who *ever* use a chatbot, not patients, not "first" |
+| "Pew finds chatbot use rises with [income and education]" | attributed to U.S. Census, with a note that Pew's report has no such breakdown | The cited Pew report breaks down by age, gender and race only |
+| Slide 4's description of the three agentic checks | the real check names, read out of the PSI report | The original description was invented; the actual checks are accessibility-tree form, CLS, and `llms.txt` |
+| "Every page you have today still works" | "Every address Google knows still resolves" | Two pages 404'd until they were built/redirected |
+| "you will get these same five scores" | "Performance moves a few points run to run; the gap does not" | PSI is variable |
+| "their treatment pages … 11.6 seconds" | names `traditional-orthodontics.html`, mobile | Measured on one page only |
+| "350+ five-star Google reviews" | "a 5.0 average across hundreds of Google reviews" | Their own site says 300+, so the deck contradicted its own screenshot |
+| "The login page is wide open" / "Everything competes, so nothing wins" | softened | Alarmist, and a gratuitous swipe at another designer |
+| four header acronyms | one plain-English sentence | The audience is a non-technical doctor |
+
+Fairness additions: the open `wp-json` endpoint is now noted as WordPress's default
+behaviour rather than vendor negligence; their Best Practices 100 on mobile and the
+one security header they set are both credited; and slide 8 makes clear that only
+`/blog` runs WordPress, not her whole site.
+
 ## Two accuracy rules this deck must keep
 
 1. **The Pew figure is national.** There is no Round Rock–specific survey of AI use.
@@ -51,3 +80,16 @@ All measured 4 August 2026.
 2. **No password or credential is exposed** on the current site, and there is no
    evidence of a breach. What is public is the admin *username* plus a reachable
    login page. Slide 8 states this limit in as many words. Do not strengthen it.
+
+## Still outstanding before this is presented
+
+- **Dr. Asrar must confirm her board-certification wording.** Eleven places on the
+  rebuild say "board-certified"; the old homepage copy said "board-eligible". These
+  are different credentials and only she can settle it. The lone "board-eligible"
+  was removed rather than guessed at, but the eleven "board-certified" mentions are
+  still live and need her sign-off.
+- The deck has no price, scope or launch date on the closing slide. Add them before
+  presenting, or be ready to say them out loud.
+- Fonts are system stacks (Avenir Next / Charter / SF Mono). Presented from a Mac
+  this is the intended design; on Windows or Android it degrades to Trebuchet MS
+  and Georgia, which looks noticeably more generic. Present it from your own laptop.
