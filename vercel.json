@@ -52,11 +52,6 @@
       "permanent": true
     },
     {
-      "source": "/dental-insurance.html",
-      "destination": "/for-patients.html",
-      "permanent": true
-    },
-    {
       "source": "/special-offers.html",
       "destination": "/",
       "permanent": true
@@ -69,41 +64,6 @@
     {
       "source": "/our-services.html",
       "destination": "/services.html",
-      "permanent": true
-    },
-    {
-      "source": "/traditional-orthodontics.html",
-      "destination": "/services.html",
-      "permanent": true
-    },
-    {
-      "source": "/clear-ceramic-braces.html",
-      "destination": "/services.html",
-      "permanent": true
-    },
-    {
-      "source": "/phase-1-orthodontics.html",
-      "destination": "/services.html",
-      "permanent": true
-    },
-    {
-      "source": "/retainers-orthodontic-appliances.html",
-      "destination": "/services.html",
-      "permanent": true
-    },
-    {
-      "source": "/orthodontic-emergencies.html",
-      "destination": "/for-patients.html",
-      "permanent": true
-    },
-    {
-      "source": "/life-with-braces.html",
-      "destination": "/for-patients.html",
-      "permanent": true
-    },
-    {
-      "source": "/reviews.html",
-      "destination": "/smile-gallery.html",
       "permanent": true
     }
   ],
