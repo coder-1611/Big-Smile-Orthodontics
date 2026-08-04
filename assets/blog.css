@@ -54,7 +54,7 @@
 .post-backlink{
   display:inline-block; margin-top:40px;
   font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--primary);
+  color:var(--primary-ink);
 }
 .post-backlink:hover{ color:var(--navy); }
 
@@ -71,7 +71,7 @@
 .blog-card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(11,37,69,.10); }
 .blog-card__date{
   font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--primary); margin-bottom:14px;
+  color:var(--primary-ink); margin-bottom:14px;
 }
 .blog-card h2{
   font-family:var(--serif); font-size:22px; line-height:1.25; color:var(--navy); margin:0 0 12px;
@@ -79,7 +79,7 @@
 .blog-card p{ color:var(--body); font-size:15px; line-height:1.6; margin:0 0 18px; flex:1; }
 .blog-card__more{
   font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--primary);
+  color:var(--primary-ink);
 }
 .blog-card:hover .blog-card__more{ color:var(--navy); }
 

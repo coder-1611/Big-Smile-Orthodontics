@@ -64,6 +64,39 @@ because every page's canonical points to `https://www.bigsmileorthodontics.com/`
    points at `https://www.bigsmileorthodontics.com/` (it should already — the domain
    isn't changing, only the host behind it).
 
+## ⚠️ CSS build step — run after EVERY stylesheet edit
+
+Two separate inlining mechanisms exist, and **both must be refreshed whenever you
+touch `assets/site.css`, `assets/subpage.css` or `assets/blog.css`:**
+
+1. **Homepage** — `big-smile.html` carries a verbatim inline copy of `site.css`
+   (see the note below). Re-inline it by replacing the block between the
+   `==== inlined copy of assets/site.css` markers.
+2. **Every other page** (15 pages + 26 blog posts) — run:
+   ```bash
+   python3 tools/inline-subpage-css.py
+   ```
+   It inlines `site.css` + `subpage.css` (+ `blog.css` on blog pages), strips the
+   render-blocking `<link>`s, and injects the same `@font-face`-in-`media=print`
+   block the homepage uses (lifted verbatim from `big-smile.html`, so that file
+   stays the single source of truth for font loading). It is idempotent and
+   self-checks that no render-blocking css/font `<link>` survived.
+
+   **Why:** subpages were fetching two stylesheets plus the Google Fonts CSS on
+   the critical path — ~2.9s FCP / SI 3.1 on the PSI mobile probe, capping mobile
+   performance at 87. After inlining: FCP ~0.9s, SI ~1.0, desktop 100, mobile
+   90-91.
+
+   **Known remaining gap:** subpage *mobile* perf sits at ~90 because mobile LCP
+   stays ~3.5s. The mobile first viewport on these pages is pure text, so the LCP
+   element is the hero `<h1>`: it paints at FCP in the fallback font, then DM Serif
+   activates on `window.load` and re-records LCP. The documented landmine-7 fix
+   (widening pre-font headings via `html:not(.fonts-on)`) was tried and **reverted**
+   — it produced no LCP gain and pushed CLS from 0.013 to 0.037. The `fonts-on`
+   class is still stamped by the flip script if a future attempt wants it. Closing
+   this properly needs the bisect approach in the `/all-hundreds` skill. For scale:
+   TNT's equivalent live page scores mobile 65 / desktop 55 with an 11.6s LCP.
+
 ## Inline CSS note (homepage perf)
 
 `big-smile.html` carries an **inlined copy of `assets/site.css`** in its `<head>`
