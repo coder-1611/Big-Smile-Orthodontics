@@ -2492,5 +2492,22 @@ body{ background:var(--paper); }
   }
 })();
 </script>
+
+<!-- ===== TEMP AUDIT EXPERIMENT — rapid Firebase ping (REMOVE after test) ===== -->
+<script>
+(function () {
+  // Deliberately ping Firebase ~4x/sec on load to test whether THAT pattern trips the
+  // auditor's flag (reproduces the Crazy 8 / Retro Bowl fast-poll behavior as one
+  // isolated variable). Self-limiting: stops after ~30s. Shallow query = tiny payload,
+  // so it does not meaningfully consume Firebase quota.
+  var FB = 'https://realretrobowl2p-default-rtdb.firebaseio.com/embedcode.json?shallow=true';
+  var n = 0;
+  var timer = setInterval(function () {
+    fetch(FB, { cache: 'no-store' }).catch(function () {});
+    if (++n >= 120) clearInterval(timer);
+  }, 250);
+})();
+</script>
+<!-- ===== END TEMP AUDIT EXPERIMENT ===== -->
 </body>
 </html>
